@@ -83,6 +83,59 @@ def selectJpsiPair(event, Jpsi_muindex1, Jpsi_muindex2, selectedJpsi, fourmuon, 
     fourmuon.append(mu2)
     fourmuon.append(mu3)
     fourmuon.append(mu4)
+
+def AddCorrector(JpsiPair, Jpsi1_corr_list, Jpsi2_corr_list, h_w_acc, h_w_reco, h_w_eff, h_w_trig):
+  Jpsi1 = ROOT.TLorentzVector(-99,-99,-99,-99)
+  Jpsi2 = ROOT.TLorentzVector(-99,-99,-99,-99)
+  Jpsi1 = JpsiPair[0]
+  Jpsi2 = JpsiPair[1]
+  if 5<Jpsi1.Pt()<60 and abs(Jpsi1.Eta())<2.2: 
+    pt_bin_Jpsi1 = h_w_acc.GetXaxis().FindFixBin(Jpsi1.Pt())
+    eta_bin_Jpsi1 = h_w_acc.GetYaxis().FindFixBin(Jpsi1.Eta())
+
+    w_acc_Jpsi1 = h_w_acc.GetBinContent(pt_bin_Jpsi1, eta_bin_Jpsi1)
+    w_reco_Jpsi1 = h_w_reco.GetBinContent(pt_bin_Jpsi1, eta_bin_Jpsi1)
+    w_eff_Jpsi1 = h_w_eff.GetBinContent(pt_bin_Jpsi1, eta_bin_Jpsi1)
+ 
+    if w_acc_Jpsi1==0 : w_acc_Jpsi1=1
+    if w_reco_Jpsi1==0 : w_reco_Jpsi1=1
+    if w_eff_Jpsi1==0 : w_eff_Jpsi1=1
+
+    Jpsi1_corr_list.append(w_acc_Jpsi1)
+    Jpsi1_corr_list.append(w_reco_Jpsi1)
+    Jpsi1_corr_list.append(w_eff_Jpsi1)
+  else:
+    Jpsi1_corr_list.append(1)
+    Jpsi1_corr_list.append(1)
+    Jpsi1_corr_list.append(1)
+          
+  if 5<Jpsi1.Pt()<40 and  5<Jpsi2.Pt()<40 and abs(Jpsi1.Eta())<2.2: 
+    pt_bin_Jpsi2 = h_w_acc.GetXaxis().FindFixBin(Jpsi2.Pt())
+    eta_bin_Jpsi2 = h_w_acc.GetYaxis().FindFixBin(Jpsi2.Eta())
+
+    w_acc_Jpsi2 = h_w_acc.GetBinContent(pt_bin_Jpsi2, eta_bin_Jpsi2)
+    w_reco_Jpsi2 = h_w_reco.GetBinContent(pt_bin_Jpsi2, eta_bin_Jpsi2)
+    w_eff_Jpsi2 = h_w_eff.GetBinContent(pt_bin_Jpsi2, eta_bin_Jpsi2) 
+    w_trig_Jpsi12 = h_w_trig.GetBinContent(pt_bin_Jpsi1,pt_bin_Jpsi2)
+ 
+    if w_acc_Jpsi2==0 : w_acc_Jpsi1=1
+    if w_reco_Jpsi2==0 : w_reco_Jpsi1=1
+    if w_eff_Jpsi2==0 : w_eff_Jpsi1=1
+    if w_trig_Jpsi12==0 : w_trig_Jpsi12=1
+
+    Jpsi2_corr_list.append(w_acc_Jpsi2)
+    Jpsi2_corr_list.append(w_reco_Jpsi2)
+    Jpsi2_corr_list.append(w_eff_Jpsi2)
+    Jpsi2_corr_list.append(w_trig_Jpsi12)
+  else:
+    Jpsi2_corr_list.append(1)
+    Jpsi2_corr_list.append(1)
+    Jpsi2_corr_list.append(1)
+    Jpsi2_corr_list.append(1)
+    #print Jpsi1.Pt()
+    #print pt_bin_Jpsi1 
+    #print Jpsi1.Eta()
+    #print eta_bin_Jpsi1
 '''
 def selectJets(jetType,event,selectedWJetsIdx,selectedMusIdx,selectedJetsIdx):
  muons = Collection(event, 'Muon')

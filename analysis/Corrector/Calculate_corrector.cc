@@ -1,21 +1,24 @@
 void Calculate_corrector(){
   
 
-  const int N = 10;  Double_t xbins[N] = {5.,6.,7.,8.,10.,12.,15.,20.,30.,40.};
-  const int M = 19;   Double_t ybins[M] = {-2.2,-2.,-1.75,-1.5,-1.25,-1.0,-0.75,-0.5,-0.25,0,0.25,0.5,0.75,1.0,1.25,1.5,1.75,2.,2.2};
+  const int N = 11;  Double_t xbins[N] = {5.,6.,7.,8.,10.,12.,15.,20.,30.,40.,60};
+  const int M = 13;   Double_t ybins[M] = {-2.2,-2.,-1.75,-1.5,-1.0,-0.5,0,0.5,1.0,1.5,1.75,2.,2.2};
 
   TH2F *h_w_acc   = new TH2F("h_w_acc",  "h_w_acc", N-1, xbins, M-1, ybins);
   TH2F *h_w_reco   = new TH2F("h_w_reco",  "h_w_reco", N-1, xbins, M-1, ybins);
   TH2F *h_w_eff   = new TH2F("h_w_eff",  "h_w_eff", N-1, xbins, M-1, ybins);
+  TH2F *h_w_trig   = new TH2F("h_w_trig",  "h_w_trig", N-1, xbins, N-1, xbins);
 
 
 
-  TFile *fileJpsi_gen = new TFile("Gen_Events.root");
+  TFile *fileJpsi_gen = new TFile("/afs/cern.ch/work/t/tayu/CMSSW_10_2_9_DoubleJpci/src/PicoFramework/Scale_factor/Gen_Events.root");
   
   TH2F *h_total_Jpsi = (TH2F*) fileJpsi_gen->Get("plots/h_total_Jpsi");
   TH2F *h_acc_Jpsi = (TH2F*) fileJpsi_gen->Get("plots/h_acc_Jpsi");
   TH2F *h_reco_Jpsi = (TH2F*) fileJpsi_gen->Get("plots/h_reco_Jpsi");
   TH2F *h_eff_Jpsi = (TH2F*) fileJpsi_gen->Get("plots/h_eff_Jpsi");
+  TH2F *h_betri_Jpsi = (TH2F*) fileJpsi_gen->Get("plots/h_betri_Jpsi");
+  TH2F *h_patri_Jpsi = (TH2F*) fileJpsi_gen->Get("plots/h_patri_Jpsi");
 
   cout<<h_total_Jpsi->GetXaxis()->GetNbins()<<endl;
   cout<<h_total_Jpsi->GetYaxis()->GetNbins()<<endl;
@@ -54,6 +57,27 @@ void Calculate_corrector(){
     }
   }
 
+  for(int i=1; i<h_betri_Jpsi->GetXaxis()->GetNbins()+1; i++){
+    for(int j=1; j<h_patri_Jpsi->GetYaxis()->GetNbins()+1; j++){
+    
+    float N_betri = h_betri_Jpsi ->GetBinContent(i,j);
+    float N_patri = h_patri_Jpsi ->GetBinContent(i,j);
+ 
+    if(N_betri!=0&&N_patri!=0){
+
+      float N_betri_err = sqrt(N_betri);
+      float N_patri_err = sqrt(N_patri);
+     
+      float w_trig = N_patri/N_betri;
+      
+      float w_trig_err = sqrt((N_betri*N_betri*N_patri_err*N_patri_err + N_patri*N_patri*N_betri_err*N_betri_err)/(N_betri*N_betri*N_betri*N_betri));
+      h_w_trig->SetBinContent(i,j,w_trig);
+      h_w_trig->SetBinError(i,j,w_trig_err);
+
+      }
+    } 
+  }
+
   TCanvas* canvas = new TCanvas("canvas","canvas",0,0,900,600);
   h_w_acc->GetYaxis()->SetTitleSize(0.040);
   h_w_acc->GetXaxis()->SetTitleSize(0.040);
@@ -77,7 +101,7 @@ void Calculate_corrector(){
   h_w_reco->GetXaxis()->SetLabelSize(0.040);
   h_w_reco->SetMinimum(0.0);
   h_w_reco->SetMaximum(0.7);
-  h_w_reco->SetTitle("rconstruct probability");
+  h_w_reco->SetTitle("reconstruct probability");
   h_w_reco->GetYaxis()->SetTitle("Jpsi eta");
   h_w_reco->GetXaxis()->SetTitle("Jpsi pt [GeV]");
   //h_w_reco->Draw("COLZ");
@@ -91,9 +115,9 @@ void Calculate_corrector(){
   h_w_eff->GetXaxis()->SetTitleSize(0.040);
   h_w_eff->GetYaxis()->SetLabelSize(0.040);
   h_w_eff->GetXaxis()->SetLabelSize(0.040);
-  h_w_eff->SetMinimum(0.8);
+  h_w_eff->SetMinimum(0.4);
   h_w_eff->SetMaximum(1.0);
-  h_w_eff->SetTitle("selection eff probability");
+  h_w_eff->SetTitle("selection probability");
   h_w_eff->GetYaxis()->SetTitle("Jpsi eta");
   h_w_eff->GetXaxis()->SetTitle("Jpsi pt [GeV]");
   //h_w_eff->Draw("COLZ");
@@ -102,6 +126,34 @@ void Calculate_corrector(){
   canvas->Draw();
   canvas->SaveAs("eff.png");
   canvas->SaveAs("eff.pdf");
+
+  h_w_trig->GetYaxis()->SetTitleSize(0.040);
+  h_w_trig->GetXaxis()->SetTitleSize(0.040);
+  h_w_trig->GetYaxis()->SetLabelSize(0.040);
+  h_w_trig->GetXaxis()->SetLabelSize(0.040);
+  h_w_trig->SetMinimum(0.);
+  h_w_trig->SetMaximum(1.0);
+  h_w_trig->SetTitle(" pass trigger probability");
+  h_w_trig->GetYaxis()->SetTitle("Jpsi eta");
+  h_w_trig->GetXaxis()->SetTitle("Jpsi pt [GeV]");
+  //h_w_trig->Draw("COLZ");
+  //h_w_trig->Draw("COLZTEXTE");
+  h_w_trig->Draw("COLZTEXT");
+  canvas->Draw();
+  canvas->SaveAs("trig.png");
+  canvas->SaveAs("trig.pdf");
+
+  char NewFileName[500]; sprintf(NewFileName, "corrector.root");
+  TFile f(NewFileName,"new");
+  h_w_acc->Write();
+  h_w_reco->Write();
+  h_w_eff->Write();
+  h_w_trig->Write();
+  f.Close();
+
+
+
+
 }
 
 

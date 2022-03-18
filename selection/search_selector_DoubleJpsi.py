@@ -57,6 +57,11 @@ class Producer(Module):
   self.sumNumEvt = 0
   self.sumgenWeight = 0
   self.out = declareVariables(inputFile)
+  self.correct_file = ROOT.TFile.Open("/afs/cern.ch/work/t/tayu/CMSSW_10_2_9_DoubleJpci/src/PicoFramework/Scale_factor/corrector.root")
+  self.h_w_acc = self.correct_file.Get("h_w_acc")
+  self.h_w_reco= self.correct_file.Get("h_w_reco")
+  self.h_w_eff = self.correct_file.Get("h_w_eff")
+  self.h_w_trig= self.correct_file.Get("h_w_trig")
   #pass
         
  def endFile(self, inputFile, outputFile, inputTree, wrappedOutputTree):        
@@ -125,7 +130,14 @@ class Producer(Module):
   mu1 = fourmuon[0] 
   mu2 = fourmuon[1] 
   mu3 = fourmuon[2] 
-  mu4 = fourmuon[3] 
+  mu4 = fourmuon[3]
+
+
+  # add corrector in Jpsi (pt,eta) bin
+  Jpsi1_corr_list=[] #0=acc, 1=reco, 2=eff, 
+  Jpsi2_corr_list=[] #0=acc, 1=reco, 2=eff, 3=trig
+  AddCorrector(JpsiPair, Jpsi1_corr_list, Jpsi2_corr_list, self.h_w_acc, self.h_w_reco, self.h_w_eff, self.h_w_trig)
+   
   #print "mu1:%s mu2:%s mu3:%s mu4:%s" % (mu1.Pt(),mu2.Pt(),mu3.Pt(),mu4.Pt())
   '''
   mu0 = muons[selectedMusIdx[0]].p4()
@@ -184,7 +196,16 @@ class Producer(Module):
   self.out.muon4_pt[0]  = mu4.Pt() 
   self.out.muon4_eta[0] = mu4.Eta()
   self.out.muon4_phi[0] = mu4.Phi()
+ 
+  self.out.w_acc_Jpsi1[0] = Jpsi1_corr_list[0]
+  self.out.w_reco_Jpsi1[0] = Jpsi1_corr_list[1]
+  self.out.w_eff_Jpsi1[0] = Jpsi1_corr_list[2]
+ 
+  self.out.w_acc_Jpsi2[0] = Jpsi2_corr_list[0]
+  self.out.w_reco_Jpsi2[0] = Jpsi2_corr_list[1]
+  self.out.w_eff_Jpsi2[0] = Jpsi2_corr_list[2]
 
+  self.out.w_trig_Jpsi12[0] = Jpsi2_corr_list[3]
   #Save tree
   self.out.Events.Fill() 
   return True

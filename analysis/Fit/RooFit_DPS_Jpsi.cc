@@ -61,10 +61,10 @@ void RooFit_DPS_Jpsi(){
   for(int i=0; i<name.size(); i++){
     const char *plot = name[i];
     char CUT[1000];
-    sprintf(CUT,"");
+    sprintf(CUT,"(1./((w_acc_Jpsi1*w_acc_Jpsi2) * (w_reco_Jpsi1*w_reco_Jpsi2) * (w_eff_Jpsi1*w_eff_Jpsi2) *w_trig_Jpsi12))");
     GetHisto(CUT, Tree, DPS ,plot,bin[i],Min[i],Max[i]);
        
- 
+    cout<<DPS->Integral()<<endl;; 
    
     for(int j=1; j<DPS->GetNbinsX()+1; j++){
       //data->SetBinContent(j,data_pre->GetBinContent(j));

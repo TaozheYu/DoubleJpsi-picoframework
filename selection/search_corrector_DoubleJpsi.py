@@ -17,19 +17,22 @@ class ExampleAnalysis(Module):
   def beginJob(self, histFile=None, histDirName=None):
     Module.beginJob(self, histFile, histDirName)
     self.sumNumEvt = 0
-    N = 10 
-    xbins= [5.,6.,7.,8.,10.,12.,15.,20.,30.,40.]
-    M = 19
-    ybins = [-2.2,-2.,-1.75,-1.5,-1.25,-1.0,-0.75,-0.5,-0.25,0,0.25,0.5,0.75,1.0,1.25,1.5,1.75,2.,2.2]
+    xbins= [5.,6.,7.,8.,9.,10.,12.,15.,20.,25.,40.]
+    ybins = [-2.2,-2.,-1.75,-1.5,-1.0,-0.5,0,0.5,1.0,1.5,1.75,2.,2.2]
+    N = len(xbins)
+    M = len(ybins)
     self.h_total_Jpsi = ROOT.TH2F("h_total_Jpsi","h_total_Jpsi",N-1 , array('d',xbins), M-1, array('d',ybins)) 
     self.h_acc_Jpsi = ROOT.TH2F("h_acc_Jpsi","h_acc_Jpsi",N-1 , array('d',xbins), M-1, array('d',ybins)) 
     self.h_reco_Jpsi = ROOT.TH2F("h_reco_Jpsi","h_reco_Jpsi",N-1 , array('d',xbins), M-1, array('d',ybins)) 
     self.h_eff_Jpsi = ROOT.TH2F("h_eff_Jpsi","h_eff_Jpsi",N-1 , array('d',xbins), M-1, array('d',ybins)) 
-    self.h_tri_Jpsi = ROOT.TH2F("h_tri_Jpsi","h_tri_Jpsi",N-1 , array('d',xbins), N-1, array('d',xbins)) 
+    self.h_betri_Jpsi = ROOT.TH2F("h_betri_Jpsi","h_betri_Jpsi",N-1 , array('d',xbins), N-1, array('d',xbins)) 
+    self.h_patri_Jpsi = ROOT.TH2F("h_patri_Jpsi","h_patri_Jpsi",N-1 , array('d',xbins), N-1, array('d',xbins)) 
     self.addObject(self.h_total_Jpsi)
     self.addObject(self.h_acc_Jpsi)
     self.addObject(self.h_reco_Jpsi)
     self.addObject(self.h_eff_Jpsi)
+    self.addObject(self.h_betri_Jpsi)
+    self.addObject(self.h_patri_Jpsi)
 
   def analyze(self, event):
     """process event, return True (go to next module) or False (fail, go to next event)"""
@@ -53,6 +56,8 @@ class ExampleAnalysis(Module):
 	    continue  
     return True
     '''
+    selectedJpsi_pt = []
+    JpsiPair = []
     for igen in range(event.nGenPart):
       if not (event.GenPart_pdgId[igen]==443 and event.GenPart_eta[igen]<=2.2): continue
       for jgen in range(igen+1, event.nGenPart):
@@ -76,21 +81,28 @@ class ExampleAnalysis(Module):
               #if not Jpsi.Pt()>=3.5: continue
               if not Jpsi.Eta()<=2.2: continue
               if not abs(Jpsi.M()-3.092)<=0.3: continue              
-              self.h_eff_Jpsi.Fill(event.GenPart_pt[igen],event.GenPart_eta[igen])
+              self.h_eff_Jpsi.Fill(Jpsi.Pt(),Jpsi.Eta())
+              selectedJpsi_pt.append(Jpsi.Pt())
+
+    
+    if len(selectedJpsi_pt)<2: return False
+    #print len(selectedJpsi_pt)
+    if not len(selectedJpsi_pt)==2: return False
+    #for iJpsi in range(len(selectedJpsi)):
+      #for jJpsi in range(iJpsi+1,len(selectedJpsi)):
+    if(selectedJpsi_pt[0]>=selectedJpsi_pt[1]):
+      Jpsi1_pt= selectedJpsi_pt[0]
+      Jpsi2_pt= selectedJpsi_pt[1]
+    else:
+      Jpsi1_pt= selectedJpsi_pt[1]
+      Jpsi2_pt= selectedJpsi_pt[0]
+    
+    self.h_betri_Jpsi.Fill(Jpsi1_pt,Jpsi2_pt)
+    if not event.HLT_Dimuon0_Jpsi_Muon==1: return False
+    self.h_patri_Jpsi.Fill(Jpsi1_pt,Jpsi2_pt) 
+
     return True
    
-    '''
-    for igen in range(event.nGenPart):
-      if event.GenPart_pdgId[igen]==443:
-        for jgen in range(event.nGenPart):
-          if event.GenPart_pdgId[jgen]==13 and event.GenPart_genPartIdxMother[jgen]==igen:
-            for kgen in range(event.nGenPart):
-              if event.GenPart_pdgId[kgen]==-13 and event.GenPart_genPartIdxMother[kgen]==igen:
-                if abs(event.GenPart_eta[kgen])<=2.4 and abs(event.GenPart_eta[jgen])<=2.4:
-                  for imu in range(event.Muon):
-                    for jmu in range(event.Muon):
-                      if (Muon_genPartIdx[imu]==jgen and Muon_genPartIdx[jmu]==kgen) or (Muon_genPartIdx[jmu]==jgen)
-    ''' 
  
 
 files = ["/eos/user/t/tayu/DoubleJpsi/data_and_MC/2016/DPS/DPS.root"]

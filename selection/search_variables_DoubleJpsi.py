@@ -65,6 +65,16 @@ class search_variables(object):
   self.add_float(self.Events,"muon4_eta")
   self.add_float(self.Events,"muon4_phi")
 
+  self.add_float(self.Events,"w_acc_Jpsi1")
+  self.add_float(self.Events,"w_reco_Jpsi1")
+  self.add_float(self.Events,"w_eff_Jpsi1")
+
+  self.add_float(self.Events,"w_acc_Jpsi2")
+  self.add_float(self.Events,"w_reco_Jpsi2")
+  self.add_float(self.Events,"w_eff_Jpsi2")
+  
+  self.add_float(self.Events,"w_trig_Jpsi12")
+
  def add_float(self,tree,name,dtype=np.dtype(float)):
   if hasattr(self,name):
    print('ERROR! SetBranchAddress of name "%s" already exists!' % (name))
