@@ -39,7 +39,7 @@ void RooFit_DPS_Jpsi(){
   RooRealVar Jpsi_width("Jpsi_width", "Jpsi width",0.05,0,1);
   RooRealVar alpha_1("alpha_1", "",1,0,10);
   RooRealVar alpha_2("alpha_2", "",1,0,10);
-  RooRealVar n_1("n_1","",10,0,70);
+  RooRealVar n_1("n_1","",10,0,100);
   RooRealVar n_2("n_2","",10,0,500);
   //RooRealVar g1frac("g1frac","",0.5);
   //RooRealVar g2frac("g2frac","",0,1.0);
@@ -49,19 +49,20 @@ void RooFit_DPS_Jpsi(){
   //RooAddPdf  DCB("DCB","CB_1+CB_2",RooArgList(CB_1,CB_2),RooArgList(g1frac));
   //RooAddPdf  BW_DCB("BW_DCB","BW+CB_1+CB_2",RooArgList(PDGBW,DCB),RooArgList(g2frac));
 
-  RooFFTConvPdf BW_DCB("BW_DCB","BW_DCB",x,PDGBW,DCB);
+  //RooFFTConvPdf BW_DCB("BW_DCB","BW_DCB",x,PDGBW,DCB);
   //RooFFTConvPdf BW_DCB("BW_DCB","BW_DCB",x,PDGBW,CB_1);
 
 
   vector<TString> name;         vector<int> bin;   vector<float> Min;  vector<float> Max;  vector<TString> axis;
   name.push_back("Jpsi1_mass"); bin.push_back(60); Min.push_back(2.8); Max.push_back(3.4); axis.push_back("m_{12}[GeV]");
-  //name.push_back("Jpsi2_mass"); bin.push_back(60); Min.push_back(2.8); Max.push_back(3.4); axis.push_back("m_{34}[GeV]");
+  name.push_back("Jpsi2_mass"); bin.push_back(60); Min.push_back(2.8); Max.push_back(3.4); axis.push_back("m_{34}[GeV]");
 
 
   for(int i=0; i<name.size(); i++){
     const char *plot = name[i];
     char CUT[1000];
-    sprintf(CUT,"(1./((w_acc_Jpsi1*w_acc_Jpsi2) * (w_reco_Jpsi1*w_reco_Jpsi2) * (w_eff_Jpsi1*w_eff_Jpsi2) *w_trig_Jpsi12))");
+    //sprintf(CUT,"(1./((w_acc_Jpsi1*w_acc_Jpsi2) * (w_reco_Jpsi1*w_reco_Jpsi2) * (w_eff_Jpsi1*w_eff_Jpsi2) *w_trig_Jpsi12))");
+    sprintf(CUT,"");
     GetHisto(CUT, Tree, DPS ,plot,bin[i],Min[i],Max[i]);
        
     cout<<DPS->Integral()<<endl;; 
@@ -155,8 +156,10 @@ void RooFit_DPS_Jpsi(){
     pl2->SetBorderSize(0);
     pl2->Draw();
 
+    TString NAME = name[i];
+    cout<<"Finished "<<NAME<<endl;
 
-    canvas->SaveAs("DPS_fit.pdf");
+    canvas->SaveAs("DPS_fit_"+NAME+".pdf");
   }
 }
 

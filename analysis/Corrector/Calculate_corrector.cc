@@ -1,13 +1,24 @@
 void Calculate_corrector(){
-  
+  //gROOT->Reset();
+  //gStyle->SetCanvasColor(0);
+  //gStyle->SetFrameBorderMode(0);
+  gStyle->SetOptStat(0);
+  //gStyle->SetOptStat("M");
+  //gStyle->SetPalette(1,0);
+  //gStyle->SetPaintTextFormat(".2f");
+  //gErrorIgnoreLevel = kError;
+  using namespace std;
+ 
 
-  const int N = 11;  Double_t xbins[N] = {5.,6.,7.,8.,10.,12.,15.,20.,30.,40.,60};
+  const int N = 11;  Double_t xbins[N] = {5.,6.,7.,8.,9.,10.,12.,15.,20.,25.,40.};
   const int M = 13;   Double_t ybins[M] = {-2.2,-2.,-1.75,-1.5,-1.0,-0.5,0,0.5,1.0,1.5,1.75,2.,2.2};
-
+ 
   TH2F *h_w_acc   = new TH2F("h_w_acc",  "h_w_acc", N-1, xbins, M-1, ybins);
   TH2F *h_w_reco   = new TH2F("h_w_reco",  "h_w_reco", N-1, xbins, M-1, ybins);
   TH2F *h_w_eff   = new TH2F("h_w_eff",  "h_w_eff", N-1, xbins, M-1, ybins);
-  TH2F *h_w_trig   = new TH2F("h_w_trig",  "h_w_trig", N-1, xbins, N-1, xbins);
+
+  const int pt_bin = 7; Double_t pt_bins[pt_bin] = {5.,7.,9.,12.,15.,25.,40.}; 
+  TH2F *h_w_trig   = new TH2F("h_w_trig",  "h_w_trig", pt_bin-1, pt_bins, pt_bin-1, pt_bins);
 
 
 
@@ -60,8 +71,11 @@ void Calculate_corrector(){
   for(int i=1; i<h_betri_Jpsi->GetXaxis()->GetNbins()+1; i++){
     for(int j=1; j<h_patri_Jpsi->GetYaxis()->GetNbins()+1; j++){
     
-    float N_betri = h_betri_Jpsi ->GetBinContent(i,j);
-    float N_patri = h_patri_Jpsi ->GetBinContent(i,j);
+    float N_betri = (h_betri_Jpsi ->GetBinContent(i,j)+h_betri_Jpsi ->GetBinContent(j,i))/2;
+    float N_patri = (h_patri_Jpsi ->GetBinContent(i,j)+h_patri_Jpsi ->GetBinContent(j,i))/2;
+ 
+    //float N_betri = h_betri_Jpsi ->GetBinContent(i,j);
+    //float N_patri = h_patri_Jpsi ->GetBinContent(i,j);
  
     if(N_betri!=0&&N_patri!=0){
 
@@ -88,9 +102,9 @@ void Calculate_corrector(){
   h_w_acc->SetTitle("acceptance probability");
   h_w_acc->GetYaxis()->SetTitle("Jpsi eta");
   h_w_acc->GetXaxis()->SetTitle("Jpsi pt [GeV]");
-  //h_w_acc->Draw("COLZ");
+  h_w_acc->Draw("COLZ");
   //h_w_acc->Draw("COLZTEXTE");
-  h_w_acc->Draw("COLZTEXT");
+  //h_w_acc->Draw("COLZTEXT");
   canvas->Draw();
   canvas->SaveAs("acc.png");
   canvas->SaveAs("acc.pdf");
@@ -104,9 +118,9 @@ void Calculate_corrector(){
   h_w_reco->SetTitle("reconstruct probability");
   h_w_reco->GetYaxis()->SetTitle("Jpsi eta");
   h_w_reco->GetXaxis()->SetTitle("Jpsi pt [GeV]");
-  //h_w_reco->Draw("COLZ");
+  h_w_reco->Draw("COLZ");
   //h_w_reco->Draw("COLZTEXTE");
-  h_w_reco->Draw("COLZTEXT");
+  //h_w_reco->Draw("COLZTEXT");
   canvas->Draw();
   canvas->SaveAs("reco.png");
   canvas->SaveAs("reco.pdf");
@@ -120,13 +134,14 @@ void Calculate_corrector(){
   h_w_eff->SetTitle("selection probability");
   h_w_eff->GetYaxis()->SetTitle("Jpsi eta");
   h_w_eff->GetXaxis()->SetTitle("Jpsi pt [GeV]");
-  //h_w_eff->Draw("COLZ");
+  h_w_eff->Draw("COLZ");
   //h_w_eff->Draw("COLZTEXTE");
-  h_w_eff->Draw("COLZTEXT");
+  //h_w_eff->Draw("COLZTEXT");
   canvas->Draw();
   canvas->SaveAs("eff.png");
   canvas->SaveAs("eff.pdf");
 
+  TCanvas* canvas2 = new TCanvas("canvas","canvas",0,0,600,600);
   h_w_trig->GetYaxis()->SetTitleSize(0.040);
   h_w_trig->GetXaxis()->SetTitleSize(0.040);
   h_w_trig->GetYaxis()->SetLabelSize(0.040);
@@ -134,14 +149,14 @@ void Calculate_corrector(){
   h_w_trig->SetMinimum(0.);
   h_w_trig->SetMaximum(1.0);
   h_w_trig->SetTitle(" pass trigger probability");
-  h_w_trig->GetYaxis()->SetTitle("Jpsi eta");
+  h_w_trig->GetYaxis()->SetTitle("Jpsi pt [GeV]");
   h_w_trig->GetXaxis()->SetTitle("Jpsi pt [GeV]");
-  //h_w_trig->Draw("COLZ");
+  h_w_trig->Draw("COLZ");
   //h_w_trig->Draw("COLZTEXTE");
-  h_w_trig->Draw("COLZTEXT");
-  canvas->Draw();
-  canvas->SaveAs("trig.png");
-  canvas->SaveAs("trig.pdf");
+  //h_w_trig->Draw("COLZTEXT");
+  canvas2->Draw();
+  canvas2->SaveAs("trig.png");
+  canvas2->SaveAs("trig.pdf");
 
   char NewFileName[500]; sprintf(NewFileName, "corrector.root");
   TFile f(NewFileName,"new");

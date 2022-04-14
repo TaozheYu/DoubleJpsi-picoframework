@@ -19,14 +19,19 @@ class ExampleAnalysis(Module):
     self.sumNumEvt = 0
     xbins= [5.,6.,7.,8.,9.,10.,12.,15.,20.,25.,40.]
     ybins = [-2.2,-2.,-1.75,-1.5,-1.0,-0.5,0,0.5,1.0,1.5,1.75,2.,2.2]
+    pt_bins = [5.,7.,9.,12.,15.,25.,40.] 
+
     N = len(xbins)
     M = len(ybins)
+    L = len(pt_bins)
+
     self.h_total_Jpsi = ROOT.TH2F("h_total_Jpsi","h_total_Jpsi",N-1 , array('d',xbins), M-1, array('d',ybins)) 
     self.h_acc_Jpsi = ROOT.TH2F("h_acc_Jpsi","h_acc_Jpsi",N-1 , array('d',xbins), M-1, array('d',ybins)) 
     self.h_reco_Jpsi = ROOT.TH2F("h_reco_Jpsi","h_reco_Jpsi",N-1 , array('d',xbins), M-1, array('d',ybins)) 
     self.h_eff_Jpsi = ROOT.TH2F("h_eff_Jpsi","h_eff_Jpsi",N-1 , array('d',xbins), M-1, array('d',ybins)) 
-    self.h_betri_Jpsi = ROOT.TH2F("h_betri_Jpsi","h_betri_Jpsi",N-1 , array('d',xbins), N-1, array('d',xbins)) 
-    self.h_patri_Jpsi = ROOT.TH2F("h_patri_Jpsi","h_patri_Jpsi",N-1 , array('d',xbins), N-1, array('d',xbins)) 
+
+    self.h_betri_Jpsi = ROOT.TH2F("h_betri_Jpsi","h_betri_Jpsi",L-1 , array('d',pt_bins), L-1, array('d',pt_bins)) 
+    self.h_patri_Jpsi = ROOT.TH2F("h_patri_Jpsi","h_patri_Jpsi",L-1 , array('d',pt_bins), L-1, array('d',pt_bins)) 
     self.addObject(self.h_total_Jpsi)
     self.addObject(self.h_acc_Jpsi)
     self.addObject(self.h_reco_Jpsi)
@@ -36,7 +41,7 @@ class ExampleAnalysis(Module):
 
   def analyze(self, event):
     """process event, return True (go to next module) or False (fail, go to next event)"""
-    if self.sumNumEvt>100000: return False
+    if self.sumNumEvt>10000000: return False
     self.sumNumEvt = self.sumNumEvt+1
     gJpsi_pt = -999
     gJpsi_eta= -999
@@ -78,8 +83,10 @@ class ExampleAnalysis(Module):
               mui = muons[imu].p4()
               muj = muons[jmu].p4() 
               Jpsi= mui+muj
-              #if not Jpsi.Pt()>=3.5: continue
-              if not Jpsi.Eta()<=2.2: continue
+              if not Jpsi.Pt()>=5: continue
+              if not abs(Jpsi.Eta())<=2.2: continue
+              if abs(Jpsi.Eta())<=1:
+                if not Jpsi.Pt()>=6: continue
               if not abs(Jpsi.M()-3.092)<=0.3: continue              
               self.h_eff_Jpsi.Fill(Jpsi.Pt(),Jpsi.Eta())
               selectedJpsi_pt.append(Jpsi.Pt())
@@ -90,7 +97,11 @@ class ExampleAnalysis(Module):
     if not len(selectedJpsi_pt)==2: return False
     #for iJpsi in range(len(selectedJpsi)):
       #for jJpsi in range(iJpsi+1,len(selectedJpsi)):
-    if(selectedJpsi_pt[0]>=selectedJpsi_pt[1]):
+    #This aim to assign the Jpsi1 and Jpsi2 randomly
+    gRandom = ROOT.TRandom2(0)
+    random = gRandom.Uniform(0,1)
+    if random >=0.5:
+    #if(selectedJpsi_pt[0]>=selectedJpsi_pt[1]):
       Jpsi1_pt= selectedJpsi_pt[0]
       Jpsi2_pt= selectedJpsi_pt[1]
     else:

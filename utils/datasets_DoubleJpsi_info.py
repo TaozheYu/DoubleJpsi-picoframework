@@ -57,8 +57,8 @@ datasets_info = [
 [2017,"Charmonium","Run2017B-02Apr2020-v1","/Charmonium/Run2017B-02Apr2020-v1/NANOAOD",1,1.9863860e+07,0,"DoubleJpsi"],
 [2017,"Charmonium","Run2017C-02Apr2020-v1","/Charmonium/Run2017C-02Apr2020-v1/NANOAOD",1,7.8721035e+07,0,"DoubleJpsi"],
 [2017,"Charmonium","Run2017D-02Apr2020-v1","/Charmonium/Run2017D-02Apr2020-v1/NANOAOD",1,3.2714414e+07,0,"DoubleJpsi"],
-[2017,"Charmonium","Run2017E-02Apr2020-v1","/Charmonium/Run2017D-02Apr2020-v1/NANOAOD",1,6.0891440e+07,0,"DoubleJpsi"],
-[2017,"Charmonium","Run2017F-02Apr2020-v1","/Charmonium/Run2017D-02Apr2020-v1/NANOAOD",1,7.4190347e+07,0,"DoubleJpsi"],
+[2017,"Charmonium","Run2017E-02Apr2020-v1","/Charmonium/Run2017E-02Apr2020-v1/NANOAOD",1,6.0891440e+07,0,"DoubleJpsi"],
+[2017,"Charmonium","Run2017F-02Apr2020-v1","/Charmonium/Run2017F-02Apr2020-v1/NANOAOD",1,7.4190347e+07,0,"DoubleJpsi"],
 ###### 2018 data ######
 [2018,"Charmonium","Run2018A-02Apr2020-v1","/Charmonium/Run2018A-02Apr2020-v1/NANOAOD",1,9.3082605e+07,0,"DoubleJpsi"],
 [2018,"Charmonium","Run2018B-02Apr2020-v1","/Charmonium/Run2018B-02Apr2020-v1/NANOAOD",1,4.6847388e+07,0,"DoubleJpsi"],

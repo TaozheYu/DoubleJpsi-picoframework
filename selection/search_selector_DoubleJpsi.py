@@ -135,8 +135,14 @@ class Producer(Module):
 
   # add corrector in Jpsi (pt,eta) bin
   Jpsi1_corr_list=[] #0=acc, 1=reco, 2=eff, 
+  Jpsi1_corr_list_up=[] #0=acc, 1=reco, 2=eff, 
+  Jpsi1_corr_list_do=[] #0=acc, 1=reco, 2=eff, 
+
   Jpsi2_corr_list=[] #0=acc, 1=reco, 2=eff, 3=trig
-  AddCorrector(JpsiPair, Jpsi1_corr_list, Jpsi2_corr_list, self.h_w_acc, self.h_w_reco, self.h_w_eff, self.h_w_trig)
+  Jpsi2_corr_list_up=[] #0=acc, 1=reco, 2=eff, 3=trig
+  Jpsi2_corr_list_do=[] #0=acc, 1=reco, 2=eff, 3=trig
+
+  AddCorrector(JpsiPair, Jpsi1_corr_list, Jpsi1_corr_list_up, Jpsi1_corr_list_do, Jpsi2_corr_list, Jpsi2_corr_list_up, Jpsi2_corr_list_do, self.h_w_acc, self.h_w_reco, self.h_w_eff, self.h_w_trig)
    
   #print "mu1:%s mu2:%s mu3:%s mu4:%s" % (mu1.Pt(),mu2.Pt(),mu3.Pt(),mu4.Pt())
   '''
@@ -201,11 +207,29 @@ class Producer(Module):
   self.out.w_reco_Jpsi1[0] = Jpsi1_corr_list[1]
   self.out.w_eff_Jpsi1[0] = Jpsi1_corr_list[2]
  
+  self.out.w_acc_Jpsi1_up[0] = Jpsi1_corr_list_up[0]
+  self.out.w_reco_Jpsi1_up[0] = Jpsi1_corr_list_up[1]
+  self.out.w_eff_Jpsi1_up[0] = Jpsi1_corr_list_up[2]
+ 
+  self.out.w_acc_Jpsi1_do[0] = Jpsi1_corr_list_do[0]
+  self.out.w_reco_Jpsi1_do[0] = Jpsi1_corr_list_do[1]
+  self.out.w_eff_Jpsi1_do[0] = Jpsi1_corr_list_do[2]
+ 
   self.out.w_acc_Jpsi2[0] = Jpsi2_corr_list[0]
   self.out.w_reco_Jpsi2[0] = Jpsi2_corr_list[1]
   self.out.w_eff_Jpsi2[0] = Jpsi2_corr_list[2]
+ 
+  self.out.w_acc_Jpsi2_up[0] = Jpsi2_corr_list_up[0]
+  self.out.w_reco_Jpsi2_up[0] = Jpsi2_corr_list_up[1]
+  self.out.w_eff_Jpsi2_up[0] = Jpsi2_corr_list_up[2]
+ 
+  self.out.w_acc_Jpsi2_do[0] = Jpsi2_corr_list_do[0]
+  self.out.w_reco_Jpsi2_do[0] = Jpsi2_corr_list_do[1]
+  self.out.w_eff_Jpsi2_do[0] = Jpsi2_corr_list_do[2]
 
   self.out.w_trig_Jpsi12[0] = Jpsi2_corr_list[3]
+  self.out.w_trig_Jpsi12_up[0] = Jpsi2_corr_list_up[3]
+  self.out.w_trig_Jpsi12_do[0] = Jpsi2_corr_list_do[3]
   #Save tree
   self.out.Events.Fill() 
   return True

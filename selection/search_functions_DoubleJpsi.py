@@ -35,8 +35,10 @@ def selectJpsi(event, selectedMusIdx, Jpsi_muindex1, Jpsi_muindex2, selectedJpsi
        mui.SetPtEtaPhiM(muons[selectedMusIdx[imu]].pt,muons[selectedMusIdx[imu]].eta,muons[selectedMusIdx[imu]].phi,muons[selectedMusIdx[imu]].mass)
        muj.SetPtEtaPhiM(muons[selectedMusIdx[jmu]].pt,muons[selectedMusIdx[jmu]].eta,muons[selectedMusIdx[jmu]].phi,muons[selectedMusIdx[jmu]].mass)
        Jpsi = mui+muj
-       if not Jpsi.Pt()>=3.5: continue
-       if not Jpsi.Eta()<=2.3: continue
+       if not Jpsi.Pt()>=5: continue
+       if not abs(Jpsi.Eta())<=2.2: continue
+       if abs(Jpsi.Eta())<=1:
+         if not Jpsi.Pt()>=6: continue
        if not abs(Jpsi.M()-3.092)<=0.3: continue
        Jpsi_muindex1.append(imu)
        Jpsi_muindex2.append(jmu)
@@ -60,13 +62,18 @@ def selectJpsiPair(event, Jpsi_muindex1, Jpsi_muindex2, selectedJpsi, fourmuon, 
       jmu2 = Jpsi_muindex2[jJpsi]
       if (imu1==jmu1 or imu1==jmu2 or imu2==jmu1 or imu2==jmu2): continue
       if not (selectedJpsi[iJpsi].M()-3.092)*(selectedJpsi[iJpsi].M()-3.092)+(selectedJpsi[jJpsi].M()-3.092)*(selectedJpsi[jJpsi].M()-3.092)<minkaisquare: continue 
-      if(selectedJpsi[iJpsi].Pt()>=selectedJpsi[jJpsi].Pt()):
+      #This aim to assign the Jpsi1 and Jpsi2 randomly
+      gRandom = ROOT.TRandom2(0)
+      random = gRandom.Uniform(0,1)
+      if random >=0.5:
+      #if(selectedJpsi[iJpsi].Pt()>=selectedJpsi[jJpsi].Pt()):
         Jpsi1= selectedJpsi[iJpsi]
         Jpsi2= selectedJpsi[jJpsi]
         mu1.SetPtEtaPhiM(muons[imu1].pt, muons[imu1].eta, muons[imu1].phi,muons[imu1].mass)
         mu2.SetPtEtaPhiM(muons[imu2].pt, muons[imu2].eta, muons[imu2].phi,muons[imu2].mass)
         mu3.SetPtEtaPhiM(muons[jmu1].pt, muons[jmu1].eta, muons[jmu1].phi,muons[jmu1].mass)
         mu4.SetPtEtaPhiM(muons[jmu2].pt, muons[jmu2].eta, muons[jmu2].phi,muons[jmu2].mass)
+        minkaisquare = (selectedJpsi[iJpsi].M()-3.092)*(selectedJpsi[iJpsi].M()-3.092)+(selectedJpsi[jJpsi].M()-3.092)*(selectedJpsi[jJpsi].M()-3.092)      
       else:
         Jpsi1= selectedJpsi[jJpsi]
         Jpsi2= selectedJpsi[iJpsi]
@@ -74,7 +81,6 @@ def selectJpsiPair(event, Jpsi_muindex1, Jpsi_muindex2, selectedJpsi, fourmuon, 
         mu2.SetPtEtaPhiM(muons[jmu2].pt, muons[jmu2].eta, muons[jmu2].phi, muons[jmu2].mass)
         mu3.SetPtEtaPhiM(muons[imu1].pt, muons[imu1].eta, muons[imu1].phi, muons[imu1].mass)
         mu4.SetPtEtaPhiM(muons[imu2].pt, muons[imu2].eta, muons[imu2].phi, muons[imu2].mass)
-      minkaisquare = (selectedJpsi[iJpsi].M()-3.092)*(selectedJpsi[iJpsi].M()-3.092)+(selectedJpsi[jJpsi].M()-3.092)*(selectedJpsi[jJpsi].M()-3.092)      
       foundJpsiPair = True
   if foundJpsiPair:
     JpsiPair.append(Jpsi1)
@@ -84,12 +90,12 @@ def selectJpsiPair(event, Jpsi_muindex1, Jpsi_muindex2, selectedJpsi, fourmuon, 
     fourmuon.append(mu3)
     fourmuon.append(mu4)
 
-def AddCorrector(JpsiPair, Jpsi1_corr_list, Jpsi2_corr_list, h_w_acc, h_w_reco, h_w_eff, h_w_trig):
+def AddCorrector(JpsiPair, Jpsi1_corr_list, Jpsi1_corr_list_up, Jpsi1_corr_list_do, Jpsi2_corr_list, Jpsi2_corr_list_up, Jpsi2_corr_list_do, h_w_acc, h_w_reco, h_w_eff, h_w_trig):
   Jpsi1 = ROOT.TLorentzVector(-99,-99,-99,-99)
   Jpsi2 = ROOT.TLorentzVector(-99,-99,-99,-99)
   Jpsi1 = JpsiPair[0]
   Jpsi2 = JpsiPair[1]
-  if 5<Jpsi1.Pt()<60 and abs(Jpsi1.Eta())<2.2: 
+  if 5<Jpsi1.Pt()<40 and abs(Jpsi1.Eta())<2.2: 
     pt_bin_Jpsi1 = h_w_acc.GetXaxis().FindFixBin(Jpsi1.Pt())
     eta_bin_Jpsi1 = h_w_acc.GetYaxis().FindFixBin(Jpsi1.Eta())
 
@@ -97,17 +103,52 @@ def AddCorrector(JpsiPair, Jpsi1_corr_list, Jpsi2_corr_list, h_w_acc, h_w_reco, 
     w_reco_Jpsi1 = h_w_reco.GetBinContent(pt_bin_Jpsi1, eta_bin_Jpsi1)
     w_eff_Jpsi1 = h_w_eff.GetBinContent(pt_bin_Jpsi1, eta_bin_Jpsi1)
  
-    if w_acc_Jpsi1==0 : w_acc_Jpsi1=1
-    if w_reco_Jpsi1==0 : w_reco_Jpsi1=1
-    if w_eff_Jpsi1==0 : w_eff_Jpsi1=1
+    w_acc_Jpsi1_up = h_w_acc.GetBinContent(pt_bin_Jpsi1, eta_bin_Jpsi1) + h_w_acc.GetBinError(pt_bin_Jpsi1, eta_bin_Jpsi1)
+    w_reco_Jpsi1_up = h_w_reco.GetBinContent(pt_bin_Jpsi1, eta_bin_Jpsi1) + h_w_reco.GetBinError(pt_bin_Jpsi1, eta_bin_Jpsi1)
+    w_eff_Jpsi1_up = h_w_eff.GetBinContent(pt_bin_Jpsi1, eta_bin_Jpsi1) + h_w_eff.GetBinError(pt_bin_Jpsi1, eta_bin_Jpsi1)
 
+    w_acc_Jpsi1_do = h_w_acc.GetBinContent(pt_bin_Jpsi1, eta_bin_Jpsi1) - h_w_acc.GetBinError(pt_bin_Jpsi1, eta_bin_Jpsi1)
+    w_reco_Jpsi1_do = h_w_reco.GetBinContent(pt_bin_Jpsi1, eta_bin_Jpsi1) - h_w_reco.GetBinError(pt_bin_Jpsi1, eta_bin_Jpsi1)
+    w_eff_Jpsi1_do = h_w_eff.GetBinContent(pt_bin_Jpsi1, eta_bin_Jpsi1) - h_w_eff.GetBinError(pt_bin_Jpsi1, eta_bin_Jpsi1)
+
+    if w_acc_Jpsi1==0 :   
+       w_acc_Jpsi1=1
+       w_acc_Jpsi1_up=1
+       w_acc_Jpsi1_do=1
+
+    if w_reco_Jpsi1==0 :
+       w_reco_Jpsi1=1
+       w_reco_Jpsi1_up=1
+       w_reco_Jpsi1_do=1
+
+    if w_eff_Jpsi1==0 : 
+       w_eff_Jpsi1=1
+       w_eff_Jpsi1_up=1
+       w_eff_Jpsi1_do=1
+ 
     Jpsi1_corr_list.append(w_acc_Jpsi1)
     Jpsi1_corr_list.append(w_reco_Jpsi1)
     Jpsi1_corr_list.append(w_eff_Jpsi1)
+
+    Jpsi1_corr_list_up.append(w_acc_Jpsi1_up)
+    Jpsi1_corr_list_up.append(w_reco_Jpsi1_up)
+    Jpsi1_corr_list_up.append(w_eff_Jpsi1_up)
+
+    Jpsi1_corr_list_do.append(w_acc_Jpsi1_do)
+    Jpsi1_corr_list_do.append(w_reco_Jpsi1_do)
+    Jpsi1_corr_list_do.append(w_eff_Jpsi1_do)
   else:
     Jpsi1_corr_list.append(1)
     Jpsi1_corr_list.append(1)
     Jpsi1_corr_list.append(1)
+
+    Jpsi1_corr_list_up.append(1)
+    Jpsi1_corr_list_up.append(1)
+    Jpsi1_corr_list_up.append(1)
+
+    Jpsi1_corr_list_do.append(1)
+    Jpsi1_corr_list_do.append(1)
+    Jpsi1_corr_list_do.append(1)
           
   if 5<Jpsi1.Pt()<40 and  5<Jpsi2.Pt()<40 and abs(Jpsi1.Eta())<2.2: 
     pt_bin_Jpsi2 = h_w_acc.GetXaxis().FindFixBin(Jpsi2.Pt())
@@ -118,20 +159,65 @@ def AddCorrector(JpsiPair, Jpsi1_corr_list, Jpsi2_corr_list, h_w_acc, h_w_reco, 
     w_eff_Jpsi2 = h_w_eff.GetBinContent(pt_bin_Jpsi2, eta_bin_Jpsi2) 
     w_trig_Jpsi12 = h_w_trig.GetBinContent(pt_bin_Jpsi1,pt_bin_Jpsi2)
  
-    if w_acc_Jpsi2==0 : w_acc_Jpsi1=1
-    if w_reco_Jpsi2==0 : w_reco_Jpsi1=1
-    if w_eff_Jpsi2==0 : w_eff_Jpsi1=1
-    if w_trig_Jpsi12==0 : w_trig_Jpsi12=1
+    w_acc_Jpsi2_up = h_w_acc.GetBinContent(pt_bin_Jpsi2, eta_bin_Jpsi2) + h_w_acc.GetBinError(pt_bin_Jpsi2, eta_bin_Jpsi2)
+    w_reco_Jpsi2_up = h_w_reco.GetBinContent(pt_bin_Jpsi2, eta_bin_Jpsi2) + h_w_reco.GetBinError(pt_bin_Jpsi2, eta_bin_Jpsi2)
+    w_eff_Jpsi2_up = h_w_eff.GetBinContent(pt_bin_Jpsi2, eta_bin_Jpsi2) + h_w_eff.GetBinError(pt_bin_Jpsi2, eta_bin_Jpsi2)
+    w_trig_Jpsi12_up = h_w_trig.GetBinContent(pt_bin_Jpsi1,pt_bin_Jpsi2) + h_w_trig.GetBinError(pt_bin_Jpsi1,pt_bin_Jpsi2)
+
+    w_acc_Jpsi2_do = h_w_acc.GetBinContent(pt_bin_Jpsi2, eta_bin_Jpsi2) - h_w_acc.GetBinError(pt_bin_Jpsi2, eta_bin_Jpsi2)
+    w_reco_Jpsi2_do = h_w_reco.GetBinContent(pt_bin_Jpsi2, eta_bin_Jpsi2) - h_w_reco.GetBinError(pt_bin_Jpsi2, eta_bin_Jpsi2)
+    w_eff_Jpsi2_do = h_w_eff.GetBinContent(pt_bin_Jpsi2, eta_bin_Jpsi2) - h_w_eff.GetBinError(pt_bin_Jpsi2, eta_bin_Jpsi2)
+    w_trig_Jpsi12_do = h_w_trig.GetBinContent(pt_bin_Jpsi1,pt_bin_Jpsi2) - h_w_trig.GetBinError(pt_bin_Jpsi1,pt_bin_Jpsi2)
+
+    if w_acc_Jpsi2==0 : 
+       w_acc_Jpsi2=1
+       w_acc_Jpsi2_up=1
+       w_acc_Jpsi2_do=1
+
+    if w_reco_Jpsi2==0 : 
+       w_reco_Jpsi2=1
+       w_reco_Jpsi2_up=1
+       w_reco_Jpsi2_do=1
+
+    if w_eff_Jpsi2==0 : 
+       w_eff_Jpsi2=1
+       w_reco_Jpsi2_up=1
+       w_reco_Jpsi2_do=1
+
+    if w_trig_Jpsi12==0 : 
+       w_trig_Jpsi12=1
+       w_trig_Jpsi12_up=1
+       w_trig_Jpsi12_do=1
 
     Jpsi2_corr_list.append(w_acc_Jpsi2)
     Jpsi2_corr_list.append(w_reco_Jpsi2)
     Jpsi2_corr_list.append(w_eff_Jpsi2)
     Jpsi2_corr_list.append(w_trig_Jpsi12)
+
+    Jpsi2_corr_list_up.append(w_acc_Jpsi2_up)
+    Jpsi2_corr_list_up.append(w_reco_Jpsi2_up)
+    Jpsi2_corr_list_up.append(w_eff_Jpsi2_up)
+    Jpsi2_corr_list_up.append(w_trig_Jpsi12_up)
+
+    Jpsi2_corr_list_do.append(w_acc_Jpsi2_do)
+    Jpsi2_corr_list_do.append(w_reco_Jpsi2_do)
+    Jpsi2_corr_list_do.append(w_eff_Jpsi2_do)
+    Jpsi2_corr_list_do.append(w_trig_Jpsi12_do)
   else:
     Jpsi2_corr_list.append(1)
     Jpsi2_corr_list.append(1)
     Jpsi2_corr_list.append(1)
     Jpsi2_corr_list.append(1)
+
+    Jpsi2_corr_list_up.append(1)
+    Jpsi2_corr_list_up.append(1)
+    Jpsi2_corr_list_up.append(1)
+    Jpsi2_corr_list_up.append(1)
+
+    Jpsi2_corr_list_do.append(1)
+    Jpsi2_corr_list_do.append(1)
+    Jpsi2_corr_list_do.append(1)
+    Jpsi2_corr_list_do.append(1)
     #print Jpsi1.Pt()
     #print pt_bin_Jpsi1 
     #print Jpsi1.Eta()

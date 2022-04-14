@@ -57,7 +57,8 @@ if inputFile is 'None':
  #'root://cms-xrd-global.cern.ch//store/mc/RunIIFall17NanoAOD/DYJetsToLL_M-50_HT-2500toInf_TuneCP5_13TeV-madgraphMLM-pythia8/NANOAODSIM/PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/110000/D8DDA30A-49AE-E811-A08B-0CC47A5FBDC1.root' #47415
  #'/afs/cern.ch/user/f/fromeo/public/4Brandon/D8DDA30A-49AE-E811-A08B-0CC47A5FBDC1.root'
  #'root://cms-xrd-global.cern.ch//store/mc/RunIISummer16NanoAODv5/DYJetsToLL_M-50_HT-600to800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/NANOAODSIM/PUMoriond17_Nano1June2019_102X_mcRun2_asymptotic_v7-v1/120000/92268EC5-122A-0648-82C5-41296A10FD29.root'
- '/eos/user/t/tayu/DoubleJpsi/data_and_MC/2016/DPS/DPS.root'
+#'/eos/user/t/tayu/DoubleJpsi/data_and_MC/2016/DPS/DPS.root'
+'/eos/user/t/tayu/DoubleJpsi/data_and_MC/2016/SPS/SPS.root'
              ]
   elif year==2016:
    infiles = ['root://cms-xrd-global.cern.ch//store/group/phys_tau/ProdNanoAODv4Priv/16dec18/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv4Priv-from_102X_upgrade2018_realistic_v15_ver1/181216_125011/0000/myNanoRunMc2018_NANO_101.root'

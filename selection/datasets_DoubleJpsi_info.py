@@ -46,7 +46,7 @@ datasets_info = [
 ##   Type:data
 #####   
 ###### 2016 data ######
-#[2016,"Charmonium","Run2016B-02Apr2020_ver2-v1","/Charmonium/Run2016B-02Apr2020_ver2-v1/NANOAOD",1,5.1713106e+07,0,"DoubleJpsi"],
+[2016,"Charmonium","Run2016B-02Apr2020_ver2-v1","/Charmonium/Run2016B-02Apr2020_ver2-v1/NANOAOD",1,5.1713106e+07,0,"DoubleJpsi"],
 [2016,"Charmonium","Run2016C-02Apr2020-v1","/Charmonium/Run2016C-02Apr2020-v1/NANOAOD",1,1.9535374e+07,0,"DoubleJpsi"],
 [2016,"Charmonium","Run2016D-02Apr2020-v1","/Charmonium/Run2016D-02Apr2020-v1/NANOAOD",1,3.2176529e+07,0,"DoubleJpsi"],
 [2016,"Charmonium","Run2016E-02Apr2020-v1","/Charmonium/Run2016E-02Apr2020-v1/NANOAOD",1,2.6549568e+07,0,"DoubleJpsi"],
