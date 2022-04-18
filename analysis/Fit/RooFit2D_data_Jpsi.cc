@@ -1,4 +1,5 @@
 #include "RooFit_data_Jpsi.h"
+#include "CalculateCS.h"
 //#ifndef __CINT__
 //#include "RooGlobalFunc.h"
 //#endif
@@ -114,8 +115,11 @@ void RooFit2D_data_Jpsi(){
       int XBIN = bin[i];  int YBIN = bin[j];
       float XMIN = Min[i]; float YMIN = Min[j];
       float XMAX = Max[i]; float YMAX = Max[j];
+      char CUTpre[1000];
       char CUT[1000];
-      sprintf(CUT,"");
+      sprintf(CUTpre,"(((Jpsi1_pt>6 && abs(Jpsi1_eta)>1)||(Jpsi1_pt>7 && abs(Jpsi1_eta)<1)) && ((Jpsi2_pt>6 && abs(Jpsi2_eta)>1)||(Jpsi2_pt>7 && abs(Jpsi2_eta)<1)))");
+      //sprintf(CUT,"1 *%s ", CUTpre);
+      sprintf(CUT,"(1./((w_acc_Jpsi1*w_acc_Jpsi2) * (w_reco_Jpsi1*w_reco_Jpsi2) * (w_eff_Jpsi1*w_eff_Jpsi2) *w_trig_Jpsi12)) * *%s ", CUTpre);
       GetHisto(CUT, Tree, data_x ,plotX,bin[i],Min[i],Max[i]);
       GetHisto(CUT, Tree, data_y ,plotY,bin[j],Min[j],Max[j]);
       GetHisto(CUT, Tree, data ,plotX,bin[i],Min[i],Max[i]);
@@ -148,45 +152,21 @@ void RooFit2D_data_Jpsi(){
   RooPlot* xframe_data = x.frame();
   RooPlot* yframe_data = y.frame();
 
-  //Jpsi1
-  /* 
-     model_x.fitTo(roohist_data_x);
-     roohist_data_x.plotOn(xframe_data);
-     model_x.plotOn(xframe_data,LineColor(kRed),LineWidth(1));
-     model_x.plotOn(xframe_data,Components(DCB_x),FillColor(kRed),LineColor(kBlue),LineWidth(1));
-     model_x.plotOn(xframe_data,Components(comb_x),FillStyle(3005),FillColor(12),LineColor(1),LineWidth(1),DrawOption("F"));
-     xframe_data->SetTitle("");
-     xframe_data->GetXaxis()->SetTitle(axis[i]);
-     xframe_data->GetYaxis()->SetTitle("Events/(0.01 GeV)");
-     xframe_data->Draw();
-
-
-  //Jpsi2
-  model_y.fitTo(roohist_data_y);
-  roohist_data_y.plotOn(yframe_data);
-  model_y.plotOn(yframe_data,LineColor(kRed),LineWidth(1));
-  model_y.plotOn(yframe_data,Components(DCB_y),FillColor(kRed),LineColor(kBlue),LineWidth(1));
-  model_y.plotOn(yframe_data,Components(comb_y),FillStyle(3005),FillColor(12),LineColor(1),LineWidth(1),DrawOption("F"));
-  yframe_data->SetTitle("");
-  yframe_data->GetXaxis()->SetTitle(axis[j]);
-  yframe_data->GetYaxis()->SetTitle("Events/(0.01 GeV)");
-  yframe_data->Draw();
-  */
   //2D fit
+  model_total1.fitTo(roohist_data_2D,SumW2Error(kTRUE));
+  Double_t frac1 = gfrac1.getVal();
+  Double_t frac1_err = gfrac1.getError(); 
+  Double_t frac2 = 1-frac1; 
+
+  Double_t frac1_squ = frac1*frac1;
+  Double_t frac12_mul = frac1*(1-frac1);  
+
+  RooRealVar gfrac1_squ("gfrac1_squre","",frac1_squ);
+  RooRealVar gfrac12_mul("gfrac12_multiply","",frac12_mul);
+
+  RooAddPdf model_total2("model_total2","model_total2", RooArgList(model_signal,model_DCB1_comb2, model_comb1_DCB2,model_comb1_comb2),RooArgList(gfrac1_squ,gfrac12_mul,gfrac12_mul));
+
   for(int k=0; k<name.size(); k++){
-
-    model_total1.fitTo(roohist_data_2D,SumW2Error(kTRUE));
-    Double_t frac1 = gfrac1.getVal();
-    Double_t frac2 = 1-frac1; 
-
-    Double_t frac1_squ = frac1*frac1;
-    Double_t frac12_mul = frac1*(1-frac1);  
-
-    RooRealVar gfrac1_squ("gfrac1_squre","",frac1_squ);
-    RooRealVar gfrac12_mul("gfrac12_multiply","",frac12_mul);
-
-    RooAddPdf model_total2("model_total2","model_total2", RooArgList(model_signal,model_DCB1_comb2, model_comb1_DCB2,model_comb1_comb2),RooArgList(gfrac1_squ,gfrac12_mul,gfrac12_mul));
-  
     if(k==0){
       roohist_data_2D.plotOn(xframe_data);
       model_total2.plotOn(xframe_data,LineColor(kRed),LineWidth(1)); 
@@ -212,7 +192,11 @@ void RooFit2D_data_Jpsi(){
       yframe_data->GetYaxis()->SetTitle("Events/(0.01 GeV)"); 
       yframe_data->Draw();
     }
-
+    
+    if(k==1){ 
+      Double_t data_num = data_2D->Integral();
+      CalculateCS(frac1, frac1_err, data_num); 
+    }
     //TH2D* model2D = model_xy.createHistogram("model2D",x,YVar(y));
     //model2D->Draw(); 
 
