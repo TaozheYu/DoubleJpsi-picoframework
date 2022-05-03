@@ -29,6 +29,7 @@ class Producer(Module):
    #Trigger
    if self.channel=="mumu":
     self.trigger = lambda e: e.HLT_Dimuon0_Jpsi_Muon
+    
 
   elif self.year==2016:
    #Trigger
@@ -186,6 +187,9 @@ class Producer(Module):
   self.out.Jpsi2_eta[0]  = Jpsi2.Eta()
   self.out.Jpsi2_phi[0]  = Jpsi2.Phi()
   self.out.Jpsi2_mass[0] = Jpsi2.M()   
+
+  self.out.JpsiPair_mass[0] = (Jpsi1+Jpsi2).M()
+  self.out.JpsiPair_DeltaEta[0] = abs(Jpsi1.Eta()-Jpsi2.Eta())
 
   self.out.muon1_pt[0]  = mu1.Pt() 
   self.out.muon1_eta[0] = mu1.Eta()

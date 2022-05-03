@@ -1,0 +1,241 @@
+   ------------------------------------------------------------
+  | Welcome to ROOT 6.12/07                http://root.cern.ch |
+  |                               (c) 1995-2017, The ROOT Team |
+  | Built for linuxx8664gcc                                    |
+  | From tag , 9 February 2018                                 |
+  | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q' |
+   ------------------------------------------------------------
+
+
+Processing /afs/cern.ch/work/t/tayu/CMSSW_10_2_9_DoubleJpci/src/PicoFramework/analysis/fDPS//RooFit_DPS_Jpsi.cc("Jpsi1","JpsiPair_mass",25.000000,30.000000)...
+2140
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(roohist_DPS): fit range of variable x expanded to nearest bin boundaries: [2.8,3.4] --> [2.8,3.4]
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+ **********
+ **    1 **SET PRINT           1
+ **********
+ **********
+ **    2 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 Jpsi_mean    3.09200e+00  2.00000e-01    2.00000e+00  4.00000e+00
+     2 Jpsi_width   5.00000e-02  2.50000e-02    0.00000e+00  1.00000e+00
+     3 alpha_1      1.00000e+00  5.00000e-01    0.00000e+00  1.00000e+01
+     4 alpha_2      1.00000e+00  5.00000e-01    0.00000e+00  1.00000e+01
+     5 n_1          1.00000e+01  5.00000e+00    0.00000e+00  1.00000e+02
+     6 n_2          1.00000e+01  5.00000e+00    0.00000e+00  5.00000e+02
+ **********
+ **    3 **SET ERR         0.5
+ **********
+ **********
+ **    4 **SET PRINT           1
+ **********
+ **********
+ **    5 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **    6 **MIGRAD        3000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=-3485.26 FROM MIGRAD    STATUS=INITIATE       24 CALLS          25 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Jpsi_mean    3.09200e+00   2.00000e-01   2.02264e-01  -8.89953e+02
+   2  Jpsi_width   5.00000e-02   2.50000e-02   1.18625e-01   5.12676e+03
+   3  alpha_1      1.00000e+00   5.00000e-01   1.72186e-01  -1.01667e+03
+   4  alpha_2      1.00000e+00   5.00000e-01   1.72186e-01  -1.16363e+03
+   5  n_1          1.00000e+01   5.00000e+00   1.72186e-01  -8.48664e+01
+   6  n_2          1.00000e+01   5.00000e+00   7.39156e-02  -2.42744e+02
+                               ERR DEF= 0.5
+ MINUIT WARNING IN MIGRAD  
+ ============== Negative diagonal element 1 in Error Matrix
+ MINUIT WARNING IN MIGRAD  
+ ============== Negative diagonal element 2 in Error Matrix
+ MINUIT WARNING IN MIGRAD  
+ ============== Negative diagonal element 3 in Error Matrix
+ MINUIT WARNING IN MIGRAD  
+ ============== Negative diagonal element 4 in Error Matrix
+ MINUIT WARNING IN MIGRAD  
+ ============== Negative diagonal element 5 in Error Matrix
+ MINUIT WARNING IN MIGRAD  
+ ============== Negative diagonal element 6 in Error Matrix
+ MINUIT WARNING IN MIGRAD  
+ ============== 1.07715 added to diagonal of error matrix
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (57038.8) to force MIGRAD to back out of this region. Error log follows
+Parameter values: Jpsi_mean=2.01398, Jpsi_width=0.0933763, alpha_1=8.6736, alpha_2=0.191162, n_1=82.5935, n_2=173.811
+RooNLLVar::nll_DCB_roohist_DPS[ paramSet=(Jpsi_mean,Jpsi_width,alpha_1,alpha_2,n_1,n_2) ]
+     function value is NAN @ paramSet=(Jpsi_mean = 2.01398,Jpsi_width = 0.0933763,alpha_1 = 8.6736,alpha_2 = 0.191162,n_1 = 82.5935,n_2 = 173.811)
+RooDoubleCB::DCB[ x=x xp=NULL mean=Jpsi_mean width=Jpsi_width alpha1=alpha_1 n1=n_1 alpha2=alpha_2 n2=n_2 ]
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=2.825, xp=NULL, mean=Jpsi_mean=2.01398, width=Jpsi_width=0.0933763, alpha1=alpha_1=8.6736, n1=n_1=82.5935, alpha2=alpha_2=0.191162, n2=n_2=173.811
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=2.825, xp=NULL, mean=Jpsi_mean=2.01398, width=Jpsi_width=0.0933763, alpha1=alpha_1=8.6736, n1=n_1=82.5935, alpha2=alpha_2=0.191162, n2=n_2=173.811
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=2.845, xp=NULL, mean=Jpsi_mean=2.01398, width=Jpsi_width=0.0933763, alpha1=alpha_1=8.6736, n1=n_1=82.5935, alpha2=alpha_2=0.191162, n2=n_2=173.811
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=2.845, xp=NULL, mean=Jpsi_mean=2.01398, width=Jpsi_width=0.0933763, alpha1=alpha_1=8.6736, n1=n_1=82.5935, alpha2=alpha_2=0.191162, n2=n_2=173.811
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=2.855, xp=NULL, mean=Jpsi_mean=2.01398, width=Jpsi_width=0.0933763, alpha1=alpha_1=8.6736, n1=n_1=82.5935, alpha2=alpha_2=0.191162, n2=n_2=173.811
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=2.855, xp=NULL, mean=Jpsi_mean=2.01398, width=Jpsi_width=0.0933763, alpha1=alpha_1=8.6736, n1=n_1=82.5935, alpha2=alpha_2=0.191162, n2=n_2=173.811
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=2.875, xp=NULL, mean=Jpsi_mean=2.01398, width=Jpsi_width=0.0933763, alpha1=alpha_1=8.6736, n1=n_1=82.5935, alpha2=alpha_2=0.191162, n2=n_2=173.811
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=2.875, xp=NULL, mean=Jpsi_mean=2.01398, width=Jpsi_width=0.0933763, alpha1=alpha_1=8.6736, n1=n_1=82.5935, alpha2=alpha_2=0.191162, n2=n_2=173.811
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=2.885, xp=NULL, mean=Jpsi_mean=2.01398, width=Jpsi_width=0.0933763, alpha1=alpha_1=8.6736, n1=n_1=82.5935, alpha2=alpha_2=0.191162, n2=n_2=173.811
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=2.885, xp=NULL, mean=Jpsi_mean=2.01398, width=Jpsi_width=0.0933763, alpha1=alpha_1=8.6736, n1=n_1=82.5935, alpha2=alpha_2=0.191162, n2=n_2=173.811
+     p.d.f value is Not-a-Number (-nan), forcing value to zero @ x=x=2.895, xp=NULL, mean=Jpsi_mean=2.01398, width=Jpsi_width=0.0933763, alpha1=alpha_1=8.6736, n1=n_1=82.5935, alpha2=alpha_2=0.191162, n2=n_2=173.811
+     getLogVal() top-level p.d.f evaluates to zero @ x=x=2.895, xp=NULL, mean=Jpsi_mean=2.01398, width=Jpsi_width=0.0933763, alpha1=alpha_1=8.6736, n1=n_1=82.5935, alpha2=alpha_2=0.191162, n2=n_2=173.811
+    ... (remaining 78 messages suppressed)
+RooRealIntegral::DCB_Int[x][ Int DCBd[Ana](x) ]
+     function value is NAN @ !sumList=(), !intList=(), !anaList=(x = 2.825), !jacList=(), !facList=(), !func=DCB=-nan/0.0708081, !sumCat=()
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (57038.8) to force MIGRAD to back out of this region. Error log follows
+Parameter values: Jpsi_mean=3.08851, Jpsi_width=0.0170021, alpha_1=7.33057, alpha_2=1.75872, n_1=84.0495, n_2=293.735
+RooNLLVar::nll_DCB_roohist_DPS[ paramSet=(Jpsi_mean,Jpsi_width,alpha_1,alpha_2,n_1,n_2) ]
+     function value is NAN @ paramSet=(Jpsi_mean = 3.08851,Jpsi_width = 0.0170021,alpha_1 = 7.33057,alpha_2 = 1.75872,n_1 = 84.0495,n_2 = 293.735)
+RooDoubleCB::DCB[ x=x xp=NULL mean=Jpsi_mean width=Jpsi_width alpha1=alpha_1 n1=n_1 alpha2=alpha_2 n2=n_2 ]
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.825, xp=NULL, mean=Jpsi_mean=3.08851, width=Jpsi_width=0.0170021, alpha1=alpha_1=7.33057, n1=n_1=84.0495, alpha2=alpha_2=1.75872, n2=n_2=293.735
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.845, xp=NULL, mean=Jpsi_mean=3.08851, width=Jpsi_width=0.0170021, alpha1=alpha_1=7.33057, n1=n_1=84.0495, alpha2=alpha_2=1.75872, n2=n_2=293.735
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.855, xp=NULL, mean=Jpsi_mean=3.08851, width=Jpsi_width=0.0170021, alpha1=alpha_1=7.33057, n1=n_1=84.0495, alpha2=alpha_2=1.75872, n2=n_2=293.735
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.875, xp=NULL, mean=Jpsi_mean=3.08851, width=Jpsi_width=0.0170021, alpha1=alpha_1=7.33057, n1=n_1=84.0495, alpha2=alpha_2=1.75872, n2=n_2=293.735
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.885, xp=NULL, mean=Jpsi_mean=3.08851, width=Jpsi_width=0.0170021, alpha1=alpha_1=7.33057, n1=n_1=84.0495, alpha2=alpha_2=1.75872, n2=n_2=293.735
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.895, xp=NULL, mean=Jpsi_mean=3.08851, width=Jpsi_width=0.0170021, alpha1=alpha_1=7.33057, n1=n_1=84.0495, alpha2=alpha_2=1.75872, n2=n_2=293.735
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.905, xp=NULL, mean=Jpsi_mean=3.08851, width=Jpsi_width=0.0170021, alpha1=alpha_1=7.33057, n1=n_1=84.0495, alpha2=alpha_2=1.75872, n2=n_2=293.735
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.915, xp=NULL, mean=Jpsi_mean=3.08851, width=Jpsi_width=0.0170021, alpha1=alpha_1=7.33057, n1=n_1=84.0495, alpha2=alpha_2=1.75872, n2=n_2=293.735
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.925, xp=NULL, mean=Jpsi_mean=3.08851, width=Jpsi_width=0.0170021, alpha1=alpha_1=7.33057, n1=n_1=84.0495, alpha2=alpha_2=1.75872, n2=n_2=293.735
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.945, xp=NULL, mean=Jpsi_mean=3.08851, width=Jpsi_width=0.0170021, alpha1=alpha_1=7.33057, n1=n_1=84.0495, alpha2=alpha_2=1.75872, n2=n_2=293.735
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.955, xp=NULL, mean=Jpsi_mean=3.08851, width=Jpsi_width=0.0170021, alpha1=alpha_1=7.33057, n1=n_1=84.0495, alpha2=alpha_2=1.75872, n2=n_2=293.735
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.965, xp=NULL, mean=Jpsi_mean=3.08851, width=Jpsi_width=0.0170021, alpha1=alpha_1=7.33057, n1=n_1=84.0495, alpha2=alpha_2=1.75872, n2=n_2=293.735
+    ... (remaining 51 messages suppressed)
+RooRealIntegral::DCB_Int[x][ Int DCBd[Ana](x) ]
+     function value is NAN @ !sumList=(), !intList=(), !anaList=(x = 2.825), !jacList=(), !facList=(), !func=DCB=4.97345e-32/0.0714546, !sumCat=()
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (57038.8) to force MIGRAD to back out of this region. Error log follows
+Parameter values: Jpsi_mean=3.09934, Jpsi_width=0.0316708, alpha_1=1.43895, alpha_2=3.20258, n_1=4.97369, n_2=234.908
+RooNLLVar::nll_DCB_roohist_DPS[ paramSet=(Jpsi_mean,Jpsi_width,alpha_1,alpha_2,n_1,n_2) ]
+     function value is NAN @ paramSet=(Jpsi_mean = 3.09934,Jpsi_width = 0.0316708,alpha_1 = 1.43895,alpha_2 = 3.20258,n_1 = 4.97369,n_2 = 234.908)
+RooDoubleCB::DCB[ x=x xp=NULL mean=Jpsi_mean width=Jpsi_width alpha1=alpha_1 n1=n_1 alpha2=alpha_2 n2=n_2 ]
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.825, xp=NULL, mean=Jpsi_mean=3.09934, width=Jpsi_width=0.0316708, alpha1=alpha_1=1.43895, n1=n_1=4.97369, alpha2=alpha_2=3.20258, n2=n_2=234.908
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.845, xp=NULL, mean=Jpsi_mean=3.09934, width=Jpsi_width=0.0316708, alpha1=alpha_1=1.43895, n1=n_1=4.97369, alpha2=alpha_2=3.20258, n2=n_2=234.908
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.855, xp=NULL, mean=Jpsi_mean=3.09934, width=Jpsi_width=0.0316708, alpha1=alpha_1=1.43895, n1=n_1=4.97369, alpha2=alpha_2=3.20258, n2=n_2=234.908
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.875, xp=NULL, mean=Jpsi_mean=3.09934, width=Jpsi_width=0.0316708, alpha1=alpha_1=1.43895, n1=n_1=4.97369, alpha2=alpha_2=3.20258, n2=n_2=234.908
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.885, xp=NULL, mean=Jpsi_mean=3.09934, width=Jpsi_width=0.0316708, alpha1=alpha_1=1.43895, n1=n_1=4.97369, alpha2=alpha_2=3.20258, n2=n_2=234.908
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.895, xp=NULL, mean=Jpsi_mean=3.09934, width=Jpsi_width=0.0316708, alpha1=alpha_1=1.43895, n1=n_1=4.97369, alpha2=alpha_2=3.20258, n2=n_2=234.908
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.905, xp=NULL, mean=Jpsi_mean=3.09934, width=Jpsi_width=0.0316708, alpha1=alpha_1=1.43895, n1=n_1=4.97369, alpha2=alpha_2=3.20258, n2=n_2=234.908
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.915, xp=NULL, mean=Jpsi_mean=3.09934, width=Jpsi_width=0.0316708, alpha1=alpha_1=1.43895, n1=n_1=4.97369, alpha2=alpha_2=3.20258, n2=n_2=234.908
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.925, xp=NULL, mean=Jpsi_mean=3.09934, width=Jpsi_width=0.0316708, alpha1=alpha_1=1.43895, n1=n_1=4.97369, alpha2=alpha_2=3.20258, n2=n_2=234.908
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.945, xp=NULL, mean=Jpsi_mean=3.09934, width=Jpsi_width=0.0316708, alpha1=alpha_1=1.43895, n1=n_1=4.97369, alpha2=alpha_2=3.20258, n2=n_2=234.908
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.955, xp=NULL, mean=Jpsi_mean=3.09934, width=Jpsi_width=0.0316708, alpha1=alpha_1=1.43895, n1=n_1=4.97369, alpha2=alpha_2=3.20258, n2=n_2=234.908
+     getLogVal() top-level p.d.f evaluates to NaN @ x=x=2.965, xp=NULL, mean=Jpsi_mean=3.09934, width=Jpsi_width=0.0316708, alpha1=alpha_1=1.43895, n1=n_1=4.97369, alpha2=alpha_2=3.20258, n2=n_2=234.908
+    ... (remaining 43 messages suppressed)
+RooRealIntegral::DCB_Int[x][ Int DCBd[Ana](x) ]
+     function value is NAN @ !sumList=(), !intList=(), !anaList=(x = 2.825), !jacList=(), !facList=(), !func=DCB=0.00129908/0.0713838, !sumCat=()
+
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-4015.78 FROM MIGRAD    STATUS=CONVERGED     488 CALLS         489 TOTAL
+                     EDM=7.85983e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Jpsi_mean    3.09412e+00   7.66938e-04   2.96286e-05  -1.40907e+00
+   2  Jpsi_width   2.55414e-02   8.60661e-04   1.52063e-04  -7.25018e-03
+   3  alpha_1      1.32224e+00   1.07852e-01   5.68038e-04  -3.51876e-02
+   4  alpha_2      1.28359e+00   9.09083e-02   6.11538e-04   4.04343e-02
+   5  n_1          3.83879e+00   8.12012e-01   8.94755e-04   3.95573e-02
+   6  n_2          7.93111e+00   2.63382e+00   1.06597e-03  -1.25782e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  5.882e-07 -9.617e-08 -2.884e-05  1.102e-05  1.421e-04 -1.997e-04 
+ -9.617e-08  7.407e-07  4.802e-05  3.205e-05 -1.400e-04  9.906e-05 
+ -2.884e-05  4.802e-05  1.164e-02  1.946e-03 -7.264e-02  7.781e-03 
+  1.102e-05  3.205e-05  1.946e-03  8.266e-03 -4.762e-03 -1.720e-01 
+  1.421e-04 -1.400e-04 -7.264e-02 -4.762e-03  6.598e-01 -3.357e-02 
+ -1.997e-04  9.906e-05  7.781e-03 -1.720e-01 -3.357e-02  6.941e+00 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.47661   1.000 -0.146 -0.349  0.158  0.228 -0.099
+        2  0.77081  -0.146  1.000  0.517  0.410 -0.200  0.044
+        3  0.91295  -0.349  0.517  1.000  0.198 -0.829  0.027
+        4  0.85781   0.158  0.410  0.198  1.000 -0.064 -0.718
+        5  0.87491   0.228 -0.200 -0.829 -0.064  1.000 -0.016
+        6  0.81524  -0.099  0.044  0.027 -0.718 -0.016  1.000
+ **********
+ **    7 **SET ERR         0.5
+ **********
+ **********
+ **    8 **SET PRINT           1
+ **********
+ **********
+ **    9 **HESSE        3000
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-4015.78 FROM HESSE     STATUS=OK             40 CALLS         529 TOTAL
+                     EDM=8.06457e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  Jpsi_mean    3.09412e+00   7.67863e-04   5.92571e-06   9.42642e-02
+   2  Jpsi_width   2.55414e-02   8.61113e-04   6.08252e-06  -1.24979e+00
+   3  alpha_1      1.32224e+00   1.09154e-01   2.27215e-05  -8.26481e-01
+   4  alpha_2      1.28359e+00   9.20141e-02   2.44615e-05  -8.37962e-01
+   5  n_1          3.83879e+00   8.22655e-01   3.57902e-05  -1.17639e+00
+   6  n_2          7.93111e+00   2.67238e+00   4.26387e-05  -1.31823e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  5.896e-07 -9.820e-08 -2.945e-05  1.115e-05  1.468e-04 -2.073e-04 
+ -9.820e-08  7.415e-07  4.864e-05  3.210e-05 -1.453e-04  9.719e-05 
+ -2.945e-05  4.864e-05  1.192e-02  1.972e-03 -7.490e-02  7.780e-03 
+  1.115e-05  3.210e-05  1.972e-03  8.469e-03 -4.958e-03 -1.786e-01 
+  1.468e-04 -1.453e-04 -7.490e-02 -4.958e-03  6.772e-01 -3.466e-02 
+ -2.073e-04  9.719e-05  7.780e-03 -1.786e-01 -3.466e-02  7.146e+00 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.47856   1.000 -0.149 -0.351  0.158  0.232 -0.101
+        2  0.77108  -0.149  1.000  0.517  0.405 -0.205  0.042
+        3  0.91511  -0.351  0.517  1.000  0.196 -0.834  0.027
+        4  0.86148   0.158  0.405  0.196  1.000 -0.065 -0.726
+        5  0.87835   0.232 -0.205 -0.834 -0.065  1.000 -0.016
+        6  0.82110  -0.101  0.042  0.027 -0.726 -0.016  1.000
+[#1] INFO:Fitting -- RooAbsPdf::fitTo(DCB) Calculating sum-of-weights-squared correction matrix for covariance matrix
+ **********
+ **   10 **SET ERR         0.5
+ **********
+ **********
+ **   11 **SET PRINT           1
+ **********
+ **********
+ **   12 **HESSE        3000
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-4015.78 FROM HESSE     STATUS=OK             40 CALLS         569 TOTAL
+                     EDM=8.07118e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  Jpsi_mean    3.09412e+00   7.67930e-04   1.18514e-06   9.42642e-02
+   2  Jpsi_width   2.55414e-02   8.61157e-04   1.21650e-06  -1.24979e+00
+   3  alpha_1      1.32224e+00   1.09202e-01   4.54431e-06  -8.26481e-01
+   4  alpha_2      1.28359e+00   9.20514e-02   4.89231e-06  -8.37962e-01
+   5  n_1          3.83879e+00   8.23019e-01   7.15804e-06  -1.17639e+00
+   6  n_2          7.93111e+00   2.67373e+00   8.52774e-06  -1.31823e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  5.897e-07 -9.844e-08 -2.949e-05  1.114e-05  1.470e-04 -2.076e-04 
+ -9.844e-08  7.416e-07  4.867e-05  3.210e-05 -1.456e-04  9.712e-05 
+ -2.949e-05  4.867e-05  1.193e-02  1.973e-03 -7.497e-02  7.773e-03 
+  1.114e-05  3.210e-05  1.973e-03  8.476e-03 -4.967e-03 -1.788e-01 
+  1.470e-04 -1.456e-04 -7.497e-02 -4.967e-03  6.778e-01 -3.465e-02 
+ -2.076e-04  9.712e-05  7.773e-03 -1.788e-01 -3.465e-02  7.153e+00 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.47870   1.000 -0.149 -0.352  0.158  0.233 -0.101
+        2  0.77111  -0.149  1.000  0.517  0.405 -0.205  0.042
+        3  0.91519  -0.352  0.517  1.000  0.196 -0.834  0.027
+        4  0.86160   0.158  0.405  0.196  1.000 -0.066 -0.726
+        5  0.87847   0.233 -0.205 -0.834 -0.066  1.000 -0.016
+        6  0.82130  -0.101  0.042  0.027 -0.726 -0.016  1.000
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+double Jpsi events is 2140
+double Jpsi events error is 46.2601
+the Jpsi pair production cross section is 0.0167648
+the Jpsi pair production cross section error is 0.000434605
+Finished Jpsi1_mass

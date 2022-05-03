@@ -1,0 +1,161 @@
+   ------------------------------------------------------------
+  | Welcome to ROOT 6.12/07                http://root.cern.ch |
+  |                               (c) 1995-2017, The ROOT Team |
+  | Built for linuxx8664gcc                                    |
+  | From tag , 9 February 2018                                 |
+  | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q' |
+   ------------------------------------------------------------
+
+
+Processing /afs/cern.ch/work/t/tayu/CMSSW_10_2_9_DoubleJpci/src/PicoFramework/analysis/fDPS//RooFit_DPS_Jpsi.cc("Jpsi1","JpsiPair_DeltaEta",2.000000,2.500000)...
+2048
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(roohist_DPS): fit range of variable x expanded to nearest bin boundaries: [2.8,3.4] --> [2.8,3.4]
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+ **********
+ **    1 **SET PRINT           1
+ **********
+ **********
+ **    2 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 Jpsi_mean    3.09200e+00  2.00000e-01    2.00000e+00  4.00000e+00
+     2 Jpsi_width   5.00000e-02  2.50000e-02    0.00000e+00  1.00000e+00
+     3 alpha_1      1.00000e+00  5.00000e-01    0.00000e+00  1.00000e+01
+     4 alpha_2      1.00000e+00  5.00000e-01    0.00000e+00  1.00000e+01
+     5 n_1          1.00000e+01  5.00000e+00    0.00000e+00  1.00000e+02
+     6 n_2          1.00000e+01  5.00000e+00    0.00000e+00  5.00000e+02
+ **********
+ **    3 **SET ERR         0.5
+ **********
+ **********
+ **    4 **SET PRINT           1
+ **********
+ **********
+ **    5 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **    6 **MIGRAD        3000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=-3307.75 FROM MIGRAD    STATUS=INITIATE       24 CALLS          25 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Jpsi_mean    3.09200e+00   2.00000e-01   2.02264e-01  -1.21547e+03
+   2  Jpsi_width   5.00000e-02   2.50000e-02   1.18625e-01   4.74869e+03
+   3  alpha_1      1.00000e+00   5.00000e-01   1.72186e-01  -9.30524e+02
+   4  alpha_2      1.00000e+00   5.00000e-01   1.72186e-01  -1.10399e+03
+   5  n_1          1.00000e+01   5.00000e+00   1.72186e-01  -7.71221e+01
+   6  n_2          1.00000e+01   5.00000e+00   7.39156e-02  -2.35486e+02
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-3780.91 FROM MIGRAD    STATUS=CONVERGED     357 CALLS         358 TOTAL
+                     EDM=7.19509e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Jpsi_mean    3.09423e+00   7.89053e-04   3.03076e-05   7.63276e-01
+   2  Jpsi_width   2.72363e-02   8.03368e-04   1.50126e-04  -5.44963e-01
+   3  alpha_1      1.50992e+00   9.14268e-02   5.59830e-04   9.81140e-02
+   4  alpha_2      1.25175e+00   1.02919e-01   6.34448e-04  -3.76186e-01
+   5  n_1          2.74083e+00   4.94228e-01   6.81214e-04   1.42153e-01
+   6  n_2          1.37466e+01   8.10019e+00   2.34802e-03  -1.40445e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  6.226e-07 -1.234e-07 -6.212e-06  2.856e-05  2.114e-05 -9.580e-04 
+ -1.234e-07  6.454e-07 -1.387e-05 -3.896e-05 -3.114e-05  3.652e-04 
+ -6.212e-06 -1.387e-05  8.361e-03  9.044e-04 -3.667e-02 -1.070e-02 
+  2.856e-05 -3.896e-05  9.044e-04  1.060e-02  1.826e-03 -6.234e-01 
+  2.114e-05 -3.114e-05 -3.667e-02  1.826e-03  2.443e-01 -1.531e-02 
+ -9.580e-04  3.652e-04 -1.070e-02 -6.234e-01 -1.531e-02  6.583e+01 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.43476   1.000 -0.195 -0.086  0.352  0.054 -0.150
+        2  0.69772  -0.195  1.000 -0.189 -0.471 -0.078  0.056
+        3  0.85598  -0.086 -0.189  1.000  0.096 -0.811 -0.014
+        4  0.87775   0.352 -0.471  0.096  1.000  0.036 -0.746
+        5  0.84825   0.054 -0.078 -0.811  0.036  1.000 -0.004
+        6  0.82577  -0.150  0.056 -0.014 -0.746 -0.004  1.000
+ **********
+ **    7 **SET ERR         0.5
+ **********
+ **********
+ **    8 **SET PRINT           1
+ **********
+ **********
+ **    9 **HESSE        3000
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-3780.91 FROM HESSE     STATUS=OK             40 CALLS         398 TOTAL
+                     EDM=7.2062e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  Jpsi_mean    3.09423e+00   7.89421e-04   6.06152e-06   9.43656e-02
+   2  Jpsi_width   2.72363e-02   8.02651e-04   3.00252e-05  -1.90238e+00
+   3  alpha_1      1.50992e+00   9.21689e-02   1.11966e-04  -7.72624e-01
+   4  alpha_2      1.25175e+00   1.04780e-01   1.26890e-04  -8.47533e-01
+   5  n_1          2.74083e+00   4.98262e-01   1.36243e-04  -1.23816e+00
+   6  n_2          1.37466e+01   8.27349e+00   4.69603e-04  -1.23764e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  6.232e-07 -1.229e-07 -6.275e-06  2.912e-05  2.147e-05 -1.015e-03 
+ -1.229e-07  6.443e-07 -1.391e-05 -3.928e-05 -3.055e-05  4.080e-04 
+ -6.275e-06 -1.391e-05  8.497e-03  9.195e-04 -3.743e-02 -1.195e-02 
+  2.912e-05 -3.928e-05  9.195e-04  1.098e-02  1.801e-03 -6.578e-01 
+  2.147e-05 -3.055e-05 -3.743e-02  1.801e-03  2.483e-01 -1.662e-02 
+ -1.015e-03  4.080e-04 -1.195e-02 -6.578e-01 -1.662e-02  6.869e+01 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.43563   1.000 -0.194 -0.086  0.352  0.055 -0.155
+        2  0.69706  -0.194  1.000 -0.188 -0.467 -0.076  0.061
+        3  0.85848  -0.086 -0.188  1.000  0.095 -0.815 -0.016
+        4  0.88234   0.352 -0.467  0.095  1.000  0.034 -0.757
+        5  0.85091   0.055 -0.076 -0.815  0.034  1.000 -0.004
+        6  0.83370  -0.155  0.061 -0.016 -0.757 -0.004  1.000
+[#1] INFO:Fitting -- RooAbsPdf::fitTo(DCB) Calculating sum-of-weights-squared correction matrix for covariance matrix
+ **********
+ **   10 **SET ERR         0.5
+ **********
+ **********
+ **   11 **SET PRINT           1
+ **********
+ **********
+ **   12 **HESSE        3000
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-3780.91 FROM HESSE     STATUS=OK             40 CALLS         438 TOTAL
+                     EDM=7.21323e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  Jpsi_mean    3.09423e+00   7.89503e-04   1.21230e-06   9.43656e-02
+   2  Jpsi_width   2.72363e-02   8.02512e-04   6.00503e-06  -1.90238e+00
+   3  alpha_1      1.50992e+00   9.23201e-02   2.23932e-05  -7.72624e-01
+   4  alpha_2      1.25175e+00   1.05171e-01   2.53779e-05  -8.47533e-01
+   5  n_1          2.74083e+00   4.99083e-01   2.72486e-05  -1.23816e+00
+   6  n_2          1.37466e+01   8.30951e+00   9.39207e-05  -1.23764e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  6.233e-07 -1.229e-07 -6.287e-06  2.924e-05  2.154e-05 -1.027e-03 
+ -1.229e-07  6.440e-07 -1.392e-05 -3.935e-05 -3.043e-05  4.171e-04 
+ -6.287e-06 -1.392e-05  8.525e-03  9.227e-04 -3.758e-02 -1.222e-02 
+  2.924e-05 -3.935e-05  9.227e-04  1.106e-02  1.796e-03 -6.651e-01 
+  2.154e-05 -3.043e-05 -3.758e-02  1.796e-03  2.492e-01 -1.689e-02 
+ -1.027e-03  4.171e-04 -1.222e-02 -6.651e-01 -1.689e-02  6.929e+01 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.43582   1.000 -0.194 -0.086  0.352  0.055 -0.156
+        2  0.69693  -0.194  1.000 -0.188 -0.466 -0.076  0.062
+        3  0.85898  -0.086 -0.188  1.000  0.095 -0.815 -0.016
+        4  0.88327   0.352 -0.466  0.095  1.000  0.034 -0.760
+        5  0.85144   0.055 -0.076 -0.815  0.034  1.000 -0.004
+        6  0.83528  -0.156  0.062 -0.016 -0.760 -0.004  1.000
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+double Jpsi events is 2048
+double Jpsi events error is 45.2548
+the Jpsi pair production cross section is 0.016044
+the Jpsi pair production cross section error is 0.000422367
+Finished Jpsi1_mass

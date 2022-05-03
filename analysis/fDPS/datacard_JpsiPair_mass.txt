@@ -1,0 +1,19 @@
+imax 1 number of channels
+jmax 1 number of processes 
+kmax *
+------------------
+shapes * * cross_section_JpsiPair_mass.root $PROCESS  
+------------------
+bin               cat0
+observation       -1
+------------------
+bin       cat0     cat0
+process   SPS      DPS
+process    0        1
+rate      -1       -1
+------------------
+lumi lnN   1.01    1.01
+
+
+
+cat0  autoMCStats 0 0 1

@@ -1,0 +1,5 @@
+root -b -q RooFit_DPS_Jpsi.cc'("Jpsi2","JpsiPair_mass",5.000000,10.000000)'
+root -b -q RooFit_DPS_Jpsi.cc'("Jpsi2","JpsiPair_mass",10.000000,15.000000)'
+root -b -q RooFit_DPS_Jpsi.cc'("Jpsi2","JpsiPair_mass",15.000000,20.000000)'
+root -b -q RooFit_DPS_Jpsi.cc'("Jpsi2","JpsiPair_mass",20.000000,25.000000)'
+root -b -q RooFit_DPS_Jpsi.cc'("Jpsi2","JpsiPair_mass",25.000000,30.000000)'

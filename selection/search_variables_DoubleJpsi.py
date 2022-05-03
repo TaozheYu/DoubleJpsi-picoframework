@@ -49,6 +49,9 @@ class search_variables(object):
   self.add_float(self.Events,"Jpsi2_phi")
   self.add_float(self.Events,"Jpsi2_mass")
 
+  self.add_float(self.Events,"JpsiPair_mass")
+  self.add_float(self.Events,"JpsiPair_DeltaEta")
+
   self.add_float(self.Events,"muon1_pt")
   self.add_float(self.Events,"muon1_eta")
   self.add_float(self.Events,"muon1_phi")
