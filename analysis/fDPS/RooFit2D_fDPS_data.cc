@@ -276,7 +276,7 @@ void RooFit2D_fDPS_data(const char *CutCategory, float min_cut, float max_cut){
     char mass_max[10];  sprintf(mass_max,"%f",   max); TString MAX = mass_max;
 
     cout<<"Finished "<<NAME<<endl;
-    canvas->SaveAs("/afs/cern.ch/work/t/tayu/CMSSW_10_2_9_DoubleJpci/src/PicoFramework/analysis/fDPS/figures/data2D_fit_"+NAME+"_mass_"+MIN+"_"+MAX+".pdf");
+    canvas->SaveAs("/afs/cern.ch/work/t/tayu/CMSSW_10_2_9_DoubleJpci/src/PicoFramework/analysis/fDPS/figures/data2D_fit_"+NAME+"_"+CutCategory_+"__"+MIN+"_"+MAX+".pdf");
   }
  
 }
