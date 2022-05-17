@@ -118,8 +118,8 @@ void RooFit2D_data_Jpsi(){
       char CUTpre[1000];
       char CUT[1000];
       sprintf(CUTpre,"(((Jpsi1_pt>6 && abs(Jpsi1_eta)>1)||(Jpsi1_pt>7 && abs(Jpsi1_eta)<1)) && ((Jpsi2_pt>6 && abs(Jpsi2_eta)>1)||(Jpsi2_pt>7 && abs(Jpsi2_eta)<1)))");
-      //sprintf(CUT,"1 *%s ", CUTpre);
-      sprintf(CUT,"(1./((w_acc_Jpsi1*w_acc_Jpsi2) * (w_reco_Jpsi1*w_reco_Jpsi2) * (w_eff_Jpsi1*w_eff_Jpsi2) *w_trig_Jpsi12)) * *%s ", CUTpre);
+      sprintf(CUT,"1 *%s ", CUTpre);
+      //sprintf(CUT,"(1./((w_acc_Jpsi1*w_acc_Jpsi2) * (w_reco_Jpsi1*w_reco_Jpsi2) * (w_eff_Jpsi1*w_eff_Jpsi2) *w_trig_Jpsi12)) * *%s ", CUTpre);
       GetHisto(CUT, Tree, data_x ,plotX,bin[i],Min[i],Max[i]);
       GetHisto(CUT, Tree, data_y ,plotY,bin[j],Min[j],Max[j]);
       GetHisto(CUT, Tree, data ,plotX,bin[i],Min[i],Max[i]);
@@ -177,6 +177,7 @@ void RooFit2D_data_Jpsi(){
       xframe_data->SetTitle(""); 
       xframe_data->GetXaxis()->SetTitle(axis[k]); 
       xframe_data->GetYaxis()->SetTitle("Events/(0.01 GeV)"); 
+      xframe_data->GetYaxis()->SetTitleOffset(1.30);
       xframe_data->Draw();
       } 
 
@@ -190,6 +191,7 @@ void RooFit2D_data_Jpsi(){
       yframe_data->SetTitle(""); 
       yframe_data->GetXaxis()->SetTitle(axis[k]); 
       yframe_data->GetYaxis()->SetTitle("Events/(0.01 GeV)"); 
+      yframe_data->GetYaxis()->SetTitleOffset(1.30);
       yframe_data->Draw();
     }
     

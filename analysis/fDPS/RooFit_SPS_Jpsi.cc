@@ -69,9 +69,9 @@ void RooFit_SPS_Jpsi(const char *WhichJpsi, const char *CutCategory, float min_c
       if(CutCategory_.find("JpsiPair_mass")!=string::npos) {sprintf(MassCUT,"(JpsiPair_mass>%f && JpsiPair_mass<%f)",min,max);}
       if(CutCategory_.find("JpsiPair_DeltaEta")!=string::npos) {sprintf(DeltaEtaCUT,"(JpsiPair_DeltaEta>%f && JpsiPair_DeltaEta<%f)",min,max);}
       //sprintf(CUT,"1* %s", CUTpre);
-      //sprintf(CUT,"(1./((w_acc_Jpsi1*w_acc_Jpsi2) * (w_reco_Jpsi1*w_reco_Jpsi2) * (w_eff_Jpsi1*w_eff_Jpsi2) *w_trig_Jpsi12)) *%s*%s ", CUTpre, MassCUT);
+      sprintf(CUT,"(1./((w_acc_Jpsi1*w_acc_Jpsi2) * (w_reco_Jpsi1*w_reco_Jpsi2) * (w_eff_Jpsi1*w_eff_Jpsi2) *w_trig_Jpsi12)) *%s*%s*%s ", CUTpre, MassCUT, DeltaEtaCUT);
 
-      sprintf(CUT,"1. *%s*%s*%s", CUTpre, MassCUT, DeltaEtaCUT);
+      //sprintf(CUT,"1. *%s*%s*%s", CUTpre, MassCUT, DeltaEtaCUT);
       GetHisto(CUT, Tree, SPS ,plot,bin[i],Min[i],Max[i]);
 
       cout<<SPS->Integral()<<endl;; 
@@ -93,6 +93,7 @@ void RooFit_SPS_Jpsi(const char *WhichJpsi, const char *CutCategory, float min_c
       frame_SPS->SetTitle(""); 
       frame_SPS->GetXaxis()->SetTitle(axis[i]); 
       frame_SPS->GetYaxis()->SetTitle("Events/(0.01 GeV)"); 
+      frame_SPS->GetYaxis()->SetTitleOffset(1.30);
       frame_SPS->Draw();
 
       Double_t data_num = SPS->Integral();

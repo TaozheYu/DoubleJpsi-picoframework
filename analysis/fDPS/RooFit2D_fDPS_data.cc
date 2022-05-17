@@ -82,7 +82,7 @@ void RooFit2D_fDPS_data(const char *CutCategory, float min_cut, float max_cut){
   RooChebychev comb_y("comb_y","comb_y",y,RooArgList(a0,a1));
 
   //construct composite pdf
-  RooRealVar gfrac1("gfrac1","",0.6,0.5,0.85);
+  RooRealVar gfrac1("gfrac1","",0.7,0.5,0.9);
   RooRealVar gfrac2("gfrac2","",0.2,0.1,0.3);
   
   RooAddPdf model_x("model_x","model_x",RooArgList(DCB_x,comb_x),RooArgList(gfrac1));
@@ -160,10 +160,11 @@ void RooFit2D_fDPS_data(const char *CutCategory, float min_cut, float max_cut){
   RooPlot* yframe_data = y.frame();
 
   //2D fit
-  model_total1.fitTo(roohist_data_2D,SumW2Error(kTRUE));
+  model_total1.fitTo(roohist_data_2D,SumW2Error(kTRUE));//,SumW2Error(kTRUE)
   Double_t frac1 = gfrac1.getVal();
   Double_t frac1_err = gfrac1.getError(); 
   Double_t frac2 = 1-frac1; 
+
 
   Double_t frac1_squ = frac1*frac1;
   Double_t frac12_mul = frac1*(1-frac1);  
@@ -184,6 +185,7 @@ void RooFit2D_fDPS_data(const char *CutCategory, float min_cut, float max_cut){
       xframe_data->SetTitle(""); 
       xframe_data->GetXaxis()->SetTitle(axis[k]); 
       xframe_data->GetYaxis()->SetTitle("Events/(0.01 GeV)"); 
+      xframe_data->GetYaxis()->SetTitleOffset(1.30);
       xframe_data->Draw();
       } 
 
@@ -197,6 +199,7 @@ void RooFit2D_fDPS_data(const char *CutCategory, float min_cut, float max_cut){
       yframe_data->SetTitle(""); 
       yframe_data->GetXaxis()->SetTitle(axis[k]); 
       yframe_data->GetYaxis()->SetTitle("Events/(0.01 GeV)"); 
+      yframe_data->GetYaxis()->SetTitleOffset(1.30);
       yframe_data->Draw();
     }
     
@@ -204,6 +207,7 @@ void RooFit2D_fDPS_data(const char *CutCategory, float min_cut, float max_cut){
       Double_t data_num = data_2D->Integral();
       CalculateCS("data",frac1, frac1_err, data_num); 
     }
+    cout<<"the fit frac1 is "<<frac1<<"+-"<<frac1_err<<endl;
     //TH2D* model2D = model_xy.createHistogram("model2D",x,YVar(y));
     //model2D->Draw(); 
 

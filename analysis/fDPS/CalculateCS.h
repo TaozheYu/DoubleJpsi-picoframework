@@ -13,25 +13,30 @@ void CalculateCS(const char* sampletype, float Frac1, float Frac1_err, float Dat
    Double_t frac1 = Frac1;//0.750;
    Double_t frac1_err = Frac1_err;//0.002;
 
-   Double_t frac2 = Frac1;//0.765;
+   Double_t frac2 = 1-Frac1;//0.765;
    Double_t frac2_err = Frac1_err;//0.005;
-       
-   Double_t frac12 = frac1*frac2;
-   Double_t frac12_err = sqrt(frac1*frac1*frac2_err*frac2_err + frac2*frac2*frac1_err*frac1_err);
- 
-   float N_corr; 
-   float N_corr_err; 
+      
+   Double_t frac1_sq = frac1*frac1;
+   Double_t frac1_sq_err = sqrt(frac1*frac1*frac1_err*frac1_err + frac1*frac1*frac1_err*frac1_err);
    
-   if(Sampletype.find("data")!=string::npos){  
-     N_corr = frac12*data_num;
-     N_corr_err = frac12_err*data_num;                                                
-   } else{
-     N_corr =data_num;
-     N_corr_err = sqrt(data_num);
-   }
-                                   
-   cout<<"double Jpsi events is "<<N_corr<<endl;
-   cout<<"double Jpsi events error is "<<N_corr_err<<endl;
+   Double_t frac2_sq = frac2*frac2;
+   Double_t frac2_sq_err = sqrt(frac2*frac2*frac2_err*frac2_err + frac2*frac2*frac2_err*frac2_err);
+   
+   Double_t frac12 = 2*frac1*frac2;
+   Double_t frac12_err = sqrt(frac2*frac2*frac1_err*frac1_err + frac1*frac1*frac2_err*frac2_err);
+       
+   cout<<"Double Jpsi fraction is "<<frac1_sq<<" +- "<<frac1_sq_err<<endl;
+   cout<<"Double Jpsi events is "<<frac1_sq*data_num<<" +- "<<frac1_sq_err*data_num<<endl;
+   cout<<endl;
+   cout<<"Jpsi + comb. fraction is "<<frac12<<" +- "<<frac12_err<<endl;
+   cout<<"Jpsi + comb. events is "<<frac12*data_num<<" +- "<<frac12_err*data_num<<endl;
+   cout<<endl;
+   cout<<"comb. + comb. fraction is "<<frac2_sq<<" +- "<<frac2_sq_err<<endl;
+   cout<<"comb. + comb. events is "<<frac2_sq*data_num<<" +- "<<frac2_sq_err*data_num<<endl;
+   cout<<endl;
+
+   float N_corr = frac1_sq*data_num;
+   float N_corr_err = frac1_sq_err*data_num;
 
  
    float Lumi = 36.3;

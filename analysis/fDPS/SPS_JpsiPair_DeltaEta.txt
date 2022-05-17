@@ -414,8 +414,15 @@ RooRealIntegral::DCB_Int[x][ Int DCBd[Ana](x) ]
         5  0.01786  -0.002 -0.003 -0.013  0.000  1.000 -0.000
         6  0.00084   0.000 -0.000  0.000 -0.001 -0.000  1.000
 [#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
-double Jpsi events is 16
-double Jpsi events error is 4
+Double Jpsi fraction is 1 +- 0
+Double Jpsi events is 16 +- 0
+
+Jpsi + comb. fraction is 0 +- 0
+Jpsi + comb. events is 0 +- 0
+
+comb. + comb. fraction is 0 +- 0
+comb. + comb. events is 0 +- 0
+
 the Jpsi pair production cross section is 0.000125344
-the Jpsi pair production cross section error is 3.13873e-05
+the Jpsi pair production cross section error is 1.79356e-06
 Finished Jpsi1_mass

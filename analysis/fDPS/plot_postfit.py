@@ -16,13 +16,14 @@ ROOT.gStyle.SetPaintTextFormat(".2f")
 
 c1 = ROOT.TCanvas("c1","c1",0,0,900,600)
 
-f = ROOT.TFile.Open("fitDiagnosticsTest.root","READ")
-f1 = ROOT.TFile.Open("cross_section_JpsiPair_mass.root","READ")
+#f = ROOT.TFile.Open("fitDiagnosticsTest.root","READ")
+#f1 = ROOT.TFile.Open("cross_section_JpsiPair_mass.root","READ")
 
 from argparse import ArgumentParser
 parser = ArgumentParser()
 parser.add_argument('-c', '--cutcategory', dest='cutcategory', action='store', type=str, default='JpsiPair_mass')
 
+args = parser.parse_args()
 cutcategory = args.cutcategory
 
 if cutcategory=='JpsiPair_mass':
@@ -32,11 +33,17 @@ elif cutcategory=='JpsiPair_DeltaEta':
 else:
    raise ValueError('"cutcategory" must be"JpsiPair_mass" or "JpsiPair_DetaEta" ')
 
+
+plotname = 'CS_'+cutcategory 
+
+f = ROOT.TFile.Open("fitDiagnostics_"+cutcategory+".root","READ")
+f1 = ROOT.TFile.Open("cross_section_"+cutcategory+".root","READ")
+
 #DPS = ROOT.TH1F("","",5,5,30)
-DPS = ROOT.TH1F("","",len(bins),bin[0],bins[len(bins)-1])
-SPS = ROOT.TH1F("","",len(bins),bin[0],bins[len(bins)-1])
-total = ROOT.TH1F("","",len(bins),bin[0],bins[len(bins)-1])
-data = ROOT.TH1F("","",len(bins),bin[0],bins[len(bins)-1])
+DPS = ROOT.TH1F("","",len(bins)-1,bins[0],bins[len(bins)-1])
+SPS = ROOT.TH1F("","",len(bins)-1,bins[0],bins[len(bins)-1])
+total = ROOT.TH1F("","",len(bins)-1,bins[0],bins[len(bins)-1])
+data = ROOT.TH1F("","",len(bins)-1,bins[0],bins[len(bins)-1])
 
 
 DPS_pre = f.Get("shapes_fit_s/cat0/DPS")
@@ -44,6 +51,21 @@ SPS_pre = f.Get("shapes_fit_s/cat0/SPS")
 total_pre = f.Get("shapes_fit_s/cat0/total")
 data_pre = f1.Get("data_obs")
 
+rTree = f.Get("tree_fit_sb")
+for entry in rTree:
+  r = entry.r
+  r_err = entry.rErr
+
+def CalculateFrac(DPS_pre, SPS_pre, r, r_err):
+  DPS_cs=DPS_pre.Integral()
+  SPS_cs=SPS_pre.Integral()
+  fDPS = DPS_cs/(DPS_cs+SPS_cs)
+  fSPS = SPS_cs/(DPS_cs+SPS_cs)
+  fSPS_err = (r+r_err)/r * fSPS
+  fDPS_err = fSPS_err
+  print "fDPS is %f +- %f" % (fDPS, fSPS)
+
+CalculateFrac(DPS_pre, SPS_pre, r, r_err)
 for i in range(data_pre.GetNbinsX()):
  DPS.SetBinContent(i+1,DPS_pre.GetBinContent(i+1))
  DPS.SetBinError(i+1,DPS_pre.GetBinError(i+1))
@@ -78,14 +100,19 @@ data.SetMarkerStyle(20)
 data.SetMarkerSize(1.3)
 
 DPS.GetYaxis().SetTitle("cross section per bin(pb)")
-DPS.GetXaxis().SetTitle("m_{JpsiJpsi} [GeV]")
-DPS.SetMaximum(500)
+if cutcategory=='JpsiPair_mass':  DPS.GetXaxis().SetTitle("m_{JpsiJpsi} [GeV]")
+elif cutcategory=='JpsiPair_DeltaEta': DPS.GetXaxis().SetTitle("|Delta(Jpsi1,Jpsi2)|")
+
+if cutcategory=='JpsiPair_mass':
+  DPS.SetMaximum(500)
+elif cutcategory=='JpsiPair_DeltaEta':
+  DPS.SetMaximum(800)
 DPS.SetMinimum(0)
 
 DPS.Draw("HIST")
 SPS.Draw("HIST same")
 total.Draw("HIST same")
-data_pre.Draw("same epx0e0")
+data_pre.Draw("E same")
 
 pad = ROOT.TPad("pad","pad",0.01,0.01,0.99,0.99)
 ROOT.gPad.RedrawAxis()
@@ -142,5 +169,5 @@ pl2.SetBorderSize(0)
 pl2.Draw()
 
 print 'Finish'
-c1.SaveAs("c1.pdf")
-
+c1.SaveAs(plotname+".pdf")
+del pad

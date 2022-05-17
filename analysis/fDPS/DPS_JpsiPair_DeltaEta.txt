@@ -154,8 +154,15 @@ Processing /afs/cern.ch/work/t/tayu/CMSSW_10_2_9_DoubleJpci/src/PicoFramework/an
         5  0.85144   0.055 -0.076 -0.815  0.034  1.000 -0.004
         6  0.83528  -0.156  0.062 -0.016 -0.760 -0.004  1.000
 [#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
-double Jpsi events is 2048
-double Jpsi events error is 45.2548
+Double Jpsi fraction is 1 +- 0
+Double Jpsi events is 2048 +- 0
+
+Jpsi + comb. fraction is 0 +- 0
+Jpsi + comb. events is 0 +- 0
+
+comb. + comb. fraction is 0 +- 0
+comb. + comb. events is 0 +- 0
+
 the Jpsi pair production cross section is 0.016044
-the Jpsi pair production cross section error is 0.000422367
+the Jpsi pair production cross section error is 0.000229575
 Finished Jpsi1_mass

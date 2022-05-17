@@ -153,8 +153,8 @@ def main():
      #os.system("condor_submit %s.cfg" % (fileName))
     #Prepare and submit 1 task per dataset
     prepareSubDataset(year,processName)
-    os.system("condor_submit %s.cfg" % (processName))
-    if "data" in dataType: os.system("condor_submit %s.cfg" % (processName)) #TRY: submitting 2 times to increase the chances to have 100% success of the jobs (need to make sure no conflicts are created with same produced files)
+    #os.system("condor_submit %s.cfg" % (processName))
+    #if "data" in dataType: os.system("condor_submit %s.cfg" % (processName)) #TRY: submitting 2 times to increase the chances to have 100% success of the jobs (need to make sure no conflicts are created with same produced files)
    #Check/Merge
    else:
     if not os.path.exists(outputPathMergedFiles): os.makedirs(outputPathMergedFiles)
