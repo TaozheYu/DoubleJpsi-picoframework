@@ -1,0 +1,458 @@
+   ------------------------------------------------------------
+  | Welcome to ROOT 6.12/07                http://root.cern.ch |
+  |                               (c) 1995-2017, The ROOT Team |
+  | Built for linuxx8664gcc                                    |
+  | From tag , 9 February 2018                                 |
+  | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q' |
+   ------------------------------------------------------------
+
+
+Processing RooFit3D_data_Jpsi.cc...
+1410
+1410
+1377
+1377
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(roohist_data): fit range of variable x expanded to nearest bin boundaries: [2.8,3.4] --> [2.8,3.4]
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(roohist_data): fit range of variable y expanded to nearest bin boundaries: [2.8,3.4] --> [2.8,3.4]
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(roohist_data): fit range of variable z expanded to nearest bin boundaries: [0,5] --> [0,5]
+[#1] INFO:Eval -- RooRealVar::setRange(z) new range named 'refrange_fft_ConvPdf_SPS' created with bounds [0,5]
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(SPS_Int[z]) using numeric integrator RooIntegrator1D to calculate Int(z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc36cad0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0
+[#1] INFO:Eval -- RooRealVar::setRange(z) new range named 'refrange_fft_ConvPdf_BBbar' created with bounds [0,5]
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(BBbar_Int[z]) using numeric integrator RooIntegrator1D to calculate Int(z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc3b9f20 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc38cba0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc417dd0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc230e20 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc239950 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc266a50 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc255890 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc300510 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (x,y,z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe856a10 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (x,y,z) with code 1 from preexisting content.
+[#1] INFO:Minization --  The following expressions have been identified as constant and will be precalculated and cached: (ConvPdf_SPS,ConvPdf_BBbar)
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (DCB_x,comb_x,DCB_y,comb_y)
+ **********
+ **    1 **SET PRINT           1
+ **********
+ **********
+ **    2 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 Jpsi_width   3.00000e-02  2.00000e-03    2.00000e-02  4.00000e-02
+     2 a0          -3.65000e-01  9.99000e-02   -1.00000e+00 -1.00000e-03
+     3 a1          -7.34000e-02  2.00000e-01   -1.00000e+00  1.00000e+00
+     4 alpha_1      1.00000e+00  5.00000e-01    0.00000e+00  1.00000e+01
+     5 alpha_2      1.00000e+00  5.00000e-01    0.00000e+00  1.00000e+01
+     6 gfrac1       6.00000e-01  3.50000e-02    5.00000e-01  8.50000e-01
+     7 gfrac2       5.00000e-01  6.50000e-02    2.00000e-01  8.50000e-01
+     8 n_1          2.40000e+01  7.00000e+00    0.00000e+00  7.00000e+01
+     9 n_2          1.00000e+01  5.00000e+00    0.00000e+00  7.00000e+01
+ **********
+ **    3 **SET ERR         0.5
+ **********
+ **********
+ **    4 **SET PRINT           1
+ **********
+ **********
+ **    5 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **    6 **MIGRAD        4500           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=-1560.26 FROM MIGRAD    STATUS=INITIATE       32 CALLS          33 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Jpsi_width   3.00000e-02   2.00000e-03   2.01358e-01   8.82100e+01
+   2  a0          -3.65000e-01   9.99000e-02   2.09700e-01  -2.98562e+01
+   3  a1          -7.34000e-02   2.00000e-01   2.01933e-01   5.95206e+01
+   4  alpha_1      1.00000e+00   5.00000e-01   1.72186e-01  -2.80133e+02
+   5  alpha_2      1.00000e+00   5.00000e-01   1.72186e-01  -3.45543e+02
+   6  gfrac1       6.00000e-01   3.50000e-02   2.24553e-01  -1.30769e+02
+   7  gfrac2       5.00000e-01   6.50000e-02   2.01990e-01  -2.50848e+01
+   8  n_1          2.40000e+01   7.00000e+00   2.12819e-01  -7.20250e+00
+   9  n_2          1.00000e+01   5.00000e+00   2.10726e-01  -3.18629e+01
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ EIGENVALUES OF SECOND-DERIVATIVE MATRIX:
+        -3.9133e-02  1.5772e-01  2.6113e-01  5.5381e-01  9.9696e-01  1.0000e+00  1.3833e+00  1.8680e+00  2.8182e+00
+ MINUIT WARNING IN HESSE   
+ ============== MATRIX FORCED POS-DEF BY ADDING 0.041952 TO DIAGONAL.
+ FCN=-1652.79 FROM HESSE     STATUS=NOT POSDEF     77 CALLS         658 TOTAL
+                     EDM=0.0243846    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Jpsi_width   2.99752e-02   1.46901e-03   2.22026e-03   1.02107e-02
+   2  a0          -3.06071e-03   6.74090e-01   4.55099e-02  -1.30397e-02
+   3  a1          -9.07971e-02   2.33135e-01   2.10240e-03  -9.27378e-03
+   4  alpha_1      1.30064e+00   1.67465e-01   5.29409e-04  -1.92701e-01
+   5  alpha_2      1.27954e+00   2.94168e-01   8.38268e-04   3.98395e-03
+   6  gfrac1       7.22287e-01   1.08669e-01   1.98061e-03  -8.25258e-03
+   7  gfrac2       7.25910e-01   5.20647e-02   5.88796e-03  -6.42005e-03
+   8  n_1          3.94880e+00   1.12983e+01   1.67808e-03  -7.23626e-02
+   9  n_2          6.99748e+01   5.95530e+01   1.24646e-01   1.93340e-03
+                               ERR DEF= 0.5
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (-1365.21) to force MIGRAD to back out of this region. Error log follows
+Parameter values: Jpsi_width=0.030155, a0=-0.999883, a1=-0.137604, alpha_1=1.27138, alpha_2=1.33361, gfrac1=0.696164, gfrac2=0.725979, n_1=7.12014, n_2=69.999
+RooChebychev::comb_x[ x=x coefList=(a0,a1) ]
+     p.d.f value is less than zero (-0.010207), forcing value to zero @ x=x=3.375, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.010207), forcing value to zero @ x=x=3.375, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.010207), forcing value to zero @ x=x=3.375, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.010207), forcing value to zero @ x=x=3.375, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.060660), forcing value to zero @ x=x=3.385, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.060660), forcing value to zero @ x=x=3.385, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.060660), forcing value to zero @ x=x=3.385, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.060660), forcing value to zero @ x=x=3.385, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.060660), forcing value to zero @ x=x=3.385, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.111725), forcing value to zero @ x=x=3.395, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.111725), forcing value to zero @ x=x=3.395, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.111725), forcing value to zero @ x=x=3.395, coefList=(a0 = -0.999883,a1 = -0.137604)
+    ... (remaining 2 messages suppressed)
+RooChebychev::comb_y[ x=y coefList=(a0,a1) ]
+     p.d.f value is less than zero (-0.111725), forcing value to zero @ x=y=3.395, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.060660), forcing value to zero @ x=y=3.385, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.060660), forcing value to zero @ x=y=3.385, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.060660), forcing value to zero @ x=y=3.385, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.010207), forcing value to zero @ x=y=3.375, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.010207), forcing value to zero @ x=y=3.375, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.060660), forcing value to zero @ x=y=3.385, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.111725), forcing value to zero @ x=y=3.395, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.111725), forcing value to zero @ x=y=3.395, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.010207), forcing value to zero @ x=y=3.375, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.111725), forcing value to zero @ x=y=3.395, coefList=(a0 = -0.999883,a1 = -0.137604)
+     p.d.f value is less than zero (-0.111725), forcing value to zero @ x=y=3.395, coefList=(a0 = -0.999883,a1 = -0.137604)
+    ... (remaining 11 messages suppressed)
+
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-1652.79 FROM MIGRAD    STATUS=CONVERGED     810 CALLS         811 TOTAL
+                     EDM=6.83076e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Jpsi_width   2.99847e-02   1.41665e-03   2.22015e-03   7.74660e-04
+   2  a0          -6.52706e-03   7.19767e-01   2.34149e-02  -4.91891e-04
+   3  a1          -9.21409e-02   1.23542e-01   2.09878e-03   4.20759e-03
+   4  alpha_1      1.29976e+00   1.16192e-01   5.31683e-04  -1.98988e-02
+   5  alpha_2      1.28188e+00   2.17474e-01   8.43331e-04  -7.70007e-04
+   6  gfrac1       7.21577e-01   3.57902e-02   1.97820e-03   6.05426e-03
+   7  gfrac2       7.25995e-01   5.31357e-02   5.88467e-03   1.17556e-03
+   8  n_1          4.02540e+00   3.45465e+00   1.72473e-03  -3.04833e-02
+   9  n_2          6.99996e+01   5.73638e+01   1.24446e-01  -2.35158e-04
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  9    ERR DEF=0.5
+  2.020e-06  3.726e-05 -2.771e-05  1.677e-05  2.243e-04 -1.495e-05 -6.153e-14  1.804e-03  6.475e-06 
+  3.726e-05  1.428e-02 -6.470e-03 -3.988e-03  1.007e-02 -3.104e-03 -6.838e-12  3.281e-01  3.451e-07 
+ -2.771e-05 -6.470e-03  1.534e-02 -9.361e-04 -1.476e-02  3.358e-03  5.294e-12 -1.928e-01  3.736e-04 
+  1.677e-05 -3.988e-03 -9.361e-04  1.351e-02  1.684e-03  6.167e-04 -1.542e-12 -2.273e-01  8.253e-05 
+  2.243e-04  1.007e-02 -1.476e-02  1.684e-03  4.736e-02 -5.268e-03 -1.399e-11  4.117e-01  1.845e-03 
+ -1.495e-05 -3.104e-03  3.358e-03  6.167e-04 -5.268e-03  1.301e-03  2.429e-12 -9.986e-02  1.099e-04 
+ -6.153e-14 -6.838e-12  5.294e-12 -1.542e-12 -1.399e-11  2.429e-12  2.865e-03 -1.799e-10 -2.385e-13 
+  1.804e-03  3.281e-01 -1.928e-01 -2.273e-01  4.117e-01 -9.986e-02 -1.799e-10  1.212e+01 -2.152e-03 
+  6.475e-06  3.451e-07  3.736e-04  8.253e-05  1.845e-03  1.099e-04 -2.385e-13 -2.152e-03  5.117e-01 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9
+        1  0.83098   1.000  0.219 -0.157  0.102  0.725 -0.292 -0.000  0.365  0.006
+        2  0.83570   0.219  1.000 -0.437 -0.287  0.387 -0.720 -0.000  0.789  0.000
+        3  0.79930  -0.157 -0.437  1.000 -0.065 -0.548  0.752  0.000 -0.447  0.004
+        4  0.83646   0.102 -0.287 -0.065  1.000  0.067  0.147 -0.000 -0.562  0.001
+        5  0.88710   0.725  0.387 -0.548  0.067  1.000 -0.671 -0.000  0.543  0.012
+        6  0.94414  -0.292 -0.720  0.752  0.147 -0.671  1.000  0.000 -0.795  0.004
+        7  0.00000  -0.000 -0.000  0.000 -0.000 -0.000  0.000  1.000 -0.000 -0.000
+        8  0.95765   0.365  0.789 -0.447 -0.562  0.543 -0.795 -0.000  1.000 -0.001
+        9  0.02567   0.006  0.000  0.004  0.001  0.012  0.004 -0.000 -0.001  1.000
+ **********
+ **    7 **SET ERR         0.5
+ **********
+ **********
+ **    8 **SET PRINT           1
+ **********
+ **********
+ **    9 **HESSE        4500
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-1652.79 FROM HESSE     STATUS=OK             73 CALLS         884 TOTAL
+                     EDM=5.88358e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  Jpsi_width   2.99847e-02   1.41160e-03   8.88059e-05  -1.53176e-03
+   2  a0          -6.52706e-03   6.83415e-01   9.36595e-04   1.71970e+00
+   3  a1          -9.21409e-02   1.20115e-01   4.19756e-04  -9.22718e-02
+   4  alpha_1      1.29976e+00   1.18153e-01   2.12673e-05  -8.33141e-01
+   5  alpha_2      1.28188e+00   2.14213e-01   3.37332e-05  -8.38474e-01
+   6  gfrac1       7.21577e-01   3.35319e-02   3.95641e-04   2.69401e-01
+   7  gfrac2       7.25995e-01   5.31355e-02   2.35387e-04   6.66763e-01
+   8  n_1          4.02540e+00   3.26472e+00   6.89893e-05  -1.08647e+00
+   9  n_2          6.99996e+01   5.72706e+01   2.48893e-02   1.56618e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  9    ERR DEF=0.5
+  2.006e-06  3.063e-05 -2.363e-05  1.555e-05  2.197e-04 -1.336e-05  2.150e-11  1.677e-03  8.965e-07 
+  3.063e-05  1.178e-02 -4.994e-03 -3.664e-03  8.103e-03 -2.448e-03  4.514e-09  2.653e-01  2.142e-07 
+ -2.363e-05 -4.994e-03  1.450e-02 -1.131e-03 -1.361e-02  2.986e-03 -3.592e-09 -1.570e-01  4.925e-05 
+  1.555e-05 -3.664e-03 -1.131e-03  1.397e-02  1.607e-03  5.712e-04 -8.240e-10 -2.293e-01  1.225e-05 
+  2.197e-04  8.103e-03 -1.361e-02  1.607e-03  4.595e-02 -4.790e-03  7.233e-09  3.698e-01  2.550e-04 
+ -1.336e-05 -2.448e-03  2.986e-03  5.712e-04 -4.790e-03  1.140e-03 -1.518e-09 -8.487e-02  1.452e-05 
+  2.150e-11  4.514e-09 -3.592e-09 -8.240e-10  7.233e-09 -1.518e-09  2.865e-03  1.356e-07  1.394e-09 
+  1.677e-03  2.653e-01 -1.570e-01 -2.293e-01  3.698e-01 -8.487e-02  1.356e-07  1.080e+01 -2.783e-04 
+  8.965e-07  2.142e-07  4.925e-05  1.225e-05  2.550e-04  1.452e-05  1.394e-09 -2.783e-04  5.130e-01 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9
+        1  0.82964   1.000  0.199 -0.139  0.093  0.724 -0.279  0.000  0.360  0.001
+        2  0.79507   0.199  1.000 -0.382 -0.286  0.348 -0.668  0.000  0.744  0.000
+        3  0.78605  -0.139 -0.382  1.000 -0.080 -0.527  0.735 -0.000 -0.397  0.001
+        4  0.84235   0.093 -0.286 -0.080  1.000  0.063  0.143 -0.000 -0.590  0.000
+        5  0.88340   0.724  0.348 -0.527  0.063  1.000 -0.662  0.000  0.525  0.002
+        6  0.93597  -0.279 -0.668  0.735  0.143 -0.662  1.000 -0.000 -0.765  0.001
+        7  0.00000   0.000  0.000 -0.000 -0.000  0.000 -0.000  1.000  0.000  0.000
+        8  0.95237   0.360  0.744 -0.397 -0.590  0.525 -0.765  0.000  1.000 -0.000
+        9  0.00350   0.001  0.000  0.001  0.000  0.002  0.001  0.000 -0.000  1.000
+[#1] INFO:Fitting -- RooAbsPdf::fitTo(model_total1) Calculating sum-of-weights-squared correction matrix for covariance matrix
+ **********
+ **   10 **SET ERR         0.5
+ **********
+ **********
+ **   11 **SET PRINT           1
+ **********
+ **********
+ **   12 **HESSE        4500
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-1652.79 FROM HESSE     STATUS=OK             73 CALLS         957 TOTAL
+                     EDM=5.84998e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  Jpsi_width   2.99847e-02   1.41120e-03   1.77612e-05  -1.53176e-03
+   2  a0          -6.52706e-03   6.82197e-01   1.87319e-04   1.71970e+00
+   3  a1          -9.21409e-02   1.19958e-01   8.39513e-05  -9.22718e-02
+   4  alpha_1      1.29976e+00   1.18224e-01   4.25346e-06  -8.33141e-01
+   5  alpha_2      1.28188e+00   2.14014e-01   6.74665e-06  -8.38474e-01
+   6  gfrac1       7.21577e-01   3.34414e-02   7.91281e-05   2.69401e-01
+   7  gfrac2       7.25995e-01   5.31354e-02   4.70773e-05   6.66763e-01
+   8  n_1          4.02540e+00   3.25779e+00   1.37979e-05  -1.08647e+00
+   9  n_2          6.99996e+01   5.72664e+01   4.97785e-03   1.56618e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  9    ERR DEF=0.5
+  2.005e-06  3.037e-05 -2.343e-05  1.552e-05  2.194e-04 -1.329e-05 -5.728e-10  1.671e-03 -2.391e-07 
+  3.037e-05  1.169e-02 -4.940e-03 -3.653e-03  8.027e-03 -2.425e-03 -2.625e-09  2.632e-01  2.227e-08 
+ -2.343e-05 -4.940e-03  1.446e-02 -1.140e-03 -1.355e-02  2.971e-03  4.461e-09 -1.556e-01 -1.352e-05 
+  1.552e-05 -3.653e-03 -1.140e-03  1.398e-02  1.607e-03  5.692e-04 -7.783e-09 -2.294e-01 -3.017e-06 
+  2.194e-04  8.027e-03 -1.355e-02  1.607e-03  4.586e-02 -4.768e-03 -5.635e-08  3.679e-01 -6.872e-05 
+ -1.329e-05 -2.425e-03  2.971e-03  5.692e-04 -4.768e-03  1.133e-03  1.379e-09 -8.431e-02 -3.996e-06 
+ -5.728e-10 -2.625e-09  4.461e-09 -7.783e-09 -5.635e-08  1.379e-09  2.865e-03 -2.684e-07  8.038e-11 
+  1.671e-03  2.632e-01 -1.556e-01 -2.294e-01  3.679e-01 -8.431e-02 -2.684e-07  1.076e+01  7.704e-05 
+ -2.391e-07  2.227e-08 -1.352e-05 -3.017e-06 -6.872e-05 -3.996e-06  8.038e-11  7.704e-05  5.131e-01 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8      9
+        1  0.82953   1.000  0.198 -0.138  0.093  0.723 -0.279 -0.000  0.360 -0.000
+        2  0.79346   0.198  1.000 -0.380 -0.286  0.347 -0.666 -0.000  0.742  0.000
+        3  0.78541  -0.138 -0.380  1.000 -0.080 -0.526  0.734  0.000 -0.394 -0.000
+        4  0.84256   0.093 -0.286 -0.080  1.000  0.063  0.143 -0.000 -0.592 -0.000
+        5  0.88317   0.723  0.347 -0.526  0.063  1.000 -0.661 -0.000  0.524 -0.000
+        6  0.93561  -0.279 -0.666  0.734  0.143 -0.661  1.000  0.000 -0.764 -0.000
+        7  0.00001  -0.000 -0.000  0.000 -0.000 -0.000  0.000  1.000 -0.000  0.000
+        8  0.95215   0.360  0.742 -0.394 -0.592  0.524 -0.764 -0.000  1.000  0.000
+        9  0.00095  -0.000  0.000 -0.000 -0.000 -0.000 -0.000  0.000  0.000  1.000
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on x integrates over variables (y,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc431910 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc26c610 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc247e10 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc24ef60 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_signal_prompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_x,DCB_y,ConvPdf_SPS,SPS,Stepx,Gauss_SPS)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on x integrates over variables (y,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc21e0b0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe92abe0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc24bd40 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe906860 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_signal_nonprompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_x,DCB_y,Stepx,ConvPdf_BBbar,BBbar,Gauss_BBbar)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on x integrates over variables (y,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc255210 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc2fdc60 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc1c64d0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe9067a0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg1_prompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_x,ConvPdf_SPS,SPS,Stepx,Gauss_SPS,comb_y)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on x integrates over variables (y,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc24cfb0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc1c5f60 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe8e5b10 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc435ed0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg1_nonprompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_x,Stepx,ConvPdf_BBbar,BBbar,Gauss_BBbar,comb_y)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on x integrates over variables (y,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc251970 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe92b1c0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe930080 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc26d5f0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg2_prompt_nonprompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_y,ConvPdf_SPS,SPS,Stepx,Gauss_SPS,comb_x)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on x integrates over variables (y,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc24fec0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc244230 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc2f95a0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc433960 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg2_nonprompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_y,Stepx,ConvPdf_BBbar,BBbar,Gauss_BBbar,comb_x)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on x integrates over variables (y,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe8e28c0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc21f410 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc1c41e0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe9263f0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg3_prompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (ConvPdf_SPS,SPS,Stepx,Gauss_SPS,comb_y,comb_x)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on x integrates over variables (y,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc432c00 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc1c3c70 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe929140 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe91d6e0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg3_nonprompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (Stepx,ConvPdf_BBbar,BBbar,Gauss_BBbar,comb_y,comb_x)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on x integrates over variables (y,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc251570 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe930060 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc436550 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe926420 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+Finished fourMuFit_ups1_mass
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on y integrates over variables (x,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe9109c0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe9348c0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe9b0fb0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe994670 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_signal_prompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_x,DCB_y,ConvPdf_SPS,SPS,Stepx,Gauss_SPS)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on y integrates over variables (x,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe90d680 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe9b0b80 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe9ec970 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc2ea920 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_signal_nonprompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_x,DCB_y,Stepx,ConvPdf_BBbar,BBbar,Gauss_BBbar)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on y integrates over variables (x,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe9d6fc0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe93c000 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc2ebb20 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc2f2770 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg1_prompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_x,ConvPdf_SPS,SPS,Stepx,Gauss_SPS,comb_y)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on y integrates over variables (x,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe9d6d20 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe90aa70 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe93a230 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc2f2de0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg1_nonprompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_x,Stepx,ConvPdf_BBbar,BBbar,Gauss_BBbar,comb_y)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on y integrates over variables (x,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc24b100 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe9ec4b0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe9f1300 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe934fa0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg2_prompt_nonprompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_y,ConvPdf_SPS,SPS,Stepx,Gauss_SPS,comb_x)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on y integrates over variables (x,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe90fae0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe9ec5f0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe902350 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc2ee730 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg2_nonprompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_y,Stepx,ConvPdf_BBbar,BBbar,Gauss_BBbar,comb_x)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on y integrates over variables (x,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc2f0a90 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe9ec440 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe938a10 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc219a90 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg3_prompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (ConvPdf_SPS,SPS,Stepx,Gauss_SPS,comb_y,comb_x)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on y integrates over variables (x,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe90c120 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe9f4770 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe9eb8f0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc2fd200 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg3_nonprompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (Stepx,ConvPdf_BBbar,BBbar,Gauss_BBbar,comb_y,comb_x)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on y integrates over variables (x,z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc26cd10 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe9b0df0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc2eb620 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe9ee2f0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+Double Jpsi fraction is 0.520673 +- 0.0345423
+Double Jpsi events is 716.967 +- 47.5648
+
+Jpsi + comb. fraction is 0.401807 +- 0.0261803
+Jpsi + comb. events is 553.289 +- 36.0503
+
+comb. + comb. fraction is 0.0775194 +- 0.0133283
+comb. + comb. events is 106.744 +- 18.353
+
+The Jpsi pair production is 0.00561673 +- 0.000381192 nb
+Finished fourMuFit_ups2_mass
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on z integrates over variables (x,y)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe93ccb0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc4362e0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe906220 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe934a20 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_signal_prompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_x,DCB_y,ConvPdf_SPS,SPS,Stepx,Gauss_SPS)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on z integrates over variables (x,y)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe92e8e0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe9715a0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe927010 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc24ad50 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_signal_nonprompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_x,DCB_y,Stepx,ConvPdf_BBbar,BBbar,Gauss_BBbar)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on z integrates over variables (x,y)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc2f41d0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe92af00 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe9665d0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe96ab90 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg1_prompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_x,ConvPdf_SPS,SPS,Stepx,Gauss_SPS,comb_y)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on z integrates over variables (x,y)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc2f5770 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc230db0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc26b520 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe905f50 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg1_nonprompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_x,Stepx,ConvPdf_BBbar,BBbar,Gauss_BBbar,comb_y)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on z integrates over variables (x,y)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe9ecad0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc2f3530 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe904530 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xea055f0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg2_prompt_nonprompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_y,ConvPdf_SPS,SPS,Stepx,Gauss_SPS,comb_x)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on z integrates over variables (x,y)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe939ec0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc441a50 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe90f500 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe96a7e0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg2_nonprompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_y,Stepx,ConvPdf_BBbar,BBbar,Gauss_BBbar,comb_x)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on z integrates over variables (x,y)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe9327e0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe93a1e0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe9670f0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe9059f0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg3_prompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (ConvPdf_SPS,SPS,Stepx,Gauss_SPS,comb_y,comb_x)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on z integrates over variables (x,y)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe948d70 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xc2299f0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xe90a900 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc2edc90 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg3_nonprompt)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (Stepx,ConvPdf_BBbar,BBbar,Gauss_BBbar,comb_y,comb_x)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on z integrates over variables (x,y)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xe9d7220 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xd5ff310 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc2f0100 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset () with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc1c2f50 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[z] for nset (z) with code 1 from preexisting content.
+Finished abs(fourMuFit_ups1_LxyPVSig_MC)

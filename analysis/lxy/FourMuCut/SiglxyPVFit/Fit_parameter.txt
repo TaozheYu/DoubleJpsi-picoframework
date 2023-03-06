@@ -1,0 +1,259 @@
+   ------------------------------------------------------------
+  | Welcome to ROOT 6.12/07                http://root.cern.ch |
+  |                               (c) 1995-2017, The ROOT Team |
+  | Built for linuxx8664gcc                                    |
+  | From tag , 9 February 2018                                 |
+  | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q' |
+   ------------------------------------------------------------
+
+
+Processing RooFit_prompt_and_nonprompt_SiglxyPV.cc...
+81807
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(roohist_SPS): fit range of variable x expanded to nearest bin boundaries: [0,5] --> [0,5]
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(roohist_BBbar): fit range of variable x expanded to nearest bin boundaries: [0,5] --> [0,5]
+[#1] INFO:Eval -- RooRealVar::setRange(x) new range named 'refrange_fft_ConvPdf_SPS' created with bounds [0,5]
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(SPS_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xa34bcf0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[x] for nset (x) with code 0
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+[#1] INFO:Minization --  The following expressions have been identified as constant and will be precalculated and cached: (Stepx)
+ **********
+ **    1 **SET PRINT           1
+ **********
+ **********
+ **    2 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 SPS_Mean     5.00000e-01  1.00000e-01    0.00000e+00  1.00000e+00
+     2 SPS_Sigma    1.00000e+00  3.00000e-01    0.00000e+00  3.00000e+00
+     3 SPS_Tau     -3.00000e+00  9.00000e-01   -1.00000e+01 -1.00000e+00
+ **********
+ **    3 **SET ERR         0.5
+ **********
+ **********
+ **    4 **SET PRINT           1
+ **********
+ **********
+ **    5 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **    6 **MIGRAD        1500           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=86962.3 FROM MIGRAD    STATUS=INITIATE       12 CALLS          13 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  SPS_Mean     5.00000e-01   1.00000e-01   2.01358e-01   1.23535e+03
+   2  SPS_Sigma    1.00000e+00   3.00000e-01   2.14402e-01   4.86636e+04
+   3  SPS_Tau     -3.00000e+00   9.00000e-01   2.46497e-01   4.87860e+03
+                               ERR DEF= 0.5
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (88479) to force MIGRAD to back out of this region. Error log follows
+Parameter values: SPS_Mean=0.460218, SPS_Sigma=0.00561628, SPS_Tau=-3.85679
+RooNLLVar::nll_ConvPdf_SPS_roohist_SPS[ paramSet=(SPS_Mean,SPS_Sigma,SPS_Tau,x_HigherLimit,x_LowerLimit,x_StepValue) ]
+     function value is NAN @ paramSet=(SPS_Mean = 0.460218,SPS_Sigma = 0.00561628,SPS_Tau = -3.85679,x_HigherLimit = 1e+06,x_LowerLimit = 0,x_StepValue = 1)
+RooFFTConvPdf::ConvPdf_SPS[ SPS(x) (*) Gauss_SPS(x) ]
+     getLogVal() top-level p.d.f evaluates to zero @ !x=x=0.225, !xprime=NULL, !pdf1=SPS=0.419884, !pdf2=Gauss_SPS=0, !params=(SPS_Tau = -3.85679,x_HigherLimit = 1e+06,x_LowerLimit = 0,x_StepValue = 1,SPS_Mean = 0.460218,SPS_Sigma = 0.00561628), !cacheObs=()
+     getLogVal() top-level p.d.f evaluates to zero @ !x=x=0.275, !xprime=NULL, !pdf1=SPS=0.346242, !pdf2=Gauss_SPS=6.75341e-237, !params=(SPS_Tau = -3.85679,x_HigherLimit = 1e+06,x_LowerLimit = 0,x_StepValue = 1,SPS_Mean = 0.460218,SPS_Sigma = 0.00561628), !cacheObs=()
+     getLogVal() top-level p.d.f evaluates to zero @ !x=x=0.375, !xprime=NULL, !pdf1=SPS=0.235441, !pdf2=Gauss_SPS=1.01217e-50, !params=(SPS_Tau = -3.85679,x_HigherLimit = 1e+06,x_LowerLimit = 0,x_StepValue = 1,SPS_Mean = 0.460218,SPS_Sigma = 0.00561628), !cacheObs=()
+
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=72541.6 FROM MIGRAD    STATUS=CONVERGED     118 CALLS         119 TOTAL
+                     EDM=1.57781e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  SPS_Mean     1.68084e-01   2.57202e-03   1.07500e-03   3.89590e-02
+   2  SPS_Sigma    2.24101e-01   5.69672e-03   1.00596e-03   6.70034e-02
+   3  SPS_Tau     -1.31200e+00   7.54024e-03   5.58575e-04   1.12632e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  3    ERR DEF=0.5
+  6.615e-06  2.531e-06 -9.797e-06 
+  2.531e-06  3.245e-05 -2.749e-05 
+ -9.797e-06 -2.749e-05  5.686e-05 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.54180   1.000  0.173 -0.505
+        2  0.66320   0.173  1.000 -0.640
+        3  0.75495  -0.505 -0.640  1.000
+ **********
+ **    7 **SET ERR         0.5
+ **********
+ **********
+ **    8 **SET PRINT           1
+ **********
+ **********
+ **    9 **HESSE        1500
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=72541.6 FROM HESSE     STATUS=OK             16 CALLS         135 TOTAL
+                     EDM=1.57548e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  SPS_Mean     1.68084e-01   2.57157e-03   4.30001e-05  -7.25932e-01
+   2  SPS_Sigma    2.24101e-01   5.69407e-03   4.02383e-05  -1.01712e+00
+   3  SPS_Tau     -1.31200e+00   7.53571e-03   2.23430e-05   1.19623e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  3    ERR DEF=0.5
+  6.613e-06  2.512e-06 -9.780e-06 
+  2.512e-06  3.242e-05 -2.743e-05 
+ -9.780e-06 -2.743e-05  5.679e-05 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.54157   1.000  0.172 -0.505
+        2  0.66279   0.172  1.000 -0.639
+        3  0.75461  -0.505 -0.639  1.000
+[#1] INFO:Fitting -- RooAbsPdf::fitTo(ConvPdf_SPS) Calculating sum-of-weights-squared correction matrix for covariance matrix
+ **********
+ **   10 **SET ERR         0.5
+ **********
+ **********
+ **   11 **SET PRINT           1
+ **********
+ **********
+ **   12 **HESSE        1500
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=72541.6 FROM HESSE     STATUS=OK             16 CALLS         151 TOTAL
+                     EDM=1.57539e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  SPS_Mean     1.68084e-01   2.57153e-03   8.60002e-06  -7.25932e-01
+   2  SPS_Sigma    2.24101e-01   5.69395e-03   8.04767e-06  -1.01712e+00
+   3  SPS_Tau     -1.31200e+00   7.53547e-03   4.46860e-06   1.19623e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  3    ERR DEF=0.5
+  6.613e-06  2.511e-06 -9.779e-06 
+  2.511e-06  3.242e-05 -2.743e-05 
+ -9.779e-06 -2.743e-05  5.678e-05 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.54156   1.000  0.172 -0.505
+        2  0.66277   0.172  1.000 -0.639
+        3  0.75459  -0.505 -0.639  1.000
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(SPS_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS) creating new cache 0xa635c20 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[x] for nset (x) with code 0
+[#1] INFO:Eval -- RooRealVar::setRange(x) new range named 'refrange_fft_ConvPdf_BBbar' created with bounds [0,5]
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(BBbar_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xa390440 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[x] for nset (x) with code 0
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+[#1] INFO:Minization --  The following expressions have been identified as constant and will be precalculated and cached: (Stepx)
+ **********
+ **   13 **SET PRINT           1
+ **********
+ **********
+ **   14 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 BBbar_Mean   5.00000e-01  1.00000e-01    0.00000e+00  1.00000e+00
+     2 BBbar_Sigma   1.00000e+00  3.00000e-01    0.00000e+00  3.00000e+00
+     3 BBbar_Tau   -1.00000e+00  1.99900e-01   -2.00000e+00 -1.00000e-03
+ **********
+ **   15 **SET ERR         0.5
+ **********
+ **********
+ **   16 **SET PRINT           1
+ **********
+ **********
+ **   17 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **   18 **MIGRAD        1500           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=8674.92 FROM MIGRAD    STATUS=INITIATE       12 CALLS          13 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  BBbar_Mean   5.00000e-01   1.00000e-01   2.01358e-01  -2.68862e+02
+   2  BBbar_Sigma   1.00000e+00   3.00000e-01   2.14402e-01   1.12235e+03
+   3  BBbar_Tau   -1.00000e+00   1.99900e-01   2.01358e-01   1.03531e+02
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=8442.48 FROM MIGRAD    STATUS=CONVERGED      80 CALLS          81 TOTAL
+                     EDM=1.37731e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  BBbar_Mean   6.20277e-01   3.41425e-02   1.90015e-03  -2.04115e-02
+   2  BBbar_Sigma   6.07956e-01   3.24228e-02   8.48660e-04   8.24782e-02
+   3  BBbar_Tau   -9.34086e-01   4.50173e-02   1.10221e-03   1.71832e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  3    ERR DEF=0.5
+  1.168e-03  9.138e-04 -1.384e-03 
+  9.138e-04  1.051e-03 -1.255e-03 
+ -1.384e-03 -1.255e-03  2.028e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.90511   1.000  0.825 -0.899
+        2  0.86748   0.825  1.000 -0.859
+        3  0.92315  -0.899 -0.859  1.000
+ **********
+ **   19 **SET ERR         0.5
+ **********
+ **********
+ **   20 **SET PRINT           1
+ **********
+ **********
+ **   21 **HESSE        1500
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=8442.48 FROM HESSE     STATUS=OK             16 CALLS          97 TOTAL
+                     EDM=1.37697e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  BBbar_Mean   6.20277e-01   3.43052e-02   3.80031e-04   2.42936e-01
+   2  BBbar_Sigma   6.07956e-01   3.25709e-02   1.69732e-04  -6.36887e-01
+   3  BBbar_Tau   -9.34086e-01   4.52507e-02   2.20443e-04   6.64958e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  3    ERR DEF=0.5
+  1.179e-03  9.242e-04 -1.399e-03 
+  9.242e-04  1.061e-03 -1.269e-03 
+ -1.399e-03 -1.269e-03  2.049e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.90605   1.000  0.826 -0.900
+        2  0.86877   0.826  1.000 -0.861
+        3  0.92398  -0.900 -0.861  1.000
+[#1] INFO:Fitting -- RooAbsPdf::fitTo(ConvPdf_BBbar) Calculating sum-of-weights-squared correction matrix for covariance matrix
+ **********
+ **   22 **SET ERR         0.5
+ **********
+ **********
+ **   23 **SET PRINT           1
+ **********
+ **********
+ **   24 **HESSE        1500
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=8442.48 FROM HESSE     STATUS=OK             16 CALLS         113 TOTAL
+                     EDM=1.37695e-06    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  BBbar_Mean   6.20277e-01   3.43380e-02   7.60061e-05   2.42936e-01
+   2  BBbar_Sigma   6.07956e-01   3.26008e-02   3.39464e-05  -6.36887e-01
+   3  BBbar_Tau   -9.34086e-01   4.52977e-02   4.40885e-05   6.64958e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  3    ERR DEF=0.5
+  1.181e-03  9.262e-04 -1.403e-03 
+  9.262e-04  1.063e-03 -1.272e-03 
+ -1.403e-03 -1.272e-03  2.053e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3
+        1  0.90624   1.000  0.827 -0.901
+        2  0.86903   0.827  1.000 -0.861
+        3  0.92414  -0.901 -0.861  1.000
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+[#1] INFO:Plotting -- RooPlot::updateFitRangeNorm: New event count of 6242 will supercede previous event count of 81807 for normalization of PDF projections
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(BBbar_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xa2e3670 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[x] for nset (x) with code 0
+Finished fourMuFit_ups1_LxyPVSig_MC

@@ -1,0 +1,165 @@
+   ------------------------------------------------------------
+  | Welcome to ROOT 6.12/07                http://root.cern.ch |
+  |                               (c) 1995-2017, The ROOT Team |
+  | Built for linuxx8664gcc                                    |
+  | From tag , 9 February 2018                                 |
+  | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q' |
+   ------------------------------------------------------------
+
+
+Processing RooFit_Pseudo_data_ctau.cc...
+3547
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(roohist_Run2018A): fit range of variable x expanded to nearest bin boundaries: [-0.2,0.2] --> [-0.02,0.04]
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (gauss1,gauss2,BBbar_DCB)
+ **********
+ **    1 **SET PRINT           1
+ **********
+ **********
+ **    2 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 BBbar_n_1    1.00000e+01  4.50000e+00    1.00000e+00  5.00000e+02
+     2 BBbar_n_2    8.78860e+00  3.89430e+00    1.00000e+00  1.00000e+02
+     3 DPS_width1   1.74684e-03  8.73420e-04    0.00000e+00  1.00000e-02
+     4 DPS_width2   3.69649e-03  1.00000e-03    0.00000e+00  1.00000e-02
+     5 gfrac1       7.00000e-01  6.50000e-02    3.00000e-01  9.50000e-01
+     6 gfrac_gauss1   8.01000e-01  3.00000e-02    6.00000e-01  9.00000e-01
+ **********
+ **    3 **SET ERR         0.5
+ **********
+ **********
+ **    4 **SET PRINT           1
+ **********
+ **********
+ **    5 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **    6 **MIGRAD        3000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=-15521.4 FROM MIGRAD    STATUS=INITIATE       65 CALLS          66 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  BBbar_n_1    1.57855e+00   4.50000e+00   0.00000e+00  -4.39098e+01
+   2  BBbar_n_2    2.95708e+00   3.89430e+00  -2.86467e-01  -2.68315e+00
+   3  DPS_width1   1.74684e-03   8.73420e-04   0.00000e+00   1.14749e+02
+   4  DPS_width2   3.69649e-03   1.00000e-03   0.00000e+00  -5.59599e+01
+   5  gfrac1       7.00000e-01   6.50000e-02   0.00000e+00  -3.61716e+01
+   6  gfrac_gauss1   8.01000e-01   3.00000e-02   0.00000e+00   9.91821e+00
+                               ERR DEF= 0.5
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-15534.8 FROM MIGRAD    STATUS=CONVERGED     227 CALLS         228 TOTAL
+                     EDM=4.48367e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  BBbar_n_1    1.69021e+00   3.16947e-01   1.35502e-03  -1.45683e-02
+   2  BBbar_n_2    2.71635e+00   3.30004e-01   1.98777e-03  -1.09716e-01
+   3  DPS_width1   1.56408e-03   8.21487e-05   1.03730e-03   2.32028e-01
+   4  DPS_width2   4.00434e-03   3.62694e-04   2.98717e-03  -5.82906e-02
+   5  gfrac1       7.65143e-01   1.96695e-02   4.55772e-03   1.37967e-02
+   6  gfrac_gauss1   6.86878e-01   5.10905e-02   1.29255e-02  -1.19701e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  1.005e-01 -1.684e-02 -4.653e-06 -3.997e-05 -2.593e-04 -3.568e-03 
+ -1.684e-02  1.089e-01  2.676e-06  2.492e-05 -1.882e-03  3.713e-03 
+ -4.653e-06  2.676e-06  6.750e-09  2.117e-08  3.221e-07  3.546e-06 
+ -3.997e-05  2.492e-05  2.117e-08  1.318e-07  1.928e-06  1.567e-05 
+ -2.593e-04 -1.882e-03  3.221e-07  1.928e-06  3.875e-04  1.451e-05 
+ -3.568e-03  3.713e-03  3.546e-06  1.567e-05  1.451e-05  2.743e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.39143   1.000 -0.161 -0.179 -0.347 -0.042 -0.215
+        2  0.42604  -0.161  1.000  0.099  0.208 -0.290  0.215
+        3  0.84615  -0.179  0.099  1.000  0.710  0.199  0.824
+        4  0.88455  -0.347  0.208  0.710  1.000  0.270  0.824
+        5  0.61515  -0.042 -0.290  0.199  0.270  1.000  0.014
+        6  0.91987  -0.215  0.215  0.824  0.824  0.014  1.000
+ **********
+ **    7 **SET ERR         0.5
+ **********
+ **********
+ **    8 **SET PRINT           1
+ **********
+ **********
+ **    9 **HESSE        3000
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-15534.8 FROM HESSE     STATUS=OK             40 CALLS         268 TOTAL
+                     EDM=4.43716e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  BBbar_n_1    1.69021e+00   3.17453e-01   5.42009e-05  -1.64520e+00
+   2  BBbar_n_2    2.71635e+00   3.29878e-01   7.95109e-05  -1.30669e+00
+   3  DPS_width1   1.56408e-03   8.14799e-05   2.07460e-04  -7.57606e-01
+   4  DPS_width2   4.00434e-03   3.61271e-04   1.19487e-04  -2.00471e-01
+   5  gfrac1       7.65143e-01   1.97303e-02   9.11544e-04   4.45832e-01
+   6  gfrac_gauss1   6.86878e-01   5.05394e-02   5.17021e-04  -4.34344e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  1.008e-01 -1.663e-02 -4.680e-06 -4.043e-05 -3.068e-04 -3.580e-03 
+ -1.663e-02  1.088e-01  2.424e-06  2.385e-05 -1.896e-03  3.547e-03 
+ -4.680e-06  2.424e-06  6.640e-09  2.079e-08  3.424e-07  3.463e-06 
+ -4.043e-05  2.385e-05  2.079e-08  1.308e-07  2.030e-06  1.539e-05 
+ -3.068e-04 -1.896e-03  3.424e-07  2.030e-06  3.899e-04  2.869e-05 
+ -3.580e-03  3.547e-03  3.463e-06  1.539e-05  2.869e-05  2.681e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.39504   1.000 -0.159 -0.181 -0.352 -0.049 -0.218
+        2  0.42529  -0.159  1.000  0.090  0.200 -0.291  0.208
+        3  0.84338  -0.181  0.090  1.000  0.706  0.213  0.821
+        4  0.88358  -0.352  0.200  0.706  1.000  0.284  0.822
+        5  0.61826  -0.049 -0.291  0.213  0.284  1.000  0.028
+        6  0.91794  -0.218  0.208  0.821  0.822  0.028  1.000
+[#1] INFO:Fitting -- RooAbsPdf::fitTo(ctauModel) Calculating sum-of-weights-squared correction matrix for covariance matrix
+ **********
+ **   10 **SET ERR         0.5
+ **********
+ **********
+ **   11 **SET PRINT           1
+ **********
+ **********
+ **   12 **HESSE        3000
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-15534.8 FROM HESSE     STATUS=OK             40 CALLS         308 TOTAL
+                     EDM=4.43824e-05    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  BBbar_n_1    1.69021e+00   3.17494e-01   1.08402e-05  -1.64520e+00
+   2  BBbar_n_2    2.71635e+00   3.29892e-01   1.59022e-05  -1.30669e+00
+   3  DPS_width1   1.56408e-03   8.15767e-05   4.14920e-05  -7.57606e-01
+   4  DPS_width2   4.00434e-03   3.61618e-04   2.38973e-05  -2.00471e-01
+   5  gfrac1       7.65143e-01   1.97317e-02   1.82309e-04   4.45832e-01
+   6  gfrac_gauss1   6.86878e-01   5.05891e-02   1.03404e-04  -4.34344e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  1.008e-01 -1.664e-02 -4.699e-06 -4.051e-05 -3.087e-04 -3.591e-03 
+ -1.664e-02  1.089e-01  2.426e-06  2.386e-05 -1.896e-03  3.548e-03 
+ -4.699e-06  2.426e-06  6.656e-09  2.086e-08  3.441e-07  3.472e-06 
+ -4.051e-05  2.386e-05  2.086e-08  1.310e-07  2.036e-06  1.543e-05 
+ -3.087e-04 -1.896e-03  3.441e-07  2.036e-06  3.899e-04  2.985e-05 
+ -3.591e-03  3.548e-03  3.472e-06  1.543e-05  2.985e-05  2.687e-03 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.39531   1.000 -0.159 -0.181 -0.353 -0.049 -0.218
+        2  0.42538  -0.159  1.000  0.090  0.200 -0.291  0.207
+        3  0.84379  -0.181  0.090  1.000  0.706  0.214  0.821
+        4  0.88382  -0.353  0.200  0.706  1.000  0.285  0.822
+        5  0.61833  -0.049 -0.291  0.214  0.285  1.000  0.029
+        6  0.91812  -0.218  0.207  0.821  0.822  0.029  1.000
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(ctauModel) directly selected PDF components: (DPS_model)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(ctauModel) indirectly selected PDF components: (gauss1,gauss2)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(ctauModel) directly selected PDF components: (BBbar_DCB)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(ctauModel) indirectly selected PDF components: ()
+number of event is 3547
+DPS frac is 0.765143 +- 0.0197439
+DPS number is 2713.96 +- 70.0316
+Finished MuMuFit_ctauPV_noMC

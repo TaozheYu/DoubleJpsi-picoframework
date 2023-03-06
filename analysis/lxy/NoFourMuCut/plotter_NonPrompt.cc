@@ -29,25 +29,29 @@ void plotter_NonPrompt(){
   TCanvas* canvas = new TCanvas("canvas","canvas",0,0,900,600);
   canvas->SetLogy();
   TH1F *DPS; //= new TH1F("DPS",  "DPS",  30,2.8,3.4);
-  TH1F *BToJpsi; //= new TH1F("DPS",  "DPS",  30,2.8,3.4);
+  TH1F *SPS; //= new TH1F("DPS",  "DPS",  30,2.8,3.4);
   TH1F *BBbarToJpsi; //= new TH1F("DPS",  "DPS",  30,2.8,3.4);
 
 
   vector<TString> name;         vector<int> bin;   vector<float> Min;  vector<float> Max;  vector<TString> axis;
   //name.push_back("fourMuFit_lxyPV_noMC"); bin.push_back(150); Min.push_back(-0.03); Max.push_back(0.03); axis.push_back("fourMuFit_lxyPV_noMC");
   //name.push_back("fourMuFit_ctauPV_noMC"); bin.push_back(100); Min.push_back(-0.05); Max.push_back(0.05); axis.push_back("fourMuFit_ctauPV_noMC");
-  //name.push_back("MuMuFit_lxyPV_MC"); bin.push_back(100); Min.push_back(-1); Max.push_back(5); axis.push_back("L_{xy}(J/#psi) [cm]");
-  name.push_back("MuMuFit_ctauPV_MC"); bin.push_back(100); Min.push_back(-0.1); Max.push_back(0.5); axis.push_back("J/#psi c#tau [cm]");
+  //name.push_back("MuMuFit_lxyPV_MC"); bin.push_back(150); Min.push_back(-0.1); Max.push_back(0.15); axis.push_back("L_{xy}(J/#psi) [cm]");
+  //name.push_back("fourMuFit_ups1_cTau_noMC"); bin.push_back(200); Min.push_back(-0.02); Max.push_back(0.3); axis.push_back("J/#psi c#tau [cm]");
+  //name.push_back("fourMuFit_ups1_cTau_MC"); bin.push_back(200); Min.push_back(-0.02); Max.push_back(0.3); axis.push_back("J/#psi c#tau [cm]");
+  //name.push_back("fourMuFit_ups2_cTau_noMC"); bin.push_back(200); Min.push_back(-0.02); Max.push_back(0.3); axis.push_back("J/#psi c#tau [cm]");
+  //name.push_back("fourMuFit_ups1_LxyPVSig_noMC"); bin.push_back(100); Min.push_back(0); Max.push_back(5); axis.push_back("Significance of L_{xy}(J/#psi) [cm]");
+  name.push_back("fourMuFit_ups1_LxyPVSig_MC"); bin.push_back(500); Min.push_back(0); Max.push_back(50); axis.push_back("Significance of L_{xy}(J/#psi) [cm]");
+  //name.push_back("fourMuFit_DistanceSig_noMC"); bin.push_back(100); Min.push_back(0); Max.push_back(5); axis.push_back("d_{J/#psi}");
 
 
   for(int i=0; i<name.size(); i++){
     const char *plot = name[i];
     char CUT[1000];
     //sprintf(CUT,"(1./((w_acc_Jpsi1*w_acc_Jpsi2) * (w_reco_Jpsi1*w_reco_Jpsi2) * (w_eff_Jpsi1*w_eff_Jpsi2) *w_trig_Jpsi12))");
-    //sprintf(CUT,"(fourMuFit_VtxProb>0.01)");
     sprintf(CUT,"");
     GetHisto(CUT, Tree_DPS2018, DPS ,plot,bin[i],Min[i],Max[i]);
-    GetHisto(CUT, Tree_BToJpsi2018, BToJpsi ,plot,bin[i],Min[i],Max[i]);
+    GetHisto(CUT, Tree_SPS2018, SPS ,plot,bin[i],Min[i],Max[i]);
     GetHisto(CUT, Tree_BBbarToJpsi2018, BBbarToJpsi ,plot,bin[i],Min[i],Max[i]);
        
     cout<<DPS->Integral()<<endl;; 
@@ -56,29 +60,28 @@ void plotter_NonPrompt(){
       DPS->SetBinContent(j,DPS->GetBinContent(j));
       DPS->SetBinError(j,sqrt(DPS->GetBinContent(j)));
 
-      BToJpsi->SetBinContent(j,BToJpsi->GetBinContent(j));
-      BToJpsi->SetBinError(j,sqrt(BToJpsi->GetBinContent(j)));
+      SPS->SetBinContent(j,SPS->GetBinContent(j));
+      SPS->SetBinError(j,sqrt(SPS->GetBinContent(j)));
 
       BBbarToJpsi->SetBinContent(j,BBbarToJpsi->GetBinContent(j));
       BBbarToJpsi->SetBinError(j,sqrt(BBbarToJpsi->GetBinContent(j)));
 
     }
-    
+
     DPS->Scale(1/DPS->Integral());
-    BToJpsi->Scale(1/BToJpsi->Integral());
+    SPS->Scale(1/SPS->Integral());
     BBbarToJpsi->Scale(1/BBbarToJpsi->Integral());
     //TH1F *h_DCB; h_DCB = (TH1F*)DPS->Clone(); h_DCB->SetLineColor(kBlue);
-    DPS->SetLineColor(kBlue);   BToJpsi->SetLineColor(kGreen);   BBbarToJpsi->SetLineColor(kRed);
+    DPS->SetLineColor(kBlue); SPS->SetLineColor(kGreen); BBbarToJpsi->SetLineColor(kRed);
 
     DPS->SetTitle(""); 
     DPS->GetXaxis()->SetTitle(axis[i]); 
     DPS->GetYaxis()->SetTitle("Events"); 
     DPS->Draw("samehisto");
-    //DPS->SetMaximum(100000000);
-    DPS->SetMaximum(50);
+    DPS->SetMaximum(1);
     //hs->SetMinimum(3);
 
-    BToJpsi->Draw("samehisto");
+    SPS->Draw("samehisto");
     BBbarToJpsi->Draw("samehisto");
  
 
@@ -135,14 +138,13 @@ void plotter_NonPrompt(){
 
 
 
-
     TLegend *pl2 = new TLegend(0.55,0.70,0.88,0.87);
     pl2->SetTextSize(0.030);
     pl2->SetTextFont(62);
     pl2->SetFillColor(0);
     //TLegendEntry *ple2 = pl2->AddEntry(&roohist_DPS, "JpsiJpsi simulated events",  "PE");
     TLegendEntry *ple2 = pl2->AddEntry(DPS, "DPS",  "L");
-    pl2->AddEntry(BToJpsi, "b #rightarrow J/#psi", "L");
+    pl2->AddEntry(SPS, "SPS",  "L");
     pl2->AddEntry(BBbarToJpsi, "b#bar{b} #rightarrow J/#psi J/#psi", "L");
     pl2->SetBorderSize(0);
     pl2->Draw();

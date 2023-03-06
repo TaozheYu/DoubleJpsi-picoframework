@@ -1,0 +1,249 @@
+   ------------------------------------------------------------
+  | Welcome to ROOT 6.12/07                http://root.cern.ch |
+  |                               (c) 1995-2017, The ROOT Team |
+  | Built for linuxx8664gcc                                    |
+  | From tag , 9 February 2018                                 |
+  | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q' |
+   ------------------------------------------------------------
+
+
+Processing RooFit2D_data_Jpsi.cc...
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(roohist_data): fit range of variable x expanded to nearest bin boundaries: [2.8,3.4] --> [2.8,3.4]
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(roohist_data): fit range of variable y expanded to nearest bin boundaries: [2.8,3.4] --> [2.8,3.4]
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(roohist_data): fit range of variable x expanded to nearest bin boundaries: [2.8,3.4] --> [2.8,3.4]
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(roohist_data): fit range of variable y expanded to nearest bin boundaries: [2.8,3.4] --> [2.8,3.4]
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (DCB_x,comb_x,DCB_y,comb_y)
+ **********
+ **    1 **SET PRINT           1
+ **********
+ **********
+ **    2 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 Jpsi_width   3.00000e-02  2.00000e-03    2.00000e-02  4.00000e-02
+     2 a0          -3.65000e-01  9.99000e-02   -1.00000e+00 -1.00000e-03
+     3 a1          -7.34000e-02  2.00000e-01   -1.00000e+00  1.00000e+00
+     4 alpha_1      1.00000e+00  5.00000e-01    0.00000e+00  1.00000e+01
+     5 alpha_2      1.00000e+00  5.00000e-01    0.00000e+00  1.00000e+01
+     6 gfrac1       6.00000e-01  3.50000e-02    5.00000e-01  8.50000e-01
+     7 n_1          2.40000e+01  7.00000e+00    0.00000e+00  7.00000e+01
+     8 n_2          1.00000e+01  5.00000e+00    0.00000e+00  7.00000e+01
+ **********
+ **    3 **SET ERR         0.5
+ **********
+ **********
+ **    4 **SET PRINT           1
+ **********
+ **********
+ **    5 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **    6 **MIGRAD        4000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=-8242.29 FROM MIGRAD    STATUS=INITIATE       30 CALLS          31 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Jpsi_width   3.00000e-02   2.00000e-03   2.01358e-01   2.36089e+02
+   2  a0          -3.65000e-01   9.99000e-02   2.09700e-01  -7.44400e+01
+   3  a1          -7.34000e-02   2.00000e-01   2.01933e-01   1.10414e+02
+   4  alpha_1      1.00000e+00   5.00000e-01   1.72186e-01  -7.16530e+02
+   5  alpha_2      1.00000e+00   5.00000e-01   1.72186e-01  -9.23666e+02
+   6  gfrac1       6.00000e-01   3.50000e-02   2.24553e-01  -3.47721e+02
+   7  n_1          2.40000e+01   7.00000e+00   2.12819e-01  -1.87377e+01
+   8  n_2          1.00000e+01   5.00000e+00   2.10726e-01  -8.90479e+01
+                               ERR DEF= 0.5
+ MINUIT WARNING IN MIGRAD  
+ ============== Negative diagonal element 2 in Error Matrix
+ MINUIT WARNING IN MIGRAD  
+ ============== 1.02737 added to diagonal of error matrix
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ EIGENVALUES OF SECOND-DERIVATIVE MATRIX:
+        -3.7932e-02  1.3529e-01  2.2988e-01  4.7561e-01  9.6197e-01  1.4669e+00  1.9199e+00  2.8484e+00
+ MINUIT WARNING IN HESSE   
+ ============== MATRIX FORCED POS-DEF BY ADDING 0.040780 TO DIAGONAL.
+ FCN=-8466.3 FROM HESSE     STATUS=NOT POSDEF     75 CALLS         941 TOTAL
+                     EDM=0.00362364    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Jpsi_width   2.77276e-02   7.50252e-04   2.98320e-03   1.42655e-03
+   2  a0          -1.35630e-03   5.98866e-01   2.23024e-01  -1.26270e-02
+   3  a1           2.22735e-01   1.97774e-01   3.08762e-03   8.16658e-04
+   4  alpha_1      1.03572e+00   8.02845e-02   5.52596e-04   4.23874e-03
+   5  alpha_2      9.67848e-01   6.16943e-02   6.16899e-04  -1.50089e-02
+   6  gfrac1       7.74670e-01   6.48795e-02   2.97511e-03  -1.90559e-03
+   7  n_1          4.50877e+00   6.47652e+00   1.93751e-03   1.55344e-02
+   8  n_2          7.00000e+01   6.25850e+01   2.63952e-01  -8.45158e-05
+                               ERR DEF= 0.5
+ MIGRAD FAILS TO FIND IMPROVEMENT
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ EIGENVALUES OF SECOND-DERIVATIVE MATRIX:
+        -8.0516e-03  1.3623e-01  2.2968e-01  5.1501e-01  9.5203e-01  1.4639e+00  1.8869e+00  2.8244e+00
+ MINUIT WARNING IN HESSE   
+ ============== MATRIX FORCED POS-DEF BY ADDING 0.010876 TO DIAGONAL.
+ MIGRAD TERMINATED WITHOUT CONVERGENCE.
+ FCN=-8466.3 FROM MIGRAD    STATUS=FAILED       1084 CALLS        1085 TOTAL
+                     EDM=0.0147024    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Jpsi_width   2.77290e-02   7.95210e-04   2.98298e-03   4.10242e-03
+   2  a0          -3.34801e-03   5.50716e-01   5.83800e-02  -9.83392e-03
+   3  a1           2.21698e-01   2.23879e-01   3.08396e-03  -1.54363e-02
+   4  alpha_1      1.03524e+00   9.11079e-02   5.53055e-04  -7.36424e-01
+   5  alpha_2      9.68287e-01   7.99384e-02   6.17927e-04   5.34355e-01
+   6  gfrac1       7.74362e-01   6.75035e-02   2.97078e-03   1.60484e-02
+   7  n_1          4.53766e+00   6.51023e+00   1.95824e-03  -2.01581e-01
+   8  n_2          6.99970e+01   6.11766e+01   2.66288e-01   7.31532e-04
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  8    ERR DEF=0.5
+  6.338e-07  8.645e-05 -4.662e-05 -8.820e-06  3.771e-05 -1.682e-05  1.803e-03 -1.671e-05 
+  8.645e-05  1.160e-01 -7.180e-02 -2.573e-02  2.152e-02 -2.341e-02  2.242e+00 -2.694e-02 
+ -4.662e-05 -7.180e-02  5.103e-02  1.518e-02 -1.499e-02  1.541e-02 -1.401e+00  2.531e-02 
+ -8.820e-06 -2.573e-02  1.518e-02  8.303e-03 -4.068e-03  5.147e-03 -5.337e-01  5.761e-03 
+  3.771e-05  2.152e-02 -1.499e-02 -4.068e-03  6.392e-03 -4.702e-03  4.305e-01 -3.561e-04 
+ -1.682e-05 -2.341e-02  1.541e-02  5.147e-03 -4.702e-03  4.936e-03 -4.592e-01  7.449e-03 
+  1.803e-03  2.242e+00 -1.401e+00 -5.337e-01  4.305e-01 -4.592e-01  4.457e+01 -5.846e-01 
+ -1.671e-05 -2.694e-02  2.531e-02  5.761e-03 -3.561e-04  7.449e-03 -5.846e-01  3.770e+00 
+ERR MATRIX NOT POS-DEF
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8
+        1  0.82081   1.000  0.319 -0.259 -0.122  0.592 -0.301  0.339 -0.011
+        2  0.99120   0.319  1.000 -0.933 -0.829  0.790 -0.979  0.986 -0.041
+        3  0.97805  -0.259 -0.933  1.000  0.737 -0.830  0.971 -0.929  0.058
+        4  0.95719  -0.122 -0.829  0.737  1.000 -0.558  0.804 -0.877  0.033
+        5  0.93382   0.592  0.790 -0.830 -0.558  1.000 -0.837  0.807 -0.002
+        6  0.99544  -0.301 -0.979  0.971  0.804 -0.837  1.000 -0.979  0.055
+        7  0.99686   0.339  0.986 -0.929 -0.877  0.807 -0.979  1.000 -0.045
+        8  0.16689  -0.011 -0.041  0.058  0.033 -0.002  0.055 -0.045  1.000
+ ERR MATRIX NOT POS-DEF
+ **********
+ **    7 **SET ERR         0.5
+ **********
+ **********
+ **    8 **SET PRINT           1
+ **********
+ **********
+ **    9 **HESSE        4000
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-8466.3 FROM HESSE     STATUS=OK             67 CALLS        1152 TOTAL
+                     EDM=0.00252755    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  Jpsi_width   2.77290e-02   7.96477e-04   1.19319e-04  -2.29101e-01
+   2  a0          -3.34801e-03   7.51308e-01   5.00000e-01   1.66780e+00
+   3  a1           2.21698e-01   1.50095e-01   6.16791e-04   2.23556e-01
+   4  alpha_1      1.03524e+00   8.30055e-02   1.10611e-04  -9.15640e-01
+   5  alpha_2      9.68287e-01   6.40932e-02   1.23585e-04  -9.37942e-01
+   6  gfrac1       7.74362e-01   4.53940e-02   1.18831e-04   6.03812e-01
+   7  n_1          4.53766e+00   4.58901e+00   7.83298e-05  -1.05592e+00
+   8  n_2          6.99970e+01   6.05690e+01   1.06515e-02   1.58398e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  8    ERR DEF=0.5
+  6.358e-07  1.595e-05 -1.767e-05 -1.526e-06  3.089e-05 -8.005e-06  1.025e-03 -5.537e-08 
+  1.595e-05  6.611e-03 -1.017e-02 -5.152e-03  3.190e-03 -3.547e-03  3.652e-01 -3.002e-04 
+ -1.767e-05 -1.017e-02  2.271e-02  7.126e-03 -6.793e-03  6.469e-03 -5.776e-01  1.648e-03 
+ -1.526e-06 -5.152e-03  7.126e-03  6.892e-03 -1.748e-03  2.728e-03 -3.267e-01  2.341e-04 
+  3.089e-05  3.190e-03 -6.793e-03 -1.748e-03  4.109e-03 -2.118e-03  1.931e-01  4.307e-04 
+ -8.005e-06 -3.547e-03  6.469e-03  2.728e-03 -2.118e-03  2.133e-03 -2.037e-01  4.363e-04 
+  1.025e-03  3.652e-01 -5.776e-01 -3.267e-01  1.931e-01 -2.037e-01  2.158e+01 -2.586e-02 
+ -5.537e-08 -3.002e-04  1.648e-03  2.341e-04  4.307e-04  4.363e-04 -2.586e-02  3.841e+00 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8
+        1  0.81929   1.000  0.246 -0.147 -0.023  0.604 -0.217  0.277 -0.000
+        2  0.97821   0.246  1.000 -0.830 -0.763  0.612 -0.945  0.967 -0.002
+        3  0.94940  -0.147 -0.830  1.000  0.570 -0.703  0.930 -0.825  0.006
+        4  0.94761  -0.023 -0.763  0.570  1.000 -0.328  0.712 -0.847  0.001
+        5  0.89371   0.604  0.612 -0.703 -0.328  1.000 -0.715  0.648  0.003
+        6  0.98931  -0.217 -0.945  0.930  0.712 -0.715  1.000 -0.950  0.005
+        7  0.99344   0.277  0.967 -0.825 -0.847  0.648 -0.950  1.000 -0.003
+        8  0.02100  -0.000 -0.002  0.006  0.001  0.003  0.005 -0.003  1.000
+[#1] INFO:Fitting -- RooAbsPdf::fitTo(model_total1) Calculating sum-of-weights-squared correction matrix for covariance matrix
+ **********
+ **   10 **SET ERR         0.5
+ **********
+ **********
+ **   11 **SET PRINT           1
+ **********
+ **********
+ **   12 **HESSE        4000
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=-8466.3 FROM HESSE     STATUS=OK             67 CALLS        1219 TOTAL
+                     EDM=0.00258836    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  Jpsi_width   2.77290e-02   7.97015e-04   2.38639e-05  -2.29101e-01
+   2  a0          -3.34801e-03   7.56489e-01   5.00000e-01   1.66780e+00
+   3  a1           2.21698e-01   1.51102e-01   1.23358e-04   2.23556e-01
+   4  alpha_1      1.03524e+00   8.40827e-02   2.21222e-05  -9.15640e-01
+   5  alpha_2      9.68287e-01   6.43315e-02   2.47171e-05  -9.37942e-01
+   6  gfrac1       7.74362e-01   4.58682e-02   2.37663e-05   6.03812e-01
+   7  n_1          4.53766e+00   4.65101e+00   1.56660e-05  -1.05592e+00
+   8  n_2          6.99970e+01   6.05734e+01   2.13031e-03   1.58398e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  8    ERR DEF=0.5
+  6.367e-07  1.633e-05 -1.820e-05 -1.948e-06  3.106e-05 -8.209e-06  1.049e-03 -4.169e-09 
+  1.633e-05  6.775e-03 -1.040e-02 -5.326e-03  3.262e-03 -3.635e-03  3.751e-01 -2.130e-04 
+ -1.820e-05 -1.040e-02  2.302e-02  7.378e-03 -6.890e-03  6.589e-03 -5.915e-01  1.234e-03 
+ -1.948e-06 -5.326e-03  7.378e-03  7.072e-03 -1.828e-03  2.822e-03 -3.372e-01  1.669e-04 
+  3.106e-05  3.262e-03 -6.890e-03 -1.828e-03  4.139e-03 -2.156e-03  1.975e-01  3.428e-04 
+ -8.209e-06 -3.635e-03  6.589e-03  2.822e-03 -2.156e-03  2.179e-03 -2.090e-01  3.249e-04 
+  1.049e-03  3.751e-01 -5.915e-01 -3.372e-01  1.975e-01 -2.090e-01  2.218e+01 -1.887e-02 
+ -4.169e-09 -2.130e-04  1.234e-03  1.669e-04  3.428e-04  3.249e-04 -1.887e-02  3.841e+00 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6      7      8
+        1  0.81956   1.000  0.249 -0.150 -0.029  0.605 -0.220  0.279 -0.000
+        2  0.97874   0.249  1.000 -0.833 -0.770  0.616 -0.946  0.968 -0.001
+        3  0.95010  -0.150 -0.833  1.000  0.578 -0.706  0.930 -0.828  0.004
+        4  0.94898  -0.029 -0.770  0.578  1.000 -0.338  0.719 -0.852  0.001
+        5  0.89455   0.605  0.616 -0.706 -0.338  1.000 -0.718  0.652  0.003
+        6  0.98954  -0.220 -0.946  0.930  0.719 -0.718  1.000 -0.951  0.004
+        7  0.99362   0.279  0.968 -0.828 -0.852  0.652 -0.951  1.000 -0.002
+        8  0.01615  -0.000 -0.001  0.004  0.001  0.003  0.004 -0.002  1.000
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on x integrates over variables (y)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_x,DCB_y)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on x integrates over variables (y)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg1)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_x,comb_y)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on x integrates over variables (y)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg2)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_y,comb_x)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on x integrates over variables (y)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg3)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (comb_y,comb_x)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on x integrates over variables (y)
+Finished fourMuFit_ups1_mass
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on y integrates over variables (x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_signal)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_x,DCB_y)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on y integrates over variables (x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg1)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_x,comb_y)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on y integrates over variables (x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg2)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (DCB_y,comb_x)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on y integrates over variables (x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) directly selected PDF components: (model_bkg3)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_total2) indirectly selected PDF components: (comb_y,comb_x)
+[#1] INFO:Plotting -- RooAbsReal::plotOn(model_total2) plot on y integrates over variables (x)
+Double Jpsi fraction is 0.599637 +- 0.0500364
+Double Jpsi events is 2191.67 +- 182.883
+
+Jpsi + comb. fraction is 0.349451 +- 0.0368525
+Jpsi + comb. events is 1277.24 +- 134.696
+
+comb. + comb. fraction is 0.0509124 +- 0.0145799
+comb. + comb. events is 186.085 +- 53.2895
+
+The Jpsi pair production is 0.0171696 +- 0.00145362 nb
+Finished fourMuFit_ups2_mass

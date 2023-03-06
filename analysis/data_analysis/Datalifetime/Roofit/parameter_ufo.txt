@@ -1,0 +1,178 @@
+   ------------------------------------------------------------
+  | Welcome to ROOT 6.12/07                http://root.cern.ch |
+  |                               (c) 1995-2017, The ROOT Team |
+  | Built for linuxx8664gcc                                    |
+  | From tag , 9 February 2018                                 |
+  | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q' |
+   ------------------------------------------------------------
+
+
+Processing RooFit4D_data_Jpsi.cc...
+321
+321
+25
+Finished Jpsi1_LxyPVSig
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(roohist_data_mumu): fit range of variable z expanded to nearest bin boundaries: [0,5] --> [0,5]
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(roohist_data_Jpsi): fit range of variable z expanded to nearest bin boundaries: [0,5] --> [0,5]
+[#1] INFO:Eval -- RooRealVar::setRange(z) new range named 'refrange_fft_ConvPdf_SPS_z' created with bounds [0,5]
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(SPS_Int[z]) using numeric integrator RooIntegrator1D to calculate Int(z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS_z) creating new cache 0x90ff780 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 0
+[#1] INFO:Eval -- RooRealVar::setRange(z) new range named 'refrange_fft_ConvPdf_BBbar_z' created with bounds [0,5]
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(BBbar_z_Int[z]) using numeric integrator RooIntegrator1D to calculate Int(z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar_z) creating new cache 0x91e45a0 with pdf BBbar_z_CONV_Gauss_BBbar_z_CACHE_Obs[z] for nset (z) with code 0
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(SPS_Int[z]) using numeric integrator RooIntegrator1D to calculate Int(z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar_z) creating new cache 0x90a0820 with pdf BBbar_z_CONV_Gauss_BBbar_z_CACHE_Obs[z] for nset (z) with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS_z) creating new cache 0x9228510 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 0 from preexisting content.
+[#1] INFO:Minization --  The following expressions have been identified as constant and will be precalculated and cached: (SPS,ConvPdf_BBbar_z)
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (ConvPdf_SPS_z,Gauss_UFO)
+ **********
+ **    1 **SET PRINT           1
+ **********
+ **********
+ **    2 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 SPS_Mean     1.69000e-01  4.50000e-03    1.60000e-01  3.30000e-01
+     2 SPS_Sigma    2.22150e-01  5.00000e-02    0.00000e+00  5.00000e-01
+     3 UFO_Sigma    6.00000e-02  3.00000e-03    5.00000e-02  8.00000e-02
+     4 gfrac_nonprompt   2.00000e-01  2.90000e-02    5.00000e-02  3.40000e-01
+     5 gfrac_prompt   6.00000e-01  5.00000e-02    4.00000e-01  9.00000e-01
+ **********
+ **    3 **SET ERR         0.5
+ **********
+ **********
+ **    4 **SET PRINT           1
+ **********
+ **********
+ **    5 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **    6 **MIGRAD        2500           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=3104.87 FROM MIGRAD    STATUS=INITIATE       39 CALLS          40 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  SPS_Mean     2.18302e-01   4.50000e-03   7.86958e-01  -7.07477e-01
+   2  SPS_Sigma    2.22150e-01   5.00000e-02   0.00000e+00   5.30001e+01
+   3  UFO_Sigma    6.00000e-02   3.00000e-03   0.00000e+00  -3.93811e+01
+   4  gfrac_nonprompt   2.00000e-01   2.90000e-02   0.00000e+00  -2.33220e+02
+   5  gfrac_prompt   6.00000e-01   5.00000e-02   0.00000e+00  -4.32020e+02
+                               ERR DEF= 0.5
+[#0] WARNING:Eval -- RooAddPdf::updateCoefCache(model_SigLxyPV WARNING: sum of PDF coefficients not in range [0-1], value=1.22287[#0] WARNING:Eval -- 
+[#0] WARNING:Eval -- RooAddPdf::updateCoefCache(model_SigLxyPV WARNING: sum of PDF coefficients not in range [0-1], value=1.22287[#0] WARNING:Eval -- 
+[#0] WARNING:Eval -- RooAddPdf::updateCoefCache(model_SigLxyPV WARNING: sum of PDF coefficients not in range [0-1], value=1.22287[#0] WARNING:Eval -- 
+[#0] WARNING:Eval -- RooAddPdf::updateCoefCache(model_SigLxyPV WARNING: sum of PDF coefficients not in range [0-1], value=1.22287[#0] WARNING:Eval -- 
+[#0] WARNING:Eval -- RooAddPdf::updateCoefCache(model_SigLxyPV WARNING: sum of PDF coefficients not in range [0-1], value=1.22287[#0] WARNING:Eval -- 
+[#0] WARNING:Eval -- RooAddPdf::updateCoefCache(model_SigLxyPV WARNING: sum of PDF coefficients not in range [0-1], value=1.22287[#0] WARNING:Eval -- 
+[#0] WARNING:Eval -- RooAddPdf::updateCoefCache(model_SigLxyPV WARNING: sum of PDF coefficients not in range [0-1], value=1.22287[#0] WARNING:Eval -- 
+[#0] WARNING:Eval -- RooAddPdf::updateCoefCache(model_SigLxyPV WARNING: sum of PDF coefficients not in range [0-1], value=1.22287[#0] WARNING:Eval -- 
+[#0] WARNING:Eval -- RooAddPdf::updateCoefCache(model_SigLxyPV WARNING: sum of PDF coefficients not in range [0-1], value=1.22287[#0] WARNING:Eval -- 
+[#0] WARNING:Eval -- RooAddPdf::updateCoefCache(model_SigLxyPV WARNING: sum of PDF coefficients not in range [0-1], value=1.22287[#0] WARNING:Eval --  (no more will be printed)[#0] WARNING:Eval -- 
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (3115.76) to force MIGRAD to back out of this region. Error log follows
+Parameter values: SPS_Mean=0.220332, SPS_Sigma=0.399071, UFO_Sigma=0.0505587, gfrac_nonprompt=0.337861, gfrac_prompt=0.885009
+RooNLLVar::nll_model_SigLxyPV_roohist_data_Jpsi[ paramSet=(BBbar_Mean,BBbar_Sigma,BBbar_Tau,HigherLimit,LowerLimit,SPS_Mean,SPS_Sigma,SPS_Tau,StepValue,UFO_Mean,UFO_Sigma,gfrac_nonprompt,gfrac_prompt) ]
+     function value is NAN @ paramSet=(BBbar_Mean = 0.5374,BBbar_Sigma = 0.746,BBbar_Tau = -0.8418,HigherLimit = 10,LowerLimit = 0,SPS_Mean = 0.220332,SPS_Sigma = 0.399071,SPS_Tau = -1.133,StepValue = 1,UFO_Mean = 0.85,UFO_Sigma = 0.0505587,gfrac_nonprompt = 0.337861,gfrac_prompt = 0.885009)
+RooAddPdf::model_SigLxyPV[ gfrac_prompt * ConvPdf_SPS_z + gfrac_nonprompt * ConvPdf_BBbar_z + [%] * Gauss_UFO ]
+     p.d.f value is less than zero (-1.133961), forcing value to zero @ !refCoefNorm=(), !pdfs=(ConvPdf_SPS_z = 0.567943,ConvPdf_BBbar_z = 0.361076,Gauss_UFO = 1/0.126732), !coefficients=(gfrac_prompt = 0.885009,gfrac_nonprompt = 0.337861)
+     getLogVal() top-level p.d.f evaluates to zero @ !refCoefNorm=(), !pdfs=(ConvPdf_SPS_z = 0.567943,ConvPdf_BBbar_z = 0.361076,Gauss_UFO = 1/0.126732), !coefficients=(gfrac_prompt = 0.885009,gfrac_nonprompt = 0.337861)
+
+[#0] WARNING:Minization -- RooMinimizerFcn: Minimized function has error status.
+Returning maximum FCN so far (3115.76) to force MIGRAD to back out of this region. Error log follows
+Parameter values: SPS_Mean=0.292682, SPS_Sigma=1.35004e-06, UFO_Sigma=0.0675612, gfrac_nonprompt=0.24611, gfrac_prompt=0.687454
+RooHistPdf::SPS_CONV_Gauss_SPS_CACHE_Obs[z][ pdfObs=(z) ]
+     p.d.f normalization integral is zero or negative @ pdfObs=(z = 0.05)
+     p.d.f normalization integral is zero or negative @ pdfObs=(z = 0.15)
+     p.d.f normalization integral is zero or negative @ pdfObs=(z = 0.25)
+     p.d.f normalization integral is zero or negative @ pdfObs=(z = 0.35)
+     p.d.f normalization integral is zero or negative @ pdfObs=(z = 0.45)
+     p.d.f normalization integral is zero or negative @ pdfObs=(z = 0.55)
+     p.d.f normalization integral is zero or negative @ pdfObs=(z = 0.65)
+     p.d.f normalization integral is zero or negative @ pdfObs=(z = 0.75)
+     p.d.f normalization integral is zero or negative @ pdfObs=(z = 0.85)
+     p.d.f normalization integral is zero or negative @ pdfObs=(z = 0.95)
+     p.d.f normalization integral is zero or negative @ pdfObs=(z = 1.05)
+     p.d.f normalization integral is zero or negative @ pdfObs=(z = 1.15)
+    ... (remaining 39 messages suppressed)
+
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=2892.39 FROM MIGRAD    STATUS=CONVERGED     368 CALLS         369 TOTAL
+                     EDM=0.000109208    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  SPS_Mean     2.76916e-01   1.14504e-02   5.00008e-03   3.01401e-02
+   2  SPS_Sigma    1.90105e-01   1.80006e-02   2.55036e-03  -4.44731e-02
+   3  UFO_Sigma    5.00000e-02   1.87672e-02   3.91464e-02   2.32024e-03
+   4  gfrac_nonprompt   8.84506e-02   6.02352e-03   2.26883e-03  -2.22183e-02
+   5  gfrac_prompt   8.99999e-01   8.51034e-03   9.44095e-03   3.06385e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  5    ERR DEF=0.5
+  1.320e-04 -7.690e-05  7.159e-11  6.520e-06 -1.306e-08 
+ -7.690e-05  3.246e-04 -1.645e-10 -2.900e-06  2.226e-08 
+  7.159e-11 -1.645e-10  1.641e-09  6.943e-11  5.349e-14 
+  6.520e-06 -2.900e-06  6.943e-11  3.633e-05  5.546e-08 
+ -1.306e-08  2.226e-08  5.349e-14  5.546e-08  1.875e-08 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5
+        1  0.38100   1.000 -0.371  0.000  0.094 -0.008
+        2  0.37155  -0.371  1.000 -0.000 -0.027  0.009
+        3  0.00036   0.000 -0.000  1.000  0.000  0.000
+        4  0.11643   0.094 -0.027  0.000  1.000  0.067
+        5  0.06903  -0.008  0.009  0.000  0.067  1.000
+ **********
+ **    7 **SET ERR         0.5
+ **********
+ **********
+ **    8 **SET PRINT           1
+ **********
+ **********
+ **    9 **HESSE        2500
+ **********
+ COVARIANCE MATRIX CALCULATED SUCCESSFULLY
+ FCN=2892.39 FROM HESSE     STATUS=OK             31 CALLS         400 TOTAL
+                     EDM=0.00011021    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  SPS_Mean     2.76916e-01   1.14260e-02   1.00002e-03   3.84919e-01
+   2  SPS_Sigma    1.90105e-01   1.79628e-02   5.10072e-04  -2.89966e+00
+   3  UFO_Sigma    5.00000e-02   1.87625e-02   7.82928e-03  -1.56823e+00
+   4  gfrac_nonprompt   8.84506e-02   6.01226e-03   9.07531e-05  -8.25407e-01
+   5  gfrac_prompt   8.99999e-01   8.49694e-03   1.88819e-03   1.57289e+00
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  5    ERR DEF=0.5
+  1.315e-04 -7.556e-05  1.867e-11  6.492e-06 -5.812e-09 
+ -7.556e-05  3.233e-04 -4.705e-11 -2.858e-06  9.861e-09 
+  1.867e-11 -4.705e-11  1.639e-09  8.643e-12 -2.138e-15 
+  6.492e-06 -2.858e-06  8.643e-12  3.619e-05  2.461e-08 
+ -5.812e-09  9.861e-09 -2.138e-15  2.461e-08  1.872e-08 
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5
+        1  0.37615   1.000 -0.367  0.000  0.094 -0.004
+        2  0.36661  -0.367  1.000 -0.000 -0.026  0.004
+        3  0.00007   0.000 -0.000  1.000  0.000 -0.000
+        4  0.09922   0.094 -0.026  0.000  1.000  0.030
+        5  0.03071  -0.004  0.004 -0.000  0.030  1.000
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(SPS_Int[z]) using numeric integrator RooIntegrator1D to calculate Int(z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS_z) creating new cache 0x920bc50 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 0
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar_z) creating new cache 0x924e2f0 with pdf BBbar_z_CONV_Gauss_BBbar_z_CACHE_Obs[z] for nset (z) with code 0 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_SigLxyPV) directly selected PDF components: (ConvPdf_SPS_z)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_SigLxyPV) indirectly selected PDF components: (SPS,Step_z,Gauss_SPS)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS_z) creating new cache 0x9253d10 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar_z) creating new cache 0x9095080 with pdf BBbar_z_CONV_Gauss_BBbar_z_CACHE_Obs[z] for nset (z) with code 0 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_SigLxyPV) directly selected PDF components: (ConvPdf_BBbar_z)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_SigLxyPV) indirectly selected PDF components: (Step_z,BBbar_z,Gauss_BBbar_z)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS_z) creating new cache 0x9256f90 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar_z) creating new cache 0x91c0ba0 with pdf BBbar_z_CONV_Gauss_BBbar_z_CACHE_Obs[z] for nset (z) with code 0 from preexisting content.
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_SigLxyPV) directly selected PDF components: (Gauss_UFO)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_SigLxyPV) indirectly selected PDF components: ()
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_SPS_z) creating new cache 0x91e41b0 with pdf SPS_CONV_Gauss_SPS_CACHE_Obs[z] for nset (z) with code 0 from preexisting content.
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar_z) creating new cache 0x90da310 with pdf BBbar_z_CONV_Gauss_BBbar_z_CACHE_Obs[z] for nset (z) with code 0 from preexisting content.

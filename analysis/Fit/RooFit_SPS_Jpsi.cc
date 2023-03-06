@@ -30,11 +30,11 @@ void RooFit_SPS_Jpsi(){
   TH1F *SPS; //= new TH1F("SPS",  "SPS",  30,2.8,3.4);
   RooRealVar x("x", "x", 2.80, 3.40);
   x.setBins(1000,"cache");
-  RooRealVar PDGmZ("PDGmZ","PDGmZ",3.092);
-  RooRealVar PDGwZ("PDGwZ","PDGwZ",0.05,0.01,0.08);
-  RooBreitWigner PDGBW("PDGBW","PDGBW",x,PDGmZ,PDGwZ);
-  PDGmZ.setConstant(kTRUE);
-  PDGwZ.setConstant(kTRUE);
+  //RooRealVar PDGmZ("PDGmZ","PDGmZ",3.092);
+  //RooRealVar PDGwZ("PDGwZ","PDGwZ",0.05,0.01,0.08);
+  //RooBreitWigner PDGBW("PDGBW","PDGBW",x,PDGmZ,PDGwZ);
+  //PDGmZ.setConstant(kTRUE);
+  //PDGwZ.setConstant(kTRUE);
   RooRealVar Jpsi_mean("Jpsi_mean", "Jpsi mean", 3.092,2,4); 
   RooRealVar Jpsi_width("Jpsi_width", "Jpsi width",0.05,0,1);
   RooRealVar alpha_1("alpha_1", "",1,0,10);

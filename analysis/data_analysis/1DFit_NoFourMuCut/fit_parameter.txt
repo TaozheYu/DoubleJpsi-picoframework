@@ -1,0 +1,216 @@
+   ------------------------------------------------------------
+  | Welcome to ROOT 6.12/07                http://root.cern.ch |
+  |                               (c) 1995-2017, The ROOT Team |
+  | Built for linuxx8664gcc                                    |
+  | From tag , 9 February 2018                                 |
+  | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q' |
+   ------------------------------------------------------------
+
+
+Processing RooFit_data_ctau.cc...
+9489
+[#1] INFO:DataHandling -- RooDataHist::adjustBinning(roohist_Run2018A): fit range of variable x expanded to nearest bin boundaries: [-0.2,0.2] --> [-0.02,0.2]
+[#1] INFO:Eval -- RooRealVar::setRange(x) new range named 'refrange_fft_ConvPdf_BBbar' created with bounds [-0.2,0.2]
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(BBbar_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc4cf5b0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[x] for nset (x) with code 0
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(BBbar_CONV_Gauss_BBbar_CACHE_Obs[x]_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: activating const optimization
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc4761e0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[x] for nset (x) with code 0 from preexisting content.
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(BBbar_CONV_Gauss_BBbar_CACHE_Obs[x]_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Minization --  The following expressions have been identified as constant and will be precalculated and cached: (ConvPdf_BBbar)
+[#1] INFO:Minization --  The following expressions will be evaluated in cache-and-track mode: (DCB)
+ **********
+ **    1 **SET PRINT           1
+ **********
+ **********
+ **    2 **SET NOGRAD
+ **********
+ PARAMETER DEFINITIONS:
+    NO.   NAME         VALUE      STEP SIZE      LIMITS
+     1 SPS_alpha_1   1.20000e+00  1.30000e-01    7.00000e-01  2.00000e+00
+     2 SPS_alpha_2   1.20000e+00  1.30000e-01    7.00000e-01  2.00000e+00
+     3 SPS_n_1      5.80000e+00  8.00000e-01    2.00000e+00  1.00000e+01
+     4 SPS_n_2      4.20000e+00  2.00000e-01    3.00000e+00  5.00000e+00
+     5 SPS_width    1.70000e-03  1.00000e-04    1.50000e-03  2.50000e-03
+     6 gfrac1       5.00000e-01  6.50000e-02    2.00000e-01  8.50000e-01
+ **********
+ **    3 **SET ERR         0.5
+ **********
+ **********
+ **    4 **SET PRINT           1
+ **********
+ **********
+ **    5 **SET STR           1
+ **********
+ NOW USING STRATEGY  1: TRY TO BALANCE SPEED AGAINST RELIABILITY
+ **********
+ **    6 **MIGRAD        3000           1
+ **********
+ FIRST CALL TO USER FUNCTION AT NEW START POINT, WITH IFLAG=4.
+ START MIGRAD MINIMIZATION.  STRATEGY  1.  CONVERGENCE WHEN EDM .LT. 1.00e-03
+ FCN=-25201.4 FROM MIGRAD    STATUS=INITIATE       69 CALLS          70 TOTAL
+                     EDM= unknown      STRATEGY= 1      NO ERROR MATRIX       
+  EXT PARAMETER               CURRENT GUESS       STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  SPS_alpha_1   1.20000e+00   1.30000e-01   0.00000e+00   4.04624e+02
+   2  SPS_alpha_2   1.20000e+00   1.30000e-01   0.00000e+00   1.70818e+02
+   3  SPS_n_1      2.00002e+00   8.00000e-01   0.00000e+00   1.79829e+00
+   4  SPS_n_2      3.00031e+00   2.00000e-01  -1.74721e+00   5.02073e-01
+   5  SPS_width    1.70000e-03   1.00000e-04   0.00000e+00  -2.18207e+02
+   6  gfrac1       5.00000e-01   6.50000e-02   0.00000e+00   2.59303e+01
+                               ERR DEF= 0.5
+ MIGRAD FAILS TO FIND IMPROVEMENT
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ EIGENVALUES OF SECOND-DERIVATIVE MATRIX:
+        -5.9140e-01  1.1028e-01  1.9253e-01  4.0173e-01  2.3426e+00  3.5443e+00
+ MINUIT WARNING IN HESSE   
+ ============== MATRIX FORCED POS-DEF BY ADDING 0.594944 TO DIAGONAL.
+ FCN=-25444.9 FROM HESSE     STATUS=NOT POSDEF     50 CALLS         504 TOTAL
+                     EDM=0.0288457    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  SPS_alpha_1   9.20341e-01   2.33831e-02   4.52558e-03   7.20360e-03
+   2  SPS_alpha_2   8.09987e-01   1.14779e-01   6.86940e-03   4.00498e-03
+   3  SPS_n_1      2.73654e+00   1.77836e-01   7.64175e-03   9.39980e-03
+   4  SPS_n_2      3.00372e+00   1.00084e+00   5.00000e-01  -1.91351e-02
+   5  SPS_width    2.25883e-03   1.04391e-04   1.24972e-02  -1.07174e-03
+   6  gfrac1       5.71601e-01   5.89534e-02   2.23475e-03  -2.41010e-02
+                               ERR DEF= 0.5
+ MINUIT WARNING IN MIGRAD  
+ ============== Negative diagonal element 4 in Error Matrix
+ MINUIT WARNING IN MIGRAD  
+ ============== 6.25763 added to diagonal of error matrix
+ MIGRAD MINIMIZATION HAS CONVERGED.
+ MIGRAD WILL VERIFY CONVERGENCE AND ERROR MATRIX.
+ EIGENVALUES OF SECOND-DERIVATIVE MATRIX:
+        -1.0222e-01  1.1077e-01  2.2809e-01  4.3693e-01  2.3367e+00  2.9897e+00
+ MINUIT WARNING IN HESSE   
+ ============== MATRIX FORCED POS-DEF BY ADDING 0.105207 TO DIAGONAL.
+ MIGRAD TERMINATED WITHOUT CONVERGENCE.
+ FCN=-25445.8 FROM MIGRAD    STATUS=FAILED        882 CALLS         883 TOTAL
+                     EDM=0.11578    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE        STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  SPS_alpha_1   9.17882e-01   3.41934e-02   4.57419e-03  -3.42064e-02
+   2  SPS_alpha_2   7.59510e-01   1.68379e-01   9.17987e-03   1.05594e-01
+   3  SPS_n_1      2.76332e+00   2.88456e-01   7.69712e-03  -6.38858e-02
+   4  SPS_n_2      4.99375e+00   1.00280e+00   3.36068e-01   5.12007e-03
+   5  SPS_width    2.27370e-03   1.16108e-04   1.26421e-02   1.76372e-02
+   6  gfrac1       5.49815e-01   4.70181e-02   2.13407e-03   4.84464e-01
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  1.171e-03 -7.366e-04 -5.572e-03 -2.262e-02 -1.159e-06 -2.421e-04 
+ -7.366e-04  3.298e-02 -1.810e-02  7.556e-01  1.668e-05  8.249e-03 
+ -5.572e-03 -1.810e-02  8.363e-02 -4.436e-01 -1.445e-05 -4.852e-03 
+ -2.262e-02  7.556e-01 -4.436e-01  1.779e+01  4.134e-04  1.966e-01 
+ -1.159e-06  1.668e-05 -1.445e-05  4.134e-04  1.384e-08  4.520e-06 
+ -2.421e-04  8.249e-03 -4.852e-03  1.966e-01  4.520e-06  2.226e-03 
+ERR MATRIX NOT POS-DEF
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.82864   1.000 -0.119 -0.563 -0.157 -0.288 -0.150
+        2  0.99290  -0.119  1.000 -0.345  0.986  0.781  0.963
+        3  0.84141  -0.563 -0.345  1.000 -0.364 -0.425 -0.356
+        4  0.99787  -0.157  0.986 -0.364  1.000  0.833  0.988
+        5  0.92142  -0.288  0.781 -0.425  0.833  1.000  0.814
+        6  0.99196  -0.150  0.963 -0.356  0.988  0.814  1.000
+ ERR MATRIX NOT POS-DEF
+ **********
+ **    7 **SET ERR         0.5
+ **********
+ **********
+ **    8 **SET PRINT           1
+ **********
+ **********
+ **    9 **HESSE        3000
+ **********
+ EIGENVALUES OF SECOND-DERIVATIVE MATRIX:
+        -1.4301e-01  1.1355e-01  2.3746e-01  4.4088e-01  2.3281e+00  3.0230e+00
+ MINUIT WARNING IN HESSE   
+ ============== MATRIX FORCED POS-DEF BY ADDING 0.146029 TO DIAGONAL.
+ FCN=-25445.8 FROM HESSE     STATUS=NOT POSDEF     44 CALLS         927 TOTAL
+                     EDM=0.089849    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE     INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  SPS_alpha_1   9.17882e-01   3.20403e-02   1.82968e-04  -7.27222e-01
+   2  SPS_alpha_2   7.59510e-01   1.66506e-01   3.67195e-04  -1.13955e+00
+   3  SPS_n_1      2.76332e+00   2.67716e-01   1.53942e-03  -9.42737e-01
+   4  SPS_n_2      4.99375e+00   1.61977e+00   5.00000e-01   1.68270e+00
+   5  SPS_width    2.27370e-03   1.19377e-04   5.05685e-04   2.56233e+00
+   6  gfrac1       5.49815e-01   4.71870e-02   4.26815e-04   7.64267e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  1.028e-03 -1.242e-03 -4.161e-03 -2.668e-02 -1.376e-06 -3.680e-04 
+ -1.242e-03  3.212e-02 -1.743e-02  5.872e-01  1.775e-05  8.200e-03 
+ -4.161e-03 -1.743e-02  7.198e-02 -3.388e-01 -1.427e-05 -4.733e-03 
+ -2.668e-02  5.872e-01 -3.388e-01  1.101e+01  3.462e-04  1.553e-01 
+ -1.376e-06  1.775e-05 -1.427e-05  3.462e-04  1.466e-08  4.838e-06 
+ -3.680e-04  8.200e-03 -4.733e-03  1.553e-01  4.838e-06  2.243e-03 
+ERR MATRIX NOT POS-DEF
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.80979   1.000 -0.216 -0.484 -0.251 -0.354 -0.242
+        2  0.99297  -0.216  1.000 -0.362  0.988  0.818  0.966
+        3  0.82027  -0.484 -0.362  1.000 -0.381 -0.439 -0.373
+        4  0.99791  -0.251  0.988 -0.381  1.000  0.862  0.989
+        5  0.92869  -0.354  0.818 -0.439  0.862  1.000  0.844
+        6  0.99230  -0.242  0.966 -0.373  0.989  0.844  1.000
+ ERR MATRIX NOT POS-DEF
+[#1] INFO:Fitting -- RooAbsPdf::fitTo(model_ctau) Calculating sum-of-weights-squared correction matrix for covariance matrix
+ **********
+ **   10 **SET ERR         0.5
+ **********
+ **********
+ **   11 **SET PRINT           1
+ **********
+ **********
+ **   12 **HESSE        3000
+ **********
+ EIGENVALUES OF SECOND-DERIVATIVE MATRIX:
+        -1.4286e-01  1.1380e-01  2.3793e-01  4.4112e-01  2.3275e+00  3.0225e+00
+ MINUIT WARNING IN HESSE   
+ ============== MATRIX FORCED POS-DEF BY ADDING 0.145882 TO DIAGONAL.
+ FCN=-25445.8 FROM HESSE     STATUS=NOT POSDEF     44 CALLS         971 TOTAL
+                     EDM=0.0898593    STRATEGY= 1      ERR MATRIX NOT POS-DEF
+  EXT PARAMETER                APPROXIMATE     INTERNAL      INTERNAL  
+  NO.   NAME      VALUE            ERROR       STEP SIZE       VALUE   
+   1  SPS_alpha_1   9.17882e-01   3.20467e-02   3.65936e-05  -7.27222e-01
+   2  SPS_alpha_2   7.59510e-01   1.66524e-01   7.34390e-05  -1.13955e+00
+   3  SPS_n_1      2.76332e+00   2.67498e-01   3.07885e-04  -9.42737e-01
+   4  SPS_n_2      4.99375e+00   1.61890e+00   5.00000e-01   1.68270e+00
+   5  SPS_width    2.27370e-03   1.19382e-04   1.01137e-04   2.56233e+00
+   6  gfrac1       5.49815e-01   4.71905e-02   8.53629e-05   7.64267e-02
+                               ERR DEF= 0.5
+ EXTERNAL ERROR MATRIX.    NDIM=  25    NPAR=  6    ERR DEF=0.5
+  1.028e-03 -1.248e-03 -4.158e-03 -2.679e-02 -1.380e-06 -3.697e-04 
+ -1.248e-03  3.213e-02 -1.737e-02  5.873e-01  1.775e-05  8.201e-03 
+ -4.158e-03 -1.737e-02  7.187e-02 -3.377e-01 -1.422e-05 -4.717e-03 
+ -2.679e-02  5.873e-01 -3.377e-01  1.101e+01  3.463e-04  1.554e-01 
+ -1.380e-06  1.775e-05 -1.422e-05  3.463e-04  1.466e-08  4.839e-06 
+ -3.697e-04  8.201e-03 -4.717e-03  1.554e-01  4.839e-06  2.243e-03 
+ERR MATRIX NOT POS-DEF
+ PARAMETER  CORRELATION COEFFICIENTS  
+       NO.  GLOBAL      1      2      3      4      5      6
+        1  0.80984   1.000 -0.217 -0.484 -0.252 -0.355 -0.243
+        2  0.99297  -0.217  1.000 -0.361  0.988  0.818  0.966
+        3  0.81992  -0.484 -0.361  1.000 -0.380 -0.438 -0.372
+        4  0.99791  -0.252  0.988 -0.380  1.000  0.862  0.989
+        5  0.92869  -0.355  0.818 -0.438  0.862  1.000  0.844
+        6  0.99230  -0.243  0.966 -0.372  0.989  0.844  1.000
+ ERR MATRIX NOT POS-DEF
+[#1] INFO:Minization -- RooMinimizer::optimizeConst: deactivating const optimization
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_ctau) directly selected PDF components: (DCB)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_ctau) indirectly selected PDF components: ()
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc476080 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[x] for nset (x) with code 0 from preexisting content.
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(BBbar_CONV_Gauss_BBbar_CACHE_Obs[x]_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_ctau) directly selected PDF components: (ConvPdf_BBbar)
+[#1] INFO:Plotting -- RooAbsPdf::plotOn(model_ctau) indirectly selected PDF components: (BBbar,Stepx,Gauss_BBbar)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc479690 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[x] for nset (x) with code 0 from preexisting content.
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(BBbar_CONV_Gauss_BBbar_CACHE_Obs[x]_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+[#1] INFO:Caching -- RooAbsCachedPdf::getCache(ConvPdf_BBbar) creating new cache 0xc6208e0 with pdf BBbar_CONV_Gauss_BBbar_CACHE_Obs[x] for nset (x) with code 0 from preexisting content.
+[#1] INFO:NumericIntegration -- RooRealIntegral::init(BBbar_CONV_Gauss_BBbar_CACHE_Obs[x]_Int[x]) using numeric integrator RooIntegrator1D to calculate Int(x)
+number of event is 9489
+DPS frac is 0.549815 +- 0.047352
+DPS number is 5217.19 +- 449.323
+Finished fourMuFit_ups1_cTau_MC

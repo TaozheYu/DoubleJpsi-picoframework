@@ -29,7 +29,8 @@ void RooFit_prompt_and_nonprompt_ctau(){
   TCanvas* canvas = new TCanvas("canvas","canvas",0,0,900,600);
   canvas->SetLogy();
   TH1F *DPS; //= new TH1F("DPS",  "DPS",  30,2.8,3.4);
-  TH1F *BToJpsi; //= new TH1F("DPS",  "DPS",  30,2.8,3.4);
+  TH1F *SPS; //= new TH1F("DPS",  "DPS",  30,2.8,3.4);
+  //TH1F *BToJpsi; //= new TH1F("DPS",  "DPS",  30,2.8,3.4);
   TH1F *BBbar; //= new TH1F("DPS",  "DPS",  30,2.8,3.4);
   RooRealVar x("x", "x", -0.3 , 1);
   x.setBins(1000,"cache");
@@ -38,6 +39,7 @@ void RooFit_prompt_and_nonprompt_ctau(){
   //RooRealVar rlife("rlife", "rlife",0.016,0,0.5);
   
   //DPS fit function parameter
+   
   RooRealVar DPS_mean("DPS_mean", "DPS mean", 0); 
   RooRealVar DPS_width("DPS_width", "DPS width",0.01,0,0.08);
   RooRealVar DPS_alpha_1("DPS_alpha_1", "",1,0,10);
@@ -45,69 +47,70 @@ void RooFit_prompt_and_nonprompt_ctau(){
   RooRealVar DPS_n_1("DPS_n_1","",10,0,100);
   RooRealVar DPS_n_2("DPS_n_2","",10,0,500);
   RooDoubleCB DPS_DCB("DCB","DCB",x,DPS_mean,DPS_width,DPS_alpha_1,DPS_n_1,DPS_alpha_2,DPS_n_2);
+  
 
+  //DPS double gauss fit
+  
+  RooRealVar DPS_mean1("DPS_mean1", "DPS mean1", 0.000055728); 
+  RooRealVar DPS_width1("DPS_width1", "DPS width1",0.00174684, 0, 0.04);
 
-  //BBbarToJpsiJpsi fit function parameter
-   
-  RooRealVar BBbar_mean("BBbar_mean", "BBbar mean", 0.0012, 0, 0.03); 
-  //RooRealVar BBbar_mean("BBbar_mean", "BBbar mean", 0.0023); 
-  RooRealVar BBbar_width("BBbar_width", "BBbar width",0.01,0, 0.02);
-  RooRealVar BBbar_alpha_1("BBbar_alpha_1", "",0.1,0,1);
-  RooRealVar BBbar_alpha_2("BBbar_alpha_2", "",0.1,0,1);
-  RooRealVar BBbar_n_1("BBbar_n_1","",10,0,500);
-  RooRealVar BBbar_n_2("BBbar_n_2","",10,0,500);
-  RooDoubleCB BBbar_DCB("BBbar_DCB","BBbar_DCB",x,BBbar_mean,BBbar_width,BBbar_alpha_1,BBbar_n_1,BBbar_alpha_2,BBbar_n_2);
+  //RooRealVar DPS_mean2("DPS_mean2", "DPS mean2", 0,-0.02,0.04); 
+  RooRealVar DPS_width2("DPS_width2", "DPS width2",0.00369649, 0, 0.05);
+  
+  RooGaussian DPS_gauss1("gauss1","gaussian1 PDF",x,DPS_mean1,DPS_width1);
+  RooGaussian DPS_gauss2("gauss2","gaussian2 PDF",x,DPS_mean1,DPS_width2);
+  RooRealVar gfrac_DPS_gauss("gfrac_DPS_gauss","",0.801,0.5,0.9);
+  RooAddPdf DPS_model("DPS_model","DPS_model",RooArgList(DPS_gauss1,DPS_gauss2),RooArgList(gfrac_DPS_gauss));
+  
+  //SPS double gauss fit
+  
+  RooRealVar SPS_mean1("SPS_mean1", "SPS mean1", 0.000042); 
+  RooRealVar SPS_width1("SPS_width1", "SPS width1",0.00116, 0, 0.004);
 
-
-  //BToJpsi fit function parameter
-
-  RooRealVar BToJpsi_mean("BToJpsi_mean", "BToJpsi mean", 0.0012,0,0.03); 
-  //RooRealVar BToJpsi_mean("BToJpsi_mean", "BToJpsi mean", 0.0023); 
-  RooRealVar BToJpsi_width("BToJpsi_width", "BToJpsi width",0.001,0,0.01);
-  RooRealVar BToJpsi_alpha_1("BToJpsi_alpha_1", "",1,0,10);
-  RooRealVar BToJpsi_alpha_2("BToJpsi_alpha_2", "",1,0,10);
-  RooRealVar BToJpsi_n_1("BToJpsi_n_1","",10,0,500);
-  RooRealVar BToJpsi_n_2("BToJpsi_n_2","",10,0,500);
-  RooDoubleCB BToJpsi_DCB("BToJpsi_DCB","BToJpsi_DCB",x,BToJpsi_mean,BToJpsi_width,BToJpsi_alpha_1,BToJpsi_n_1,BToJpsi_alpha_2,BToJpsi_n_2);
-
-  //Non-prompt function for time
-  //Exponential
-  RooRealVar x_NonPrompt_DPS_Tau("x_NonPrompt_DPS_Tau", "x_NonPrompt_DPS_Tau", -3, -10, -1);      //1
-  RooRealVar x_NonPrompt_BBbar_Tau("x_NonPrompt_BBbar_Tau", "x_NonPrompt_BBbar_Tau", -25.6, -30, -20);      //1
-  RooRealVar x_NonPrompt_BToJpsi_Tau("x_NonPrompt_BToJpsi_Tau", "x_NonPrompt_BToJpsi_Tau", -27.9, -35, -25);      //1
-  RooRealVar x_NonPrompt_Tau("x_NonPrompt_Tau", "x_NonPrompt_Tau", -27.8, -35, -25);      //1
+  //RooRealVar SPS_mean2("SPS_mean2", "SPS mean2", 0,-0.02,0.04); 
+  RooRealVar SPS_width2("SPS_width2", "SPS width2",0.003367, 0, 0.005);
+  
+  RooGaussian SPS_gauss1("gauss1","gaussian1 PDF",x,SPS_mean1,SPS_width1);
+  RooGaussian SPS_gauss2("gauss2","gaussian2 PDF",x,SPS_mean1,SPS_width2);
+  RooRealVar gfrac_SPS_gauss("gfrac_SPS_gauss","",0.703,0.5,0.9);
+  RooAddPdf SPS_model("SPS_model","SPS_model",RooArgList(SPS_gauss1,SPS_gauss2),RooArgList(gfrac_SPS_gauss));
+  
+  //SPS fit function parameter
+  
+  RooRealVar SPS_mean("SPS_mean", "SPS mean", 0); 
+  RooRealVar SPS_width("SPS_width", "SPS width",0.01,0,0.08);
+  RooRealVar SPS_alpha_1("SPS_alpha_1", "",1,0,10);
+  RooRealVar SPS_alpha_2("SPS_alpha_2", "",1,0,10);
+  RooRealVar SPS_n_1("SPS_n_1","",10,0,100);
+  RooRealVar SPS_n_2("SPS_n_2","",10,0,500);
+  RooDoubleCB SPS_DCB("DCB","DCB",x,SPS_mean,SPS_width,SPS_alpha_1,SPS_n_1,SPS_alpha_2,SPS_n_2);
+  
 
   //Step Function
   RooRealVar x_StepValue("x_StepValue", "x_StepValue", 1);
   RooRealVar x_LowerLimit("x_LowerLimit", "x_LowerLimit", 0);
-  RooRealVar x_HigherLimit("x_HigherLimit", "x_HigherLimit", 1);
-
-  //Gaus
-  RooRealVar x_NonPrompt_Mean("x_NonPrompt_Mean", "x_NonPrompt_Mean",0.0001,0.,0.1);
-  RooRealVar x_NonPrompt_Sigma("x_NonPrompt_Sigma", "x_NonPrompt_Sigma", 0.0001, 0., 0.03);
-
-
-  //Convolution
-  //StepFunction
+  RooRealVar x_HigherLimit("x_HigherLimit", "x_HigherLimit", 1000000);
   RooAbsReal* Stepx = new RooStepFunction("Stepx", "Stepx", x, RooArgList(x_StepValue), RooArgList(x_LowerLimit, x_HigherLimit));
-  //Generic Exponential 
-  RooAbsPdf* Expx_NonPrompt = new RooGenericPdf("Expx_NonPrompt", "Expx_NonPrompt", "Stepx * exp(x * x_NonPrompt_Tau)", RooArgSet(*Stepx, x, x_NonPrompt_Tau));
-  RooAbsPdf* Expx_NonPrompt_DPS = new RooGenericPdf("Expx_NonPrompt_DPS", "Expx_NonPrompt_DPS", "Stepx * exp(x * x_NonPrompt_DPS_Tau)", RooArgSet(*Stepx, x, x_NonPrompt_DPS_Tau));
-  RooAbsPdf* Expx_NonPrompt_BBbar = new RooGenericPdf("Expx_NonPrompt_BBbar", "Expx_NonPrompt_BBbar", "Stepx * exp(x * x_NonPrompt_BBbar_Tau)", RooArgSet(*Stepx, x, x_NonPrompt_BBbar_Tau));
-  RooAbsPdf* Expx_NonPrompt_BToJpsi = new RooGenericPdf("Expx_NonPrompt_BToJpsi", "Expx_NonPrompt_BToJpsi", "Stepx * exp(x * x_NonPrompt_BToJpsi_Tau)", RooArgSet(*Stepx, x, x_NonPrompt_BToJpsi_Tau));
 
-  //Gaus for resolution
-  RooAbsPdf* Gausx_NonPrompt = new RooGaussian("Gausx_NonPrompt", "Gausx_NonPrompt", x, x_NonPrompt_Mean, x_NonPrompt_Sigma);
+  //BBbarToJpsiJpsi fit function parameter
+    //Generic Exponential 
+  RooRealVar BBbar_Tau("BBbar_Tau", "BBbar_Tau", -27.5);      //1
 
-  //Covolution
-  RooFFTConvPdf NonPromptx("NonPromptx", "NonPromptx", x, *Expx_NonPrompt, *Gausx_NonPrompt);
-  RooFFTConvPdf NonPromptx_DPS("NonPromptx_DPS", "NonPromptx_DPS", x, *Expx_NonPrompt_DPS, DPS_DCB);
-  RooFFTConvPdf NonPromptx_BBbar("NonPromptx_BBbar", "NonPromptx_BBbar", x, *Expx_NonPrompt_BBbar, BBbar_DCB);
-  RooFFTConvPdf NonPromptx_BToJpsi("NonPromptx_BToJpsi", "NonPromptx_BToJpsi", x, *Expx_NonPrompt_BToJpsi, BToJpsi_DCB);
+  RooAbsPdf* Expx_BBbar = new RooGenericPdf("BBbar", "BBbar", "Stepx * exp(x * BBbar_Tau)", RooArgSet(*Stepx, x, BBbar_Tau));
+  
+    //Gauss
+  RooRealVar BBbar_Mean("BBbar_Mean", "BBbar_Mean",0.00171);
+  RooRealVar BBbar_Sigma("BBbar_Sigma", "BBbar_Sigma", 0.00235);
+  RooAbsPdf* Gauss_BBbar = new RooGaussian("Gauss_BBbar", "Gauss_BBbar", x, BBbar_Mean, BBbar_Sigma);
+   
+    //Convolution
+  RooFFTConvPdf ConvPdf_BBbar("ConvPdf_BBbar", "ConvPdf_BBbar", x, *Expx_BBbar, *Gauss_BBbar);
 
   vector<TString> name;         vector<int> bin;   vector<float> Min;  vector<float> Max;  vector<TString> axis;
-  name.push_back("MuMuFit_ctauPV_MC"); bin.push_back(200); Min.push_back(-0.2); Max.push_back(0.6); axis.push_back("J/#psi c#tau [cm]");
+  //name.push_back("MuMuFit_ctauPV_MC"); bin.push_back(200); Min.push_back(-0.2); Max.push_back(0.6); axis.push_back("J/#psi c#tau [cm]");
   //name.push_back("MuMuFit_lxyPV_MC"); bin.push_back(100); Min.push_back(-0.2); Max.push_back(0.5); axis.push_back("L_{xy}(J/#psi) [cm]");
+  name.push_back("fourMuFit_ups1_cTau_MC"); bin.push_back(200); Min.push_back(-0.02); Max.push_back(0.2); axis.push_back("J/#psi c#tau [cm]");
+  //name.push_back("fourMuFit_ups1_cTau_MC"); bin.push_back(80); Min.push_back(-0.02); Max.push_back(0.02); axis.push_back("J/#psi c#tau [cm]");
 
 
   for(int i=0; i<name.size(); i++){
@@ -118,7 +121,7 @@ void RooFit_prompt_and_nonprompt_ctau(){
     //sprintf(CUT,"fourMuFit_VtxProb>0.01");
     sprintf(CUT,"");
     GetHisto(CUT, Tree_DPS2018, DPS ,plot,bin[i],Min[i],Max[i]);
-    GetHisto(CUT, Tree_BToJpsi2018, BToJpsi ,plot,bin[i],Min[i],Max[i]);
+    GetHisto(CUT, Tree_SPS2018, SPS ,plot,bin[i],Min[i],Max[i]);
     GetHisto(CUT, Tree_BBbarToJpsi2018, BBbar ,plot,bin[i],Min[i],Max[i]);
        
     cout<<DPS->Integral()<<endl;; 
@@ -129,8 +132,8 @@ void RooFit_prompt_and_nonprompt_ctau(){
       DPS->SetBinContent(j,DPS->GetBinContent(j));
       DPS->SetBinError(j,sqrt(DPS->GetBinContent(j)));
 
-      BToJpsi->SetBinContent(j,BToJpsi->GetBinContent(j));
-      BToJpsi->SetBinError(j,sqrt(BToJpsi->GetBinContent(j)));
+      SPS->SetBinContent(j,SPS->GetBinContent(j));
+      SPS->SetBinError(j,sqrt(SPS->GetBinContent(j)));
 
       BBbar->SetBinContent(j,BBbar->GetBinContent(j));
       BBbar->SetBinError(j,sqrt(BBbar->GetBinContent(j)));
@@ -138,36 +141,49 @@ void RooFit_prompt_and_nonprompt_ctau(){
 
 
     DPS->SetLineColor(kBlue); DPS->SetLineWidth(2); DPS->SetMarkerColor(kBlue); DPS->SetMarkerSize(1.3); DPS->SetMarkerStyle(20);
-    BToJpsi->SetLineColor(kGreen); BToJpsi->SetLineWidth(2); BToJpsi->SetMarkerColor(kGreen); BToJpsi->SetMarkerSize(1.3); BToJpsi->SetMarkerStyle(20);
+    SPS->SetLineColor(kGreen); SPS->SetLineWidth(2); SPS->SetMarkerColor(kGreen); SPS->SetMarkerSize(1.3); SPS->SetMarkerStyle(20);
     BBbar->SetLineColor(kRed); BBbar->SetLineWidth(2); BBbar->SetMarkerColor(kRed); BBbar->SetMarkerSize(1.3); BBbar->SetMarkerStyle(20);
 
     RooDataHist roohist_DPS("roohist_DPS","roohist_DPS",x,DPS);
-    RooDataHist roohist_BToJpsi("roohist_BToJpsi","roohist_BToJpsi",x,BToJpsi);
+    RooDataHist roohist_SPS("roohist_SPS","roohist_SPS",x,SPS);
     RooDataHist roohist_BBbar("roohist_BBbar","roohist_BBbar",x,BBbar);
 
     RooPlot* frame_DPS = x.frame();
 
+    //DPS_model.fitTo(roohist_DPS,SumW2Error(kTRUE));
+    //roohist_DPS.plotOn(frame_DPS,LineColor(kBlue),MarkerColor(kBlue));
+    //DPS_model.plotOn(frame_DPS,LineColor(kBlue)); 
+
     DPS_DCB.fitTo(roohist_DPS,SumW2Error(kTRUE));
     roohist_DPS.plotOn(frame_DPS,LineColor(kBlue),MarkerColor(kBlue));
     DPS_DCB.plotOn(frame_DPS,LineColor(kBlue)); 
+    
     //NonPromptx_DPS.fitTo(roohist_DPS,SumW2Error(kTRUE));
     //roohist_DPS.plotOn(frame_DPS,LineColor(kRed),MarkerColor(kRed));
     //NonPromptx_DPS.plotOn(frame_DPS,LineColor(kRed)); 
 
+    //SPS_model.fitTo(roohist_SPS,SumW2Error(kTRUE));
+    //roohist_SPS.plotOn(frame_DPS,LineColor(kGreen),MarkerColor(kGreen));
+    //SPS_model.plotOn(frame_DPS,LineColor(kGreen)); 
 
-    NonPromptx_BBbar.fitTo(roohist_BBbar,SumW2Error(kTRUE));
+    SPS_DCB.fitTo(roohist_SPS,SumW2Error(kTRUE));
+    roohist_SPS.plotOn(frame_DPS,LineColor(kGreen),MarkerColor(kGreen));
+    SPS_DCB.plotOn(frame_DPS,LineColor(kGreen)); 
+
+    //NonPromptx_BToJpsi.fitTo(roohist_BToJpsi,SumW2Error(kTRUE));
+    //roohist_BToJpsi.plotOn(frame_DPS,LineColor(kGreen),MarkerColor(kGreen));
+    //NonPromptx_BToJpsi.plotOn(frame_DPS,LineColor(kGreen)); 
+
+    ConvPdf_BBbar.fitTo(roohist_BBbar,SumW2Error(kTRUE));
     roohist_BBbar.plotOn(frame_DPS,LineColor(kRed),MarkerColor(kRed));
-    NonPromptx_BBbar.plotOn(frame_DPS,LineColor(kRed)); 
+    ConvPdf_BBbar.plotOn(frame_DPS,LineColor(kRed)); 
 
-    NonPromptx_BToJpsi.fitTo(roohist_BToJpsi,SumW2Error(kTRUE));
-    roohist_BToJpsi.plotOn(frame_DPS,LineColor(kGreen),MarkerColor(kGreen));
-    NonPromptx_BToJpsi.plotOn(frame_DPS,LineColor(kGreen)); 
 
     frame_DPS->SetTitle(""); 
     frame_DPS->GetXaxis()->SetTitle(axis[i]); 
     frame_DPS->GetYaxis()->SetTitle("Events"); 
     frame_DPS->SetMaximum(1000000);;
-    frame_DPS->SetMinimum(0.1);;
+    frame_DPS->SetMinimum(1);;
     frame_DPS->Draw();
 
 
@@ -230,10 +246,12 @@ void RooFit_prompt_and_nonprompt_ctau(){
     pl2->SetTextFont(62);
     pl2->SetFillColor(0);
     TLegendEntry *ple2 = pl2->AddEntry(DPS, "DPS",  "PE");
-    pl2->AddEntry(BToJpsi, "b #rightarrow J/#psi simulation events",  "PE");
+    pl2->AddEntry(SPS, "SPS",  "PE");
+    //pl2->AddEntry(BToJpsi, "b #rightarrow J/#psi simulation events",  "PE");
     pl2->AddEntry(BBbar, "b#bar{b} #rightarrow J/#psi J/#psi simulation events",  "PE");
     pl2->AddEntry(DPS, "DPS", "L");
-    pl2->AddEntry(BToJpsi, "b #rightarrow J/#psi fit", "L");
+    pl2->AddEntry(SPS, "SPS", "L");
+    //pl2->AddEntry(BToJpsi, "b #rightarrow J/#psi fit", "L");
     pl2->AddEntry(BBbar, "b#bar{b} #rightarrow J/#psi J/#psi fit", "L");
     pl2->SetBorderSize(0);
     pl2->Draw();

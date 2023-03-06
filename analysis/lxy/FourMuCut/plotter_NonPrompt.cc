@@ -2,10 +2,12 @@
 //#ifndef __CINT__
 //#include "RooGlobalFunc.h"
 //#endif
+#include "TMath.h"
 #include "RooRealVar.h"
 #include "RooDataSet.h"
 #include "RooDataHist.h"
 #include "RooFFTConvPdf.h"
+#include "TRandom3.h"
 //#include "RooCBShape.h"
 //#include "RooGaussian.h"
 //#include "TCanvas.h"
@@ -27,8 +29,9 @@ void plotter_NonPrompt(){
   gErrorIgnoreLevel = kError;
   using namespace std;
   TCanvas* canvas = new TCanvas("canvas","canvas",0,0,900,600);
-  canvas->SetLogy();
+  //canvas->SetLogy();
   TH1F *DPS; //= new TH1F("DPS",  "DPS",  30,2.8,3.4);
+  TH1F *SPS; //= new TH1F("DPS",  "DPS",  30,2.8,3.4);
   TH1F *BBbarToJpsi; //= new TH1F("DPS",  "DPS",  30,2.8,3.4);
 
 
@@ -36,7 +39,12 @@ void plotter_NonPrompt(){
   //name.push_back("fourMuFit_lxyPV_noMC"); bin.push_back(150); Min.push_back(-0.03); Max.push_back(0.03); axis.push_back("fourMuFit_lxyPV_noMC");
   //name.push_back("fourMuFit_ctauPV_noMC"); bin.push_back(100); Min.push_back(-0.05); Max.push_back(0.05); axis.push_back("fourMuFit_ctauPV_noMC");
   //name.push_back("MuMuFit_lxyPV_MC"); bin.push_back(150); Min.push_back(-0.1); Max.push_back(0.15); axis.push_back("L_{xy}(J/#psi) [cm]");
-  name.push_back("MuMuFit_ctauPV_MC"); bin.push_back(80); Min.push_back(-0.02); Max.push_back(0.04); axis.push_back("J/#psi c#tau [cm]");
+  //name.push_back("fourMuFit_ups1_cTau_noMC"); bin.push_back(80); Min.push_back(-0.02); Max.push_back(0.04); axis.push_back("J/#psi c#tau [cm]");
+  //name.push_back("fourMuFit_ups2_cTau_noMC"); bin.push_back(80); Min.push_back(-0.02); Max.push_back(0.04); axis.push_back("J/#psi c#tau [cm]");
+  //name.push_back("fourMuFit_ups1_LxyPVSig_noMC"); bin.push_back(100); Min.push_back(0); Max.push_back(5); axis.push_back("Significance of L_{xy}(J/#psi) [cm]");
+  name.push_back("fourMuFit_ups1_LxyPVSig_MC"); bin.push_back(100); Min.push_back(0); Max.push_back(5); axis.push_back("Significance of L_{xy}(J/#psi) [cm]");
+  //name.push_back("fourMuFit_DistanceSig_noMC"); bin.push_back(100); Min.push_back(0); Max.push_back(5); axis.push_back("d_{J/#psi}");
+  //name.push_back("fourMuFit_DistanceSig_MC"); bin.push_back(100); Min.push_back(0); Max.push_back(5); axis.push_back("d_{J/#psi}");
 
 
   for(int i=0; i<name.size(); i++){
@@ -45,33 +53,53 @@ void plotter_NonPrompt(){
     //sprintf(CUT,"(1./((w_acc_Jpsi1*w_acc_Jpsi2) * (w_reco_Jpsi1*w_reco_Jpsi2) * (w_eff_Jpsi1*w_eff_Jpsi2) *w_trig_Jpsi12))");
     sprintf(CUT,"fourMuFit_VtxProb>0.01");
     GetHisto(CUT, Tree_DPS2018, DPS ,plot,bin[i],Min[i],Max[i]);
+    GetHisto(CUT, Tree_SPS2018, SPS ,plot,bin[i],Min[i],Max[i]);
     GetHisto(CUT, Tree_BBbarToJpsi2018, BBbarToJpsi ,plot,bin[i],Min[i],Max[i]);
        
     cout<<DPS->Integral()<<endl;; 
-   
+
     for(int j=1; j<DPS->GetNbinsX()+1; j++){
       DPS->SetBinContent(j,DPS->GetBinContent(j));
       DPS->SetBinError(j,sqrt(DPS->GetBinContent(j)));
+
+      SPS->SetBinContent(j,SPS->GetBinContent(j));
+      SPS->SetBinError(j,sqrt(SPS->GetBinContent(j)));
 
       BBbarToJpsi->SetBinContent(j,BBbarToJpsi->GetBinContent(j));
       BBbarToJpsi->SetBinError(j,sqrt(BBbarToJpsi->GetBinContent(j)));
 
     }
-
-    DPS->Scale(1/DPS->Integral());
-    BBbarToJpsi->Scale(1/BBbarToJpsi->Integral());
+  
+    TH1F * UFO = new TH1F("UFO", "UFO process", bin[i], Min[i], Max[i]);
+    for (int k = 0; k <200; ++k) {
+      double x = gRandom->Gaus(0.8,0.06);
+      UFO->Fill(x);
+    }
+ 
+    //DPS->Scale(1/DPS->Integral());
+    SPS->Scale(DPS->Integral()/SPS->Integral());
+    //DPS->Scale(0.5);
+    //BBbarToJpsi->Scale(1/BBbarToJpsi->Integral());
     //TH1F *h_DCB; h_DCB = (TH1F*)DPS->Clone(); h_DCB->SetLineColor(kBlue);
-    DPS->SetLineColor(kBlue);   BBbarToJpsi->SetLineColor(kRed);
+    TH1F *h_prompt; h_prompt = (TH1F*)DPS->Clone();
+    h_prompt->Add(SPS);
+    h_prompt->Scale(DPS->Integral()/(SPS->Integral()+DPS->Integral()));
+    TH1F *h_prompt_UFO; h_prompt_UFO = (TH1F*)h_prompt->Clone();
+    h_prompt_UFO->Add(UFO);
+    DPS->SetLineColor(0); SPS->SetLineColor(kGreen); BBbarToJpsi->SetLineColor(kRed); h_prompt->SetLineColor(kBlack); UFO->SetLineColor(kOrange); h_prompt_UFO->SetLineColor(kViolet); 
 
     DPS->SetTitle(""); 
     DPS->GetXaxis()->SetTitle(axis[i]); 
     DPS->GetYaxis()->SetTitle("Events"); 
     DPS->Draw("samehisto");
-    DPS->SetMaximum(1);
+    //DPS->SetMaximum();
     //hs->SetMinimum(3);
 
+    //SPS->Draw("samehisto");
     BBbarToJpsi->Draw("samehisto");
- 
+    h_prompt->Draw("samehisto"); 
+    //h_prompt_UFO->Draw("samehisto"); 
+    //UFO->Draw("samehisto"); 
 
     TPad *pad = new TPad("pad","pad",0.01,0.01,0.99,0.99);
     gPad->RedrawAxis();
@@ -115,10 +143,10 @@ void plotter_NonPrompt(){
     latex.SetTextFont(cmsTextFont);
     latex.SetTextAlign(11);
     latex.SetTextSize(cmsTextSize*t);
-    latex.DrawLatex(l+0.08, 1-t+lumiTextOffset*t-0.12,cmsText);//0.075
+    //latex.DrawLatex(l+0.08, 1-t+lumiTextOffset*t-0.12,cmsText);//0.075
     latex.SetTextFont(extraTextFont);
     latex.SetTextSize(extraTextSize*t);
-    latex.DrawLatex(l+0.08, 1-t+lumiTextOffset*t-0.19, extraText);
+    //latex.DrawLatex(l+0.08, 1-t+lumiTextOffset*t-0.19, extraText);
     //latex.SetTextFont(channelTextFont);
     //latex.SetTextSize(channelTextSize);
     //latex.DrawLatex(l+0.165, 1-t+lumiTextOffset*t-0.19, channelText1);
@@ -131,7 +159,11 @@ void plotter_NonPrompt(){
     pl2->SetTextFont(62);
     pl2->SetFillColor(0);
     //TLegendEntry *ple2 = pl2->AddEntry(&roohist_DPS, "JpsiJpsi simulated events",  "PE");
-    TLegendEntry *ple2 = pl2->AddEntry(DPS, "DPS",  "L");
+    //TLegendEntry *ple2 = pl2->AddEntry(DPS, "DPS",  "L");
+    //pl2->AddEntry(SPS, "SPS",  "L");
+    TLegendEntry *ple2 = pl2->AddEntry(h_prompt, "SPS+DPS",  "L");
+    //pl2->AddEntry(UFO, "UFO process",  "L");
+    //pl2->AddEntry(h_prompt_UFO, "SPS+DPS+UFO process",  "L");
     pl2->AddEntry(BBbarToJpsi, "b#bar{b} #rightarrow J/#psi J/#psi", "L");
     pl2->SetBorderSize(0);
     pl2->Draw();
